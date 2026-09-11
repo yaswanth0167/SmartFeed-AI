@@ -1,0 +1,206 @@
+40: <div class="entry-brand-motto">మేత స్మార్ట్ • పాడి క్షేమం • Feed Smart, Farm Better</div>
+49: <span class="btn-sub-label">యాప్‌ను ప్రారంభించండి</span>
+69: <div class="entry-screen-subheading">మీ అనుకూలమైన భాషను ఎంచుకోండి • अपनी पसंदीदा भाषा चुनें</div>
+77: <div class="lang-primary-text">తెలుగు</div>
+79: <div class="lang-desc-text">రైతు సలహాలు, మేత పరీక్షలు & స్పష్టమైన తెలుగు వాయిస్ ఆడియో</div>
+81: <div class="lang-tag-pill">డిఫాల్ట్ • సిఫార్సు</div>
+111: <span>← Back / వెనుకకు</span>
+114: <span>Next / తర్వాత →</span>
+127: <div class="entry-screen-subheading" id="entry-auth-subheading">రైతు & అడ్మిన్ పోర్టల్ లాగిన్ లేదా న
+132: 🔑 Sign In / లాగిన్
+135: 📝 Register / నమోదు
+158: <label class="form-label" for="entry-login-mobile">📱 Mobile Number / మొబైల్ నంబర్</label>
+162: <label class="form-label" for="entry-login-password">🔒 Password / పాస్‌వర్డ్</label>
+166: <span>🔑 Sign In / లాగిన్ అవ్వండి →</span>
+176: <label class="form-label" for="entry-reg-fullname">👤 Full Name / రైతు పూర్తి పేరు</label>
+180: <label class="form-label" for="entry-reg-mobile">📱 Mobile Number / మొబైల్ నంబర్</label>
+184: <label class="form-label" for="entry-reg-email">📧 Email / ఈమెయిల్ <small style="color: var(--slate-4
+188: <label class="form-label" for="entry-reg-password">🔒 Password / పాస్‌వర్డ్</label>
+192: <label class="form-label" for="entry-reg-confirm-password">🔒 Confirm Password / పాస్‌వర్డ్ పునఃప్రవే
+196: <label class="form-label">🌐 Preferred Language / అనుకూలమైన భాష</label>
+200: <span>🇮🇳 తెలుగు</span>
+213: <span>📝 Create Account / నమోదు చేయండి →</span>
+222: <span>← Back to Language / భాష ఎంపికకు వెనుకకు</span>
+292: <span id="btn-reopen-lang-text">Change Language / భాష మార్చండి</span>
+298: <option value="te">🇮🇳 తెలుగు (Telugu)</option>
+336: <button class="btn-change-lang-pill" onclick="reopenLanguagePortal()" title="Change Language / భాష మ
+338: <span id="top-lang-text">భాష / Lang</span>
+356: <span id="mobile-lang-btn-text">భాష / Lang</span>
+387: <span id="btn-edit-farm">Set Up Farm / మార్చండి</span>
+401: <div class="farmer-kpi-pill-lbl" id="fd-lbl-cows">Cows (ఆవులు)</div>
+406: <div class="farmer-kpi-pill-lbl" id="fd-lbl-buffs">Buffaloes (గేదెలు)</div>
+411: <div class="farmer-kpi-pill-lbl" id="fd-lbl-lact">Lactating (పాలిచ్చేవి)</div>
+416: <div class="farmer-kpi-pill-lbl" id="fd-lbl-preg">Pregnant (చూడి)</div>
+421: <div class="farmer-kpi-pill-lbl" id="fd-lbl-feed">Main Feed (ప్రధాన మేత)</div>
+426: <div class="farmer-kpi-pill-lbl" id="fd-lbl-storage">Storage (నిల్వ స్థలం)</div>
+428: <div class="farmer-kpi-pill" onclick="handleTile7Click()" style="cursor: pointer;" title="View Test 
+431: <div class="farmer-kpi-pill-lbl" id="fd-lbl-tests">Scans (పరీక్షలు)</div>
+446: <div class="tile-subtitle" id="tile1-sub">మేత నాణ్యత స్కానర్</div>
+455: <div class="tile-subtitle" id="tile2-sub">యూరియా కల్తీ & మోతాదు</div>
+464: <div class="tile-subtitle" id="tile3-sub">రైతు వాయిస్ సలహాలు</div>
+473: <div class="tile-subtitle" id="tile4-sub">నా పశువుల వివరాలు</div>
+482: <div class="tile-subtitle" id="tile5-sub">సమయ ప్రణాళిక & డైరీ</div>
+491: <div class="tile-subtitle" id="tile6-sub">ఫారమ్ ఎనలిటిక్స్</div>
+500: <div class="tile-subtitle" id="tile7-sub">పరీక్షల చరిత్ర</div>
+509: <div class="tile-subtitle" id="tile8-sub">డిజిటల్ ఫీడ్ పాస్‌పోర్ట్</div>
+523: <span>నా గత మేత పరీక్షల రికార్డులు (My Feed Diagnostic History)</span>
+526: మీ ఫారమ్‌లో గతంలో విశ్లేషించిన మేత బ్యాచ్‌లు, నాణ్యత స్కోర్లు, సేఫ్టీ అలర్టులు మరియు డిజిటల్ పాస్‌పో
+532: <span id="btn-refresh-farmer-history">రిఫ్రెష్ (Refresh)</span>
+536: <span id="btn-new-scan-farmer-history">కొత్త పరీక్ష (New Scan)</span>
+546: <div style="font-size: 0.72rem; color: var(--slate-500); font-weight: 700; text-transform: uppercase
+553: <div style="font-size: 0.72rem; color: var(--primary-emerald); font-weight: 700; text-transform: upp
+560: <div style="font-size: 0.72rem; color: var(--crimson-danger); font-weight: 700; text-transform: uppe
+571: <th style="padding: 10px 12px;" id="fth-batch">బ్యాచ్ ID (Batch ID)</th>
+572: <th style="padding: 10px 12px;" id="fth-sample">మేత రకం (Sample)</th>
+573: <th style="padding: 10px 12px;" id="fth-score">నాణ్యత స్కోర్ (Score)</th>
+574: <th style="padding: 10px 12px;" id="fth-badge">స్థితి (Status)</th>
+575: <th style="padding: 10px 12px;" id="fth-concern">ప్రధాన రిస్క్ / పరిశీలన (Findings)</th>
+576: <th style="padding: 10px 12px;" id="fth-shelf">షెల్ఫ్ లైఫ్ (Shelf Life)</th>
+577: <th style="padding: 10px 12px;" id="fth-date">తేదీ (Date)</th>
+578: <th style="padding: 10px 12px; text-align: right;" id="fth-action">చర్యలు (Action)</th>
+584: లోడ్ అవుతోంది... / Loading your test history...
+668: Farmer Login & Farm Profile Setup / రైతు లాగిన్
+678: <span id="btn-guest-login">Sign In / లాగిన్</span>
+801: <div class="telemetry-val" id="home-tele-voice-val">EN • తెలుగు • हिंदी</div>
+1075: పశువుల వారీగా మేత సిఫార్సు & రోజువారీ మోతాదు
+1084: <span id="btn-speak-animal-rec-txt">వాయిస్ సలహా వినండి (Audio)</span>
+1091: ⚡ నా పశువుల నుండి ఎంచుకోండి (1-Click Cattle Quick-Pick):
+1104: 🐄 పశువు రకం / Animal Type
+1107: <option value="Cow">🐄 ఆవు (Cow)</option>
+1108: <option value="Buffalo">🐃 గేదె (Buffalo)</option>
+1115: 🤰 శారీరక స్థితి / Stage
+1118: <option value="Lactating">🥛 పాలిచ్చేవి (Lactating)</option>
+1119: <option value="Pregnant">🤰 చూడి / గర్భస్థ (Pregnant)</option>
+1120: <option value="Dry">🌾 ఎండినవి / ఈత ఆగినవి (Dry)</option>
+1128: 🥛 పాల ఉత్పత్తి / Yield
+1139: <span id="btn-recalculate-rec-txt">సిఫార్సు లెక్కించండి</span>
+1152: ఈ మేత మీ పాలిచ్చే ఆవుకు చాలా అనుకూలమైనది మరియు సురక్షితం!
+1155: హెల్త్ స్కోర్, ప్రోటీన్ మరియు తేమ సమతుల్యంగా ఉన్నాయి.
+1164: <div style="font-size: 0.74rem; font-weight: 700; color: #15803D; text-transform: uppercase;" id="lb
+1166: <div style="font-size: 0.72rem; color: #166534;" id="lbl-rec-daily-sub">రోజూ ఇవ్వవలసిన దాణా</div>
+1171: <div style="font-size: 0.74rem; font-weight: 700; color: var(--slate-600); text-transform: uppercase
+1173: <div style="font-size: 0.72rem; color: var(--slate-500);">50% మోతాదు</div>
+1178: <div style="font-size: 0.74rem; font-weight: 700; color: var(--slate-600); text-transform: uppercase
+1180: <div style="font-size: 0.72rem; color: var(--slate-500);">50% మోతాదు</div>
+1188: <span id="lbl-rec-balanced-title">సమతుల్య రోజువారీ మేత ప్రణాళిక (ICAR Balanced Daily Diet)</span>
+1192: <div style="color: var(--slate-500); font-size: 0.72rem;">🌿 పచ్చిగడ్డి (Green)</div>
+1196: <div style="color: var(--slate-500); font-size: 0.72rem;">🌾 ఎండుగడ్డి (Straw)</div>
+1200: <div style="color: var(--slate-500); font-size: 0.72rem;">🧂 ఖనిజ లవణాలు (Minerals)</div>
+1204: <div style="color: var(--slate-500); font-size: 0.72rem;">💧 తాగునీరు (Clean Water)</div>
+1215: <span id="lbl-rec-adaptation-title">క్రమంగా అలవాటు చేసే 4 రోజుల విధానం (4-Day Rumen Adaptation)</spa
+1217: <span style="font-size: 0.74rem; background: #FEF3C7; color: #B45309; padding: 2px 8px; border-radiu
+1226: <strong>ℹ️ పశువైద్య సలహా:</strong> <span id="rec-clinical-note-txt">--</span>
+1359: 🌾 Urea Straw Treatment (యూరియా గడ్డి శుద్ధి)
+1362: 🥣 Daily Concentrate Ration Mixing (దాణాలో మిక్సింగ్)
+1370: <span id="label-urea-qty">Dry Straw Quantity / గడ్డి పరిమాణం (kg)</span>
+1378: <span id="label-urea-animals">Number of Cattle / పశువుల సంఖ్య</span>
+1436: 📝 Standard Operating Procedure (దశల వారీ విధానం)
+1446: ⚠️ Safety Precautions & Mandatory Rules (ముఖ్యమైన జాగ్రత్తలు)
+1458: FIRST AID & EMERGENCY ANTIDOTE (అత్యవసర ప్రాణరక్షక విరుగుడు)
+1492: Native Voice Ready: తెలుగు (Telugu)
+1514: <strong style="font-size: 0.95rem; color: var(--slate-800);" id="advisory-lang-label">Farmer Languag
+1518: <button class="btn btn-primary lang-btn" data-lang="te" onclick="setLanguage('te')">🇮🇳 తెలుగు (Telug
+1527: ⚡ 1-Click Common Statements (సాధారణ సమస్యలు)
+1530: ✍️ Manual / Custom Problem Entry (మీ సమస్యను నేరుగా రాయండి)
+1574: <label class="control-label" id="label-manual-problem">Describe What Happened / సమస్య వివరాలు:</labe
+1575: <textarea id="manual-problem-input" class="styled-textarea" placeholder="ఉదాహరణ: ఆవు పాలు తగ్గిపోయాయ
+1581: <label class="control-label" id="label-feed-type">Feed Type / మేత రకం</label>
+1583: <option value="Cattle Feed Pellet">Cattle Feed Pellet (దాణా)</option>
+1584: <option value="Maize Silage">Maize Silage (మొక్కజొన్న సైలేజ్)</option>
+1585: <option value="Cottonseed Cake">Cottonseed Cake (పత్తి చెక్క)</option>
+1586: <option value="Groundnut Cake">Groundnut Cake (వేరుశనగ చెక్క)</option>
+1587: <option value="Wheat Bran">Wheat Bran (గోధుమ తవుడు)</option>
+1588: <option value="Green Fodder">Green Fodder (పచ్చిగడ్డి)</option>
+1589: <option value="Dry Straw / Hay">Dry Straw / Hay (ఎండుగడ్డి)</option>
+1593: <label class="control-label" id="label-feed-smell">Feed Smell / వాసన</label>
+1595: <option value="Normal">Normal (సాధారణ వాసన)</option>
+1596: <option value="Fungal/Musty">Fungal / Musty (బూజు / ఫంగస్ వాసన)</option>
+1597: <option value="Sour/Rotten">Sour / Rotten (పుల్లని / కుళ్ళిన వాసన)</option>
+1598: <option value="Chemical/Urea">Chemical / Pungent Urea (యూరియా / రసాయన వాసన)</option>
+1599: <option value="Burnt/Heated">Burnt / Self-Heated (మాడిన వాసన)</option>
+1603: <label class="control-label" id="label-feed-moisture">Moisture Status / తేమ</label>
+1605: <option value="Normal">Normal / Dry (పొడిగా ఉంది)</option>
+1606: <option value="Damp">Damp / Clumpy (తేమగా / ముద్దలుగా ఉంది)</option>
+1607: <option value="Soaked/Rain Damage">Soaked in Rain (వర్షంలో తడిసింది)</option>
+1614: <label class="control-label" id="label-feed-appearance">Appearance / భౌతిక స్థితి</label>
+1616: <option value="Normal">Normal Uniform Color (సాధారణ రంగు)</option>
+1617: <option value="Fungus/Mould Patches">White / Dark Mould Patches (బూజు ముద్దలు)</option>
+1618: <option value="White Powder/Granules">White Powder / Crystalline Granules (తెల్ల పొడి / గుళికలు)</op
+1619: <option value="Inclusions/Debris">Stones / Grit / Insect Debris (రాళ్ళు / పురుగులు)</option>
+1623: <label class="control-label" id="label-cattle-symptom">Cattle Symptoms / పశువుల లక్షణాలు</label>
+1625: <option value="Normal">Normal / Alert (సాధారణంగా ఉంది)</option>
+1626: <option value="Sudden Milk Drop">Sudden Milk Yield Drop (పాల దిగుబడి తగ్గింది)</option>
+1627: <option value="Refusing to Eat">Refusing to Eat Feed (మేత తినడం లేదు)</option>
+1628: <option value="Loose Dung/Diarrhea">Loose Dung / Diarrhea (విరేచనాలు అవుతున్నాయి)</option>
+1629: <option value="Bloat/Indigestion">Bloat / Indigestion (కడుపు ఉబ్బరం)</option>
+1630: <option value="Lethargy/Weakness">Lethargy / Weakness (నీరసం)</option>
+1638: 🚀 AI విశ్లేషణ చేయండి / Analyze Problem with AI
+1641: 🔄 క్లియర్ చేయండి / Clear Form
+1887: <button id="tab-btn-login" class="auth-tab-btn active" onclick="switchAuthTab('login')">🔑 Sign In / 
+1888: <button id="tab-btn-register" class="auth-tab-btn" onclick="switchAuthTab('register')">📝 Register / 
+1906: <label class="form-label" for="login-mobile">📱 Mobile Number / ఫోన్ నంబర్</label>
+1910: <label class="form-label" for="login-password">🔒 Password / పాస్‌వర్డ్</label>
+1915: <span id="btn-submit-login">Sign In / లాగిన్ అవ్వండి</span>
+1925: <label class="form-label" for="reg-fullname">👤 Full Name / రైతు పూర్తి పేరు</label>
+1929: <label class="form-label" for="reg-mobile">📱 Mobile Number / మొబైల్ నంబర్</label>
+1933: <label class="form-label" for="reg-email">📧 Email / ఈమెయిల్ <small style="color: var(--slate-400); f
+1937: <label class="form-label" for="reg-password">🔒 Password / పాస్‌వర్డ్</label>
+1941: <label class="form-label" for="reg-confirm-password">🔒 Confirm Password / పాస్‌వర్డ్ పునఃప్రవేశం</la
+1945: <label class="form-label">🌐 Preferred Language / అనుకూలమైన భాష</label>
+1949: <span>🇮🇳 తెలుగు</span>
+1963: <span id="btn-submit-register">Create Account / నమోదు చేయండి</span>
+1981: <span id="wizard-title-main">Set Up Your Farm / మీ ఫారమ్ వివరాలు</span>
+2013: 🌾 Step 1 — Farm Basic Details / ప్రాథమిక వివరాలు
+2020: <label class="form-label" for="wz-farmer-name">👨‍🌾 Farmer Name / రైతు పేరు</label>
+2024: <label class="form-label" for="wz-village">📍 Village / Location / గ్రామం లేదా ప్రాంతం</label>
+2028: <label class="form-label">🌐 Preferred Language / అనుకూలమైన భాష</label>
+2032: <span>🇮🇳 తెలుగు (Telugu)</span>
+2047: <span>Next / తర్వాత →</span>
+2055: 🐄 Step 2 — How Many Animals? / ఎన్ని పశువులు ఉన్నాయి?
+2073: Select Animal Types / పశువుల రకాలు ఎంచుకోండి:
+2080: <div class="animal-type-native">ఆవు</div>
+2086: <div class="animal-type-native">గేదె</div>
+2092: <span>← Back / వెనుకకు</span>
+2095: <span>Next / తర్వాత →</span>
+2103: 🐄 Step 3 — Individual Animal Profiles / ప్రతి పశువు వివరాలు
+2114: <span>← Back / వెనుకకు</span>
+2117: <span>Next / తర్వాత →</span>
+2125: 🌾 Step 4 — Feed & Storage Details / మేత & నిల్వ వివరాలు
+2132: <label class="form-label">🌾 Main Feed Type / ప్రధాన మేత రకం</label>
+2136: <div class="select-card-radio-title"><span>🌿</span> <span>Green Fodder (పచ్చి మేత)</span></div>
+2141: <div class="select-card-radio-title"><span>🌾</span> <span>Dry Fodder (ఎండు మేత)</span></div>
+2146: <div class="select-card-radio-title"><span>🌽</span> <span>Silage (సైలేజ్)</span></div>
+2151: <div class="select-card-radio-title"><span>🥣</span> <span>Cattle Feed (దాణా / గుళికలు)</span></div>
+2156: <div class="select-card-radio-title"><span>🥗</span> <span>Mixed Feed (మిశ్రమ దాణా)</span></div>
+2163: <label class="form-label">🏚️ Feed Storage / మేత నిల్వ స్థలం</label>
+2167: <div class="select-card-radio-title"><span>🏚️</span> <span>Shed (పాక / షెడ్డు)</span></div>
+2172: <div class="select-card-radio-title"><span>🕳️</span> <span>Silage Pit (సైలేజ్ గుంత)</span></div>
+2177: <div class="select-card-radio-title"><span>📦</span> <span>Storage Room (నిల్వ గది)</span></div>
+2182: <div class="select-card-radio-title"><span>☀️</span> <span>Open Area (బహిరంగ ప్రదేశం)</span></div>
+2190: <span>← Back / వెనుకకు</span>
+2209: <span>My Animals Directory / నా పశువుల జాబితా</span>
+2220: <span>Done / ముగించు</span>
+2237: <span id="diary-modal-title">స్మార్ట్ మేత డైరీ & సమయ ప్రణాళిక (Smart Feeding Planner)</span>
+2240: ఉదయం, మధ్యాహ్నం, సాయంత్రం మేత సమయాలు, రిమైండర్లు & పాల దిగుబడి విశ్లేషణ
+2252: <span style="font-weight: 700; font-size: 0.85rem; color: var(--slate-700);">🐄 పశువు ఎంపిక (Animal):
+2261: <span id="btn-diary-voice">వాయిస్ ప్రణాళిక వినండి</span>
+2272: <span id="diary-next-slot-badge" style="background: #F59E0B; color: #FFFFFF; font-size: 0.75rem; pad
+2276: మేత ప్రణాళిక సిద్ధం చేయండి.
+2281: <span>⏱️ ఇప్పుడే నమోదు చేయండి (Log Now)</span>
+2295: <span>నేటి మేత & పాల దిగుబడి సారాంశం (Daily Summary)</span>
+2304: <div style="font-size: 0.75rem; color: var(--slate-500); font-weight: 700;">🥣 దాణా (Concentrate)</di
+2306: <div style="font-size: 0.72rem; color: var(--slate-400);" id="diary-target-conc">లక్ష్యం: 0.0 kg</di
+2309: <div style="font-size: 0.75rem; color: var(--slate-500); font-weight: 700;">🌿 పచ్చిగడ్డి (Green Fodd
+2311: <div style="font-size: 0.72rem; color: var(--slate-400);" id="diary-target-green">లక్ష్యం: 0.0 kg</d
+2314: <div style="font-size: 0.75rem; color: var(--slate-500); font-weight: 700;">🌾 ఎండుగడ్డి (Dry Straw)<
+2316: <div style="font-size: 0.72rem; color: var(--slate-400);" id="diary-target-straw">లక్ష్యం: 0.0 kg</d
+2319: <div style="font-size: 0.75rem; color: #065F46; font-weight: 700;">🥛 నమోదైన పాలు (Milk Yield)</div>
+2321: <div style="font-size: 0.72rem; color: #047857;" id="diary-target-milk">సగటు: 8.0 L</div>
+2331: AI మేత విశ్లేషణ & పాల దిగుబడి ఇన్‌సైట్స్
+2335: మీరు రోజూ ఉదయం, మధ్యాహ్నం, సాయంత్రం ఇచ్చిన మేతను నమోదు చేస్తే, ఏ మేత వల్ల పాల దిగుబడి పెరిగిందో సిస్
+2347: 💡 ICAR నేషనల్ డైరీ రీసెర్చ్ ఇన్‌స్టిట్యూట్ (NDRI) ప్రామాణిక ప్రణాళిక
+2350: <span>పూర్తయింది (Close)</span>
+2364: <span id="modal-history-title">నా మేత పరీక్షల రికార్డులు / Test History</span>
+2371: లోడ్ అవుతోంది... / Loading your saved diagnostic scans...
+2376: 📸 కొత్త పరీక్ష / Run New Quality Scan →
+2378: <button class="btn btn-secondary" onclick="closeMyHistoryModal()">మూసివేయి / Close</button>

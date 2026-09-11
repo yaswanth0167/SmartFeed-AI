@@ -1,0 +1,412 @@
+56: 'sidebar-brand-slogan': 'మేత స్మార్ట్ • పాడి క్షేమం',
+57: 'sidebar-status-text': 'ఆఫ్‌లైన్ సిద్ధం • స్థానిక AI కార్యాచరణలో ఉంది',
+58: 'nav-home': 'హోమ్',
+59: 'nav-scanner': 'నాణ్యత స్కానర్',
+60: 'nav-adulteration': 'కల్తీ నిర్ధారణ',
+61: 'nav-advisory': 'రైతు AI సలహాలు',
+62: 'nav-dashboard': 'డాష్‌బోర్డ్',
+63: 'nav-passport': 'ఫీడ్ పాస్‌పోర్ట్',
+64: 'nav-lookup': 'బ్యాచ్ శోధన',
+65: 'btn-reopen-lang-text': '🌐 భాష మార్చండి (Language)',
+66: 'mobile-lang-btn-text': 'భాష / Lang',
+67: 'sidebar-lang-label': 'రైతు భాష',
+68: 'sidebar-engine-label': 'సలహా ఇంజిన్',
+69: 'sidebar-footer-text': '<strong>స్మార్ట్ ఇండియా హ్యాకథాన్ 2026</strong><br>తక్కువ ఖర్చుతో కూడిన సాఫ్
+72: 'hero-badge-text': 'స్మార్ట్ ఇండియా హ్యాకథాన్ 2026 • AI అగ్రి-టెక్ ఆవిష్కరణ',
+74: 'hero-motto-text': 'మేత స్మార్ట్ • పాడి క్షేమం • కలిసి ఎదుగుదాం',
+75: 'hero-desc-text': 'కృత్రిమ మేధస్సు (AI) ఆధారిత పశుగ్రాసం & సైలేజ్ నాణ్యత పరిశీలన, కల్తీ గుర్తింపు, బ
+76: 'home-btn-scan': 'నాణ్యత స్కానర్',
+77: 'home-btn-adulteration': 'కల్తీ నిర్ధారణ',
+78: 'home-btn-advisory': 'రైతు సలహాలు',
+79: 'home-sci-notice': '<strong>శాస్త్రీయ ప్రయోగ నమూనా సూచన:</strong> స్మార్ట్ ఫీడ్ AI కంప్యూటర్ విజన్, 
+80: 'home-tele-edge-label': 'ఎడ్జ్ AI ఇంజిన్',
+81: 'home-tele-edge-val': '< 300ms వేగవంతమైన స్పందన',
+82: 'home-tele-risk-label': 'రిస్క్ నిఘా వేదిక',
+83: 'home-tele-risk-val': '6-కారకాల సమగ్ర విశ్లేషణ',
+84: 'home-tele-voice-label': 'బహుభాషా వాయిస్',
+85: 'home-tele-voice-val': 'తెలుగు • हिंदी • EN',
+86: 'home-tele-trace-label': 'డిజిటల్ ధృవీకరణ',
+87: 'home-tele-trace-val': 'QR డిజిటల్ పాస్‌పోర్ట్',
+88: 'home-why-title': '🌟 స్మార్ట్ ఫీడ్ AI ఎందుకు?',
+89: 'home-why-p1': 'పాడి రైతులు మరియు పాల సహకార సంఘాలు తరచుగా <strong>మేత చెడిపోవడం, ఫంగస్/బూజు టాక్సిన్
+90: 'home-why-p2': 'సాంప్రదాయ పద్ధతుల్లో ఖరీదైన ప్రయోగశాల పరీక్షలు అవసరమవుతాయి, ఇవి గ్రామీణ రైతులకు సులభ
+91: 'home-pitch-box': '<strong>💡 SIH ప్రాజెక్ట్ లక్ష్యం:</strong><p style="color: var(--slate-700); font
+92: 'home-usps-title': '🏆 ముఖ్యమైన ఆవిష్కరణలు (USPs)',
+94: <li>⭐ <strong>స్మార్ట్‌ఫీడ్ హెల్త్ స్కోర్ (0–100)</strong>: దృశ్య పరీక్ష, బూజు, పోషకాలు, నిల్వ ఆధారం
+95: <li>🔍 <strong>కారణాల విశ్లేషణ ("ఈ ఫలితం ఎందుకు వచ్చింది?")</strong>: మేత ఎందుకు ప్రమాదకరమో పాయింట్ల 
+96: <li>🗣️ <strong>బహుభాషా వాయిస్ సలహాలు</strong>: <strong>తెలుగు, హిందీ, ఇంగ్లీష్</strong> లలో బ్రౌజర్ 
+97: <li>📦 <strong>QR డిజిటల్ ఫీడ్ పాస్‌పోర్ట్</strong>: పాల సహకార సంఘాల కోసం ట్యాంపర్-ప్రూఫ్ బ్యాచ్ సర్ట
+98: <li>📈 <strong>ముందస్తు క్షీణత హెచ్చరికలు</strong>: కంటికి కుళ్లు కనిపించకముందే నాణ్యత తగ్గడాన్ని గుర
+99: <li>📶 <strong>100% ఆఫ్‌లైన్ కార్యాచరణ</strong>: ఇంటర్నెట్ లేకపోయినా నిరంతరాయంగా పనిచేస్తుంది.</li>
+101: 'home-btn-scan': 'నాణ్యత స్కానర్',
+102: 'home-btn-adulteration': 'కల్తీ నిర్ధారణ',
+103: 'home-btn-advisory': 'రైతు సలహాలు',
+104: 'home-btn-dashboard': 'డాష్‌బోర్డ్',
+105: 'home-quick-title': '🚀 ముఖ్య సేవలు త్వరిత ప్రారంభం',
+106: 'home-card1-title': '1. మేత స్కానర్',
+107: 'home-card1-desc': 'ఫోటో అప్‌లోడ్ చేసి రంగు మార్పులు, బూజు ముద్దలు మరియు కణాలను పరీక్షించండి.',
+108: 'btn-home-card1': '🚀 స్కానర్ తెరవండి',
+109: 'home-card2-title': '2. కల్తీ నిర్ధారణ',
+110: 'home-card2-desc': 'యూరియా స్పైకింగ్ మరియు నాన్-ప్రోటీన్ నైట్రోజన్ రిస్క్‌ను స్లైడర్లతో పరీక్షించండి
+111: 'btn-home-card2': '🔬 కల్తీ పరీక్షించండి',
+112: 'home-card3-title': '3. రైతు సలహాలు',
+113: 'home-card3-desc': 'తెలుగు, హిందీ లేదా ఇంగ్లీషులో నిపుణుల వాయిస్ సూచనలను వినండి.',
+114: 'btn-home-card3': '🗣️ వాయిస్ సలహా',
+115: 'home-card4-title': '4. ఎనలిటిక్స్ డాష్‌బోర్డ్',
+116: 'home-card4-desc': 'లైవ్ నాణ్యత ట్రెండ్‌లు, రిస్క్ విభజన మరియు ముందస్తు క్షీణత హెచ్చరికలు.',
+117: 'btn-home-card4': '📈 డాష్‌బోర్డ్ చూడండి',
+118: 'home-card5-title': '5. QR పాస్‌పోర్ట్',
+119: 'home-card5-desc': 'పాల సహకార సంఘాల కోసం డిజిటల్ ఫీడ్ పాస్‌పోర్ట్‌ను డౌన్‌లోడ్ చేయండి.',
+120: 'btn-home-card5': '📜 పాస్‌పోర్ట్ చూడండి',
+121: 'btn-refresh-dashboard': '🔄 తాజా చేయండి',
+124: 'guest-card-title': 'రైతు లాగిన్ & ఫారమ్ ప్రొఫైల్ సెటప్',
+125: 'guest-card-sub': 'మీ పశువుల సంఖ్యను నమోదు చేయడానికి, ఆవులు & గేదెల ఆరోగ్యాన్ని పర్యవేక్షించడానికి ల
+126: 'btn-guest-login': '🔑 లాగిన్ (Sign In)',
+127: 'btn-guest-register': '📝 నమోదు (Register)',
+128: 'title-farmer-features': '🌟 పాడి రైతు నిర్ధారణ & సలహా కేంద్రం (8 ముఖ్య సేవలు)',
+129: 'btn-edit-farm': '⚙️ ఫారమ్ మార్చండి',
+130: 'btn-dash-new-scan': '📸 నేటి మేత పరీక్షించండి',
+131: 'fd-lbl-cows': 'ఆవులు (Cows)',
+132: 'fd-lbl-buffs': 'గేదెలు (Buffs)',
+133: 'fd-lbl-lact': 'పాలిచ్చేవి (Lactating)',
+134: 'fd-lbl-preg': 'చూడి (Pregnant)',
+135: 'fd-lbl-feed': 'ప్రధాన మేత',
+136: 'fd-lbl-storage': 'నిల్వ స్థలం',
+137: 'fd-lbl-tests': 'పరీక్షలు (Tests)',
+138: 'tile1-title': '1. మేత స్కానర్',
+139: 'tile1-sub': 'నాణ్యత & బూజు పరీక్ష',
+140: 'tile1-desc': 'ఫోటో తీసి రంగు మార్పు, బూజు, కణాలు & 0-100 ఆరోగ్య స్కోర్ తెలుసుకోండి.',
+141: 'tile1-btn': '🚀 స్కానర్ తెరవండి →',
+142: 'tile2-title': '2. యూరియా కల్తీ & మోతాదు',
+143: 'tile2-sub': 'సేఫ్ యూరియా గణన',
+144: 'tile2-desc': 'యూరియా కల్తీ నిఘా మరియు ICAR 4% గడ్డి చికిత్స సురక్షిత మోతాదు లెక్కించండి.',
+145: 'tile2-btn': '🔬 సేఫ్ యూరియా లెక్కించండి →',
+146: 'tile3-title': '3. రైతు AI సలహాలు',
+147: 'tile3-sub': 'తెలుగు వాయిస్ సలహాలు',
+148: 'tile3-desc': 'మీ పశువుల స్థితికి అనుగుణంగా తెలుగు, హిందీ లేదా ఇంగ్లీషులో వాయిస్ సలహాలు వినండి.',
+149: 'tile3-btn': '🗣️ వాయిస్ సలహా వినండి →',
+150: 'tile4-title': '4. నా పశువులు',
+151: 'tile4-sub': 'వ్యక్తిగత పశువుల వివరాలు',
+152: 'tile4-desc': 'మీ ఆవులు, గేదెల వయస్సు, పాలిచ్చే స్థితి మరియు మేత లక్ష్యాలను తనిఖీ చేయండి.',
+153: 'tile4-btn': '🐄 పశువుల జాబితా →',
+154: 'tile5-title': '5. మేత డైరీ',
+155: 'tile5-sub': 'రోజువారీ మేత లాగ్',
+156: 'tile5-desc': 'రోజువారీ మేత వివరాలు, నిల్వ తాజాదనం మరియు దాణా వినియోగం నమోదు చేయండి.',
+157: 'tile5-btn': '📝 మేత డైరీ చూడండి →',
+158: 'tile6-title': '6. నా డాష్‌బోర్డ్',
+159: 'tile6-sub': 'ఫారమ్ ఎనలిటిక్స్',
+160: 'tile6-desc': 'మేత నాణ్యత ట్రెండ్‌లు, రిస్క్ విభజన మరియు ముందస్తు క్షీణత హెచ్చరికలు చూడండి.',
+161: 'tile6-btn': '📈 డాష్‌బోర్డ్ తెరవండి →',
+162: 'tile7-title': '7. పరీక్షల చరిత్ర',
+163: 'tile7-sub': 'గత బ్యాచ్ రికార్డులు',
+164: 'tile7-desc': 'గతంలో చేసిన మేత పరీక్షలు, స్కోర్లు మరియు సర్టిఫికేట్లను సమీక్షించండి.',
+165: 'tile7-btn': '📋 చరిత్ర చూడండి →',
+166: 'tile8-title': '8. QR పాస్‌పోర్ట్',
+167: 'tile8-sub': 'డిజిటల్ ఫీడ్ పాస్‌పోర్ట్',
+168: 'tile8-desc': 'పాల సహకార సంఘాల కోసం ధృవీకరించిన QR కోడ్ సర్టిఫికేట్ పొందండి.',
+169: 'tile8-btn': '📦 పాస్‌పోర్ట్ చూడండి →',
+172: 'farmer-history-section-title': '<span>📜</span> <span>నా గత మేత పరీక్షల రికార్డులు (My Feed Diagnost
+173: 'farmer-history-section-sub': 'మీ ఫారమ్‌లో గతంలో విశ్లేషించిన మేత బ్యాచ్‌లు, నాణ్యత స్కోర్లు, సేఫ్టీ
+174: 'btn-refresh-farmer-history': 'రిఫ్రెష్ (Refresh)',
+175: 'btn-new-scan-farmer-history': 'కొత్త పరీక్ష (New Scan)',
+176: 'fth-batch': 'బ్యాచ్ ID (Batch ID)',
+177: 'fth-sample': 'మేత రకం (Sample)',
+178: 'fth-score': 'నాణ్యత స్కోర్ (Score)',
+179: 'fth-badge': 'స్థితి (Status)',
+180: 'fth-concern': 'ప్రధాన రిస్క్ / పరిశీలన (Findings)',
+181: 'fth-shelf': 'షెల్ఫ్ లైఫ్ (Shelf Life)',
+182: 'fth-date': 'తేదీ (Date)',
+183: 'fth-action': 'చర్యలు (Action)',
+184: 'modal-history-title': 'నా మేత పరీక్షల రికార్డులు / Test History',
+187: 'scanner-header-title': '📸 స్మార్ట్ ఫీడ్ నాణ్యత స్కానర్',
+188: 'scanner-header-subtitle': 'కంప్యూటర్ విజన్, బహుళ-కారకాల రిస్క్ విశ్లేషణ & డిజిటల్ ఫీడ్ పాస్‌పోర్ట్ 
+189: 'scanner-step1-title': '1. మేత నమూనాను ఎంచుకోండి లేదా ఫోటో తీయండి',
+190: 'scanner-preset-label': '⚡ 1-క్లిక్ డెమో నమూనాల పరీక్ష',
+191: 'scanner-dropzone-title': 'మేత ఫోటోను ఇక్కడ వేయండి లేదా ఎంచుకోండి',
+192: 'scanner-dropzone-sub': 'JPG, PNG, WEBP సపోర్ట్ చేస్తుంది',
+193: 'scanner-sample-type-label': 'నమూనా రకం వర్గీకరణ',
+194: 'scanner-step2-title': '2. పోషక మరియు నిల్వ వివరాలు',
+195: 'label-slider-cp': 'క్రూడ్ ప్రోటీన్ (CP %)',
+196: 'label-slider-moisture': 'తేమ శాతం (Moisture %)',
+197: 'label-slider-npn': 'నాన్-ప్రోటీన్ నైట్రోజన్ (NPN %)',
+198: 'label-slider-days': 'నిల్వ చేసిన రోజులు (Days)',
+199: 'label-check-smell': 'పుల్లని లేదా బూజు దుర్వాసన వస్తోంది',
+200: 'btn-scan': '🚀 సమగ్ర నాణ్యత పరీక్ష చేయండి',
+201: 'scanner-step3-title': '3. స్మార్ట్ ఫీడ్ నిర్ధారణ ఫలితాలు',
+202: 'results-placeholder-title': 'నమూనా కోసం ఎదురుచూస్తోంది',
+203: 'results-placeholder-desc': 'డెమో నమూనాను ఎంచుకోండి లేదా ఫోటో అప్‌లోడ్ చేసి "పరీక్ష చేయండి" బటన్ నొక
+204: 'gauge-heading': '🐄 స్మార్ట్ ఫీడ్ ఆరోగ్య స్కోర్',
+205: 'gauge-score-sub': '100 కి గాను',
+206: 'shelf-life-card-title': '⏳ AI మేత నిల్వ కాలం & పాడయ్యే గడువు అంచనా',
+207: 'shelf-days-label': 'రోజుల పాటు సురక్షితం',
+208: 'shelf-sub-expiry-label': 'సురక్షిత గడువు:',
+209: 'shelf-sub-moist-label': 'తేమ ప్రభావం:',
+210: 'shelf-timeline-now': 'ఈరోజు / తాజా',
+211: 'shelf-timeline-status': 'సాధారణ నిల్వ కాలం',
+212: 'shelf-timeline-spoil': 'పాడయ్యే ప్రమాద సమయం',
+213: 'cert-lbl-shelf': 'నిల్వ కాలం & గడువు',
+214: 'animal-rec-header-title': 'పశువుల వారీగా మేత సిఫార్సు & రోజువారీ మోతాదు',
+216: 'btn-speak-animal-rec-txt': 'వాయిస్ సలహా వినండి (Audio)',
+217: 'lbl-quick-animal-select': '⚡ నా పశువుల నుండి ఎంచుకోండి (1-Click Cattle Quick-Pick):',
+218: 'lbl-rec-species': '🐄 పశువు రకం / Animal Type',
+219: 'lbl-rec-stage': '🤰 శారీరక స్థితి / Stage',
+220: 'lbl-rec-milk': '🥛 పాల ఉత్పత్తి / Yield',
+221: 'btn-recalculate-rec-txt': 'సిఫార్సు లెక్కించండి',
+222: 'lbl-rec-daily-dose': 'మొత్తం రోజువారీ మోతాదు',
+223: 'lbl-rec-daily-sub': 'రోజూ ఇవ్వవలసిన దాణా',
+224: 'lbl-rec-morning-dose': '🌅 ఉదయం పూట',
+225: 'lbl-rec-evening-dose': '🌆 సాయంత్రం పూట',
+226: 'lbl-rec-balanced-title': 'సమతుల్య రోజువారీ మేత ప్రణాళిక (ICAR Balanced Daily Diet)',
+227: 'lbl-rec-adaptation-title': 'క్రమంగా అలవాటు చేసే 4 రోజుల విధానం (4-Day Rumen Adaptation)',
+228: 'explainable-ai-title': '🔍 కారణాల విశ్లేషణ: "ఈ ఫలితం ఎందుకు వచ్చింది?"',
+229: 'cv-metrics-title': '👁️ కంప్యూటర్ విజన్ కొలతలు',
+230: 'passport-box-title': '📦 డిజిటల్ ఫీడ్ పాస్‌పోర్ట్ తయారైంది!',
+231: 'btn-view-passport': '📜 ధృవీకరించిన పాస్‌పోర్ట్ & QR చూడండి',
+234: 'adulteration-header-title': '⚠️ మేత కల్తీ & యూరియా స్పైకింగ్ రిస్క్',
+235: 'adulteration-header-subtitle': 'నాన్-ప్రోటీన్ నైట్రోజన్ (NPN) వ్యత్యాసం & తెల్ల పొడి కణాల గుర్తింపు
+236: 'adulteration-alert-notice': '<strong>శాస్త్రీయ నోటీసు:</strong> చౌకబారు <strong>ఎరువుల యూరియా</stro
+237: 'adulteration-params-title': '🧪 కల్తీ అనుకరణ పారామితులు',
+238: 'label-ad-cp': 'క్రూడ్ ప్రోటీన్ (CP %)',
+239: 'label-ad-moisture': 'తేమ శాతం (Moisture %)',
+240: 'label-ad-npn': 'నాన్-ప్రోటీన్ నైట్రోజన్ (NPN %)',
+241: 'label-ad-powder': 'కనిపించే తెల్లటి పొడి / స్పటిక గుళికలు',
+242: 'adulteration-output-title': '📊 కల్తీ అంచనా ఫలితం',
+243: 'urea-calc-title': '🌾 శాస్త్రీయ సురక్షిత యూరియా మోతాదు & ఎండుగడ్డి శుద్ధి కాలిక్యులేటర్',
+244: 'urea-calc-subtitle': 'ICAR & NDDB ప్రామాణిక నాన్-టాక్సిక్ యూరియా గడ్డి శుద్ధి మరియు దాణా మిక్సింగ్ 
+245: 'urea-calc-standard-badge': '✅ ICAR 4% ప్రామాణికం',
+246: 'btn-urea-mode-straw': '🌾 యూరియా గడ్డి శుద్ధి (యూరియా గడ్డి శుద్ధి)',
+247: 'btn-urea-mode-concentrate': '🥣 రోజువారీ దాణాలో మిక్సింగ్ (దాణాలో మిక్సింగ్)',
+248: 'label-kpi-urea': 'శాస్త్రీయ సురక్షిత యూరియా',
+249: 'label-kpi-water': 'అవసరమైన నీరు',
+250: 'label-kpi-curing': 'నిల్వ / పరిపక్వత కాలం',
+251: 'label-kpi-protein': 'పోషక లాభం (ప్రోటీన్)',
+252: 'label-advisory-summary': '📋 సిఫార్సు చేసిన మోతాదు సారాంశం',
+253: 'btn-speak-urea-text': 'వాయిస్ వినండి (Audio)',
+254: 'urea-steps-title': '📝 దశల వారీ ప్రామాణిక తయారీ విధానం (SOP)',
+255: 'urea-precautions-title': '⚠️ ముఖ్యమైన నిబంధనలు & భద్రతా జాగ్రత్తలు',
+256: 'urea-antidote-title': '🚑 అత్యవసర ప్రాణరక్షక విరుగుడు (FIRST AID ANTIDOTE)',
+259: 'advisory-header-title': '🤖 రైతు బహుభాషా సలహాలు & వాయిస్',
+260: 'advisory-header-subtitle': 'స్పష్టమైన తెలుగు, హిందీ, ఇంగ్లీష్ ఆడియో మరియు సులభ సమస్యల పరిష్కారం',
+261: 'audio-speaker-heading': '🔊 స్మార్ట్ ఫీడ్ ఆడియో సహాయకుడు',
+262: 'audio-title': 'రైతు సలహాలను వాయిస్ ద్వారా వినండి',
+263: 'audio-subtitle': 'స్పష్టమైన తెలుగు ఆడియో సిద్ధంగా ఉంది',
+264: 'btn-speak': '▶ వాయిస్ వినండి (Play)',
+265: 'advisory-lang-label': 'రైతు భాష / Language:',
+266: 'btn-mode-preset': '⚡ 1-క్లిక్ సాధారణ సమస్యలు',
+267: 'btn-mode-manual': '✍️ మీ సమస్యను నేరుగా రాయండి',
+268: 'problem-statements-title': '👨‍🌾 సాధారణ పాడి సమస్యలు (రైతులు టైప్ చేయనవసరం లేదు)',
+269: 'problem-statements-subtitle': 'మీ పశువుల పరిస్థితికి సరిపోయే సమస్యను ఎంచుకుంటే తక్షణ పరిష్కారం వస్త
+270: 'instant-solution-badge': '⚡ తక్షణ పరిష్కారం',
+271: 'manual-entry-title': '✍️ మీ స్వంత సమస్యను తెలపండి',
+272: 'manual-entry-subtitle': 'మీ సమస్యను తెలుగు, హిందీ లేదా ఇంగ్లీషులో రాయండి లేదా క్రింది ట్యాగ్‌లను నొ
+273: 'symptom-chips-label': '⚡ సాధారణ లక్షణాలు (నొక్కి జోడించండి):',
+274: 'label-manual-problem': 'సమస్య వివరాలు రాయండి:',
+275: 'placeholder-manual-problem': 'ఉదాహరణ: ఆవు పాలు తగ్గిపోయాయి, మేతలో పుల్లని వాసన లేదా బూజు ఉంది...',
+276: 'label-feed-type': 'మేత రకం',
+277: 'label-feed-smell': 'మేత వాసన',
+278: 'label-feed-moisture': 'తేమ స్థితి',
+279: 'label-feed-appearance': 'భౌతిక స్థితి',
+280: 'label-cattle-symptom': 'పశువుల లక్షణాలు',
+281: 'btn-submit-manual-advisory': '🚀 AI విశ్లేషణ చేయండి',
+282: 'btn-clear-manual-advisory': '🔄 క్లియర్ చేయండి',
+283: 'advisory-plan-title': '📜 రైతు సమగ్ర కార్యాచరణ ప్రణాళిక',
+286: 'dashboard-header-title': '📊 ఫీడ్ క్వాలిటీ & డాష్‌బోర్డ్',
+287: 'dashboard-header-subtitle': 'రియల్ టైమ్ గణాంకాలు, ట్రెండ్ విశ్లేషణ మరియు ముందస్తు హెచ్చరికలు',
+288: 'dashboard-kpi1-label': 'మొత్తం పరీక్షించిన బ్యాచ్‌లు',
+289: 'dashboard-kpi2-label': 'సగటు ఆరోగ్య స్కోర్',
+290: 'dashboard-kpi3-label': 'సురక్షిత బ్యాచ్‌ల శాతం',
+291: 'dashboard-kpi4-label': 'ప్రమాదకర మేత శాతం',
+292: 'dashboard-chart-trend-title': '📈 నాణ్యత స్కోర్ ట్రెండ్ (గత 15 బ్యాచ్‌లు)',
+293: 'dashboard-chart-pie-title': '🍩 రిస్క్ స్థాయిల విభజన',
+294: 'dashboard-table-title': '📋 ఇటీవలి బ్యాచ్ ఆడిట్ రికార్డులు',
+295: 'th-batch': 'బ్యాచ్ ID',
+296: 'th-type': 'మేత రకం',
+297: 'th-score': 'స్కోర్',
+298: 'th-badge': 'హోదా',
+299: 'th-concern': 'ముఖ్యమైన సమస్య',
+300: 'th-time': 'సమయం',
+301: 'table-loading-msg': 'రికార్డులు లోడ్ అవుతున్నాయి...',
+304: 'passport-header-title': '📦 ధృవీకరించిన డిజిటల్ ఫీడ్ పాస్‌పోర్ట్',
+305: 'passport-header-subtitle': 'అధికారిక ధృవీకరణ ముద్ర మరియు QR కోడ్‌తో కూడిన బ్యాచ్ సర్టిఫికేట్',
+306: 'cert-protocol-label': 'స్మార్ట్ ఫీడ్ డిజిటల్ ట్రేసిబిలిటీ ప్రోటోకాల్',
+307: 'cert-title-label': '📦 డిజిటల్ ఫీడ్ పాస్‌పోర్ట్',
+308: 'cert-lbl-type': 'మేత రకం',
+309: 'cert-lbl-score': 'ఆరోగ్య స్కోర్',
+310: 'cert-lbl-safety': 'భద్రతా స్థితి',
+311: 'cert-lbl-time': 'నమోదైన సమయం',
+312: 'cert-lbl-nutrients': 'ధృవీకరించబడిన పోషక విలువలు',
+313: 'cert-scan-prompt': 'బ్యాచ్ ప్రామాణికతను ధృవీకరించడానికి స్కాన్ చేయండి',
+314: 'btn-print-cert': '🖨️ ప్రింట్ చేయండి',
+315: 'btn-download-qr': '⬇️ QR కోడ్ డౌన్‌లోడ్',
+318: 'lookup-header-title': '🔎 బ్యాచ్ ట్రేసిబిలిటీ & QR ధృవీకరణ',
+319: 'lookup-header-subtitle': 'పాత రికార్డులను వెతకండి లేదా QR కోడ్‌ను అప్‌లోడ్ చేసి ధృవీకరించండి',
+320: 'lookup-search-title': '🔍 బ్యాచ్ ID ద్వారా శోధించండి',
+321: 'placeholder-lookup-batch': 'ఉదా: SFA-2026-000001',
+322: 'btn-lookup-search': 'శోధించండి',
+323: 'lookup-qr-title': '📷 QR కోడ్ ఫోటో ద్వారా ధృవీకరించండి',
+324: 'lookup-dropzone-title': 'QR ఫోటోను అప్‌లోడ్ చేయండి',
+325: 'lookup-details-title': '📋 బ్యాచ్ రికార్డు వివరాలు',
+326: 'lookup-result-placeholder': 'సర్టిఫికేట్ చూడటానికి బ్యాచ్ ID నమోదు చేయండి లేదా QR అప్‌లోడ్ చేయండి.'
+360: 'home-tele-voice-val': 'हिंदी • తెలుగు • EN',
+635: 'home-tele-voice-val': 'EN • తెలుగు • हिंदी',
+722: 'farmer-history-section-title': '<span>📜</span> <span>My Feed Diagnostic History / గత పరీక్షల రికార్
+734: 'modal-history-title': 'My Feed Test History / పరీక్షల చరిత్ర',
+815: 'advisory-lang-label': 'Farmer Language / రైతు భాష:',
+974: 'Cattle Feed Pellet': 'దాణా పెల్లెట్స్ (Cattle Feed Pellet)',
+975: 'Maize Silage': 'మొక్కజొన్న సైలేజ్ (Maize Silage)',
+976: 'Cottonseed Cake': 'పత్తి చెక్క (Cottonseed Cake)',
+977: 'Wheat Bran': 'గోధుమ తవుడు (Wheat Bran)',
+978: 'Mixed Ration (TMR)': 'మిశ్రమ సమతుల్య ఆహారం (TMR)'
+1006: '': '-- డెమో నమూనాను ఎంచుకోండి --',
+1007: 'sample_healthy_feed.jpg': '🟢 ఆరోగ్యకరమైన బంగారు దాణా (సురక్షితం, ~90+ స్కోర్)',
+1008: 'sample_mouldy_feed.jpg': '🔴 బూజు పట్టిన దాణా (అధిక రిస్క్)',
+1009: 'sample_burnt_feed.jpg': '🟡 మాడిన దాణా (శ్రద్ధ అవసరం)',
+1010: 'sample_fresh_silage.jpg': '🟢 తాజా మొక్కజొన్న సైలేజ్ (సురక్షితం)'
+1038: 'Cattle Feed Pellet': 'దాణా పెల్లెట్ (Cattle Feed Pellet)',
+1039: 'Maize Silage': 'మొక్కజొన్న సైలేజ్ (Maize Silage)',
+1040: 'Cottonseed Cake': 'పత్తి చెక్క (Cottonseed Cake)',
+1041: 'Groundnut Cake': 'వేరుశనగ చెక్క (Groundnut Cake)',
+1042: 'Wheat Bran': 'గోధుమ తవుడు (Wheat Bran)',
+1043: 'Green Fodder': 'పచ్చిగడ్డి (Green Fodder)',
+1044: 'Dry Straw / Hay': 'ఎండుగడ్డి (Dry Straw / Hay)'
+1076: 'Normal': 'సాధారణ సహజ వాసన (Normal)',
+1077: 'Fungal/Musty': 'బూజు / ఫంగస్ వాసన (Musty)',
+1078: 'Sour/Rotten': 'పుల్లని / కుళ్ళిన వాసన (Sour/Rotten)',
+1079: 'Chemical/Urea': 'యూరియా / రసాయన ఘాటు వాసన (Urea)',
+1080: 'Burnt/Heated': 'మాడిన / వేడెక్కిన వాసన (Burnt)'
+1108: 'Normal': 'పొడిగా సరైన స్థితిలో ఉంది (Dry/Normal)',
+1109: 'Damp': 'తేమగా / ముద్దలుగా ఉంది (Damp)',
+1110: 'Soaked/Rain Damage': 'వర్షంలో బాగా తడిసింది (Soaked)'
+1134: 'Normal': 'సాధారణ సమతుల్య రంగు (Uniform)',
+1135: 'Fungus/Mould Patches': 'బూజు ముద్దలు / మచ్చలు (Mould)',
+1136: 'White Powder/Granules': 'తెల్ల పొడి / స్ఫటిక గుళికలు (Powder)',
+1137: 'Inclusions/Debris': 'రాళ్ళు / పురుగులు / కలుషితాలు (Debris)'
+1163: 'Normal': 'సాధారణంగా చురుగ్గా ఉంది (Normal)',
+1164: 'Sudden Milk Drop': 'పాల దిగుబడి అకస్మాత్తుగా తగ్గింది (Milk Drop)',
+1165: 'Refusing to Eat': 'మేత తినడం మానేసింది (Refusing Feed)',
+1166: 'Loose Dung/Diarrhea': 'పారుడు రోగం / విరేచనాలు (Diarrhea)',
+1167: 'Bloat/Indigestion': 'కడుపు ఉబ్బరం / అజీర్తి (Bloat)',
+1168: 'Lethargy/Weakness': 'నీరసం / నడవలేకపోవడం (Lethargy)'
+1238: if (heading) heading.innerText = state.language === 'te' ? 'రైతు / అడ్మిన్ లాగిన్' : (state.language
+1239: if (subheading) subheading.innerText = state.language === 'te' ? 'మీ మొబైల్ మరియు పాస్‌వర్డ్‌తో లాగి
+1245: if (heading) heading.innerText = state.language === 'te' ? 'కొత్త రైతు ఖాతా నమోదు' : (state.language
+1246: if (subheading) subheading.innerText = state.language === 'te' ? 'మీ వివరాలు నమోదు చేసి పశువుల ప్రొఫ
+1445: <span>${state.language === 'te' ? 'లాగిన్ / నమోదు' : (state.language === 'hi' ? 'लॉग इन / रजिस्टर' :
+1708: <label class="form-label" style="font-size: 0.78rem;">Animal Type / రకం</label>
+1710: ${availableTypes.map(t => `<option value="${t}" ${t === defaultType ? 'selected' : ''}>${t === 'Cow'
+1714: <label class="form-label" style="font-size: 0.78rem;">Age Group / వయస్సు</label>
+1716: <option value="<1 yr" ${defaultAge.includes('<1') ? 'selected' : ''}>&lt; 1 year (దూడ)</option>
+1717: <option value="1–3 years" ${defaultAge.includes('1–3') || defaultAge.includes('1-3') ? 'selected' : 
+1718: <option value="3–5 years" ${defaultAge.includes('3–5') || defaultAge.includes('3-5') ? 'selected' : 
+1719: <option value="5+ years" ${defaultAge.includes('5+') ? 'selected' : ''}>5+ years (వృద్ధ)</option>
+1723: <label class="form-label" style="font-size: 0.78rem;">Status / స్థితి</label>
+1725: <option value="Lactating" ${defaultStatus === 'Lactating' ? 'selected' : ''}>🥛 Lactating (పాలిచ్చేది
+1726: <option value="Pregnant" ${defaultStatus === 'Pregnant' ? 'selected' : ''}>🤰 Pregnant (చూడి)</option
+1727: <option value="Dry" ${defaultStatus === 'Dry' ? 'selected' : ''}>🍂 Dry (ఎండినది / పాలివ్వనిది)</opti
+1728: <option value="Heifer / Calf" ${defaultStatus.includes('Calf') || defaultStatus.includes('Heifer') ?
+1735: <label class="form-label" style="font-size: 0.78rem; color: #047857;">🥛 Daily Milk Yield / పాల దిగుబ
+1900: if (langEl) langEl.innerText = p.preferred_language === 'te' ? 'తెలుగు' : (p.preferred_language === 
+1950: ఇంకా ఎలాంటి మేత పరీక్షలు నమోదు కాలేదు / No feed diagnostic tests recorded yet
+1953: మీ పశువుల మేత నాణ్యత, బూజు మరియు కల్తీని తనిఖీ చేయడానికి స్కానర్‌ను ప్రారంభించండి.
+1956: 📸 మేతను పరీక్షించండి / Start Feed Scan →
+2020: 🪪 పాస్‌పోర్ట్
+2153: alert(state.language === 'te' ? 'దయచేసి మేత డైరీని చూడటానికి లాగిన్ అవ్వండి.' : 'Please sign in to a
+2229: morning: { te: '🌅 ఉదయపు మేత సమయం', hi: '🌅 सुबह का चारा समय', en: '🌅 Morning Feeding Slot' },
+2230: afternoon: { te: '☀️ మధ్యాహ్న మేత సమయం (Cudding)', hi: '☀️ दोपहर का चारा समय', en: '☀️ Afternoon Rum
+2231: evening: { te: '🌙 సాయంత్రపు మేత సమయం', hi: '🌙 शाम का चारा समय', en: '🌙 Evening Feeding Slot' }
+2233: const curSlotObj = slotNames[plan.next_reminder_slot] || { te: 'తదుపరి మేత' };
+2238: descEl.innerText = d[state.language] || d.te || d.en || 'మేత ప్రణాళిక సిద్ధం చేసుకోండి.';
+2297: ${isLogged ? '✅ నమోదైంది (Logged)' : '⏳ నమోదు చేయాలి (Pending)'}
+2304: 💡 <strong>ప్రాముఖ్యత:</strong> ${purposeText}
+2321: 🎉 ఈ సమయపు మేత విజయవంతంగా నమోదైంది (Recorded Intake):
+2324: ${record.concentrate_kg > 0 ? `<div>🥣 దాణా: <strong>${record.concentrate_kg} kg</strong></div>` : ''
+2325: ${record.green_fodder_kg > 0 ? `<div>🌿 పచ్చిగడ్డి: <strong>${record.green_fodder_kg} kg</strong></di
+2326: ${record.dry_straw_kg > 0 ? `<div>🌾 ఎండుగడ్డి: <strong>${record.dry_straw_kg} kg</strong></div>` : '
+2327: ${record.minerals_grams > 0 ? `<div>🧂 ఖనిజాలు: <strong>${record.minerals_grams} g</strong></div>` : 
+2328: ${record.milk_yield_litres > 0 ? `<div>🥛 పాల దిగుబడి: <strong>${record.milk_yield_litres} L</strong>
+2330: ${record.notes ? `<div style="margin-top: 6px; font-size: 0.8rem; color: #15803D; font-style: italic
+2334: ✏️ సవరించండి / మార్చండి (Edit Log)
+2347: 🌾 సిఫారసు చేసిన మోతాదు (Recommended):
+2349: ${isAfternoon ? `${sugg.dry_straw_kg} kg ఎండుగడ్డి + ${sugg.water_litres}L తాగునీరు` : `${sugg.conce
+2357: <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--slate-700); margin-
+2361: <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--slate-700); margin-
+2366: <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--slate-700); margin-
+2370: <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--slate-700); margin-
+2377: <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--slate-700); margin-
+2385: <label style="display: block; font-size: 0.75rem; font-weight: 700; color: #065F46; margin-bottom: 3
+2393: <input type="text" id="input-${key}-notes" placeholder="గమనికలు e.g. పశువు ఆరోగ్యంగా మేత మేసింది..."
+2396: <span>నమోదు చేయండి (Record)</span>
+2453: const remDesc = rem.description?.[state.language] || rem.description?.te || 'తదుపరి మేత సమయానికి సిద
+2454: alert(`✅ ${key.toUpperCase()} మేత రికార్డు చేయబడింది!\n\n🔔 తదుపరి రిమైండర్ (${rem.reminder_time}):\n
+2495: if (tgtConc) tgtConc.innerText = `లక్ష్యం: ${targets.total_concentrate_kg || 0} kg`;
+2496: if (tgtGreen) tgtGreen.innerText = `లక్ష్యం: ${targets.total_green_fodder_kg || 0} kg`;
+2497: if (tgtStraw) tgtStraw.innerText = `లక్ష్యం: ${targets.total_dry_straw_kg || 0} kg`;
+2498: if (tgtMilk && animal) tgtMilk.innerText = `లక్ష్యం: ${animal.milk_production || 8.0} L`;
+2516: headlineEl.innerText = ins.headline?.[lang] || ins.headline?.te || '⭐ AI మేత విశ్లేషణ & పాల దిగుబడి 
+2519: bodyEl.innerText = ins.insight_text?.[lang] || ins.insight_text?.te || 'రోజువారీ మేత నమోదు చేయడం వల్
+2539: alert('మేత ప్రణాళిక లోడ్ అవ్వలేదు.');
+2548: speechText = `నమస్కారం రైతు సోదరులారా. మీ పశువు కోసం నేటి స్మార్ట్ మేత ప్రణాళిక: ఉదయం పాలు పితికే సమ
+2577: container.innerHTML = '<div style="text-align: center; color: var(--slate-500); padding: 30px;">దయచే
+2581: container.innerHTML = '<div style="text-align: center; color: var(--slate-500); padding: 30px;">లోడ్
+2594: ఇంకా ఎలాంటి మేత పరీక్షలు నమోదు కాలేదు
+2597: మీ పశువుల మేత నాణ్యతను తనిఖీ చేయడానికి క్వాలిటీ స్కానర్‌ను ఉపయోగించండి.
+2600: 📸 మేత స్కానర్ తెరవండి →
+2647: <div style="font-size: 0.72rem; color: var(--slate-500); font-weight: 700;">నాణ్యత స్కోర్ / SCORE</d
+2651: <div style="font-size: 0.72rem; color: var(--slate-500); font-weight: 700;">షెల్ఫ్ లైఫ్ / SHELF LIFE
+2655: <div style="font-size: 0.72rem; color: var(--slate-500); font-weight: 700;">తేదీ / TIMESTAMP</div>
+2661: <strong>పరిశీలన / Findings:</strong> ${t.primary_concern || 'Standard Feed Analysis'}
+2664: 🪪 డిజిటల్ పాస్‌పోర్ట్ చూడండి →
+3267: shelfVoice = 'హెచ్చరిక: ఈ మేత ఇప్పటికే పాడైపోయింది, బూజు పట్టింది. పశువులకు పెట్టవద్దు.';
+3275: shelfVoice = `నిల్వ కాలం అంచనా: ఈ మేత సుమారు ${days} రోజుల వరకు సురక్షితంగా ఉంటుంది.`;
+3325: badge.innerText = state.language === 'te' ? '⚠️ గడువు ముగిసింది' : (state.language === 'hi' ? '⚠️ सम
+3332: ? 'హెచ్చరిక: ఈ మేత ఇప్పటికే పాడైపోయింది లేదా బూజు పట్టింది. పశువులకు పెట్టవద్దు - అనారోగ్యం, విరేచనా
+3339: badge.innerText = state.language === 'te' ? '⚠️ తీవ్ర ప్రమాదం' : (state.language === 'hi' ? '⚠️ गंभी
+3346: ? `త్వరపడండి: మేత కేవలం ${safeDays} రోజులు మాత్రమే బాగుంటుంది. తేమ ఎక్కువగా ఉన్నందున వెంటనే వాడేయండి
+3353: badge.innerText = state.language === 'te' ? '🟡 జాగ్రత్త' : (state.language === 'hi' ? '🟡 ध्यान दें' 
+3360: ? `జాగ్రత్త: ఈ మేత దాదాపు ${safeDays} రోజుల పాటు నిల్వ ఉంటుంది. గాలి ఆడేలా, నేల తగలకుండా ప్యాలెట్లపై
+3367: badge.innerText = state.language === 'te' ? '🟢 సురక్షితం' : (state.language === 'hi' ? '🟢 सुरक्षित' 
+3373: ? `అద్భుతం: మేత తేమ తక్కువగా ఉండి దాదాపు ${safeDays} రోజుల పాటు (${shelf.safe_until_date || ''} వరకు
+3427: // Always add a "Custom Animal / ప్రత్యేకం" pill at the end
+3432: customBtn.innerHTML = `<span>➕</span> <span>${state.language === 'te' ? 'కస్టమ్ పశువు (Custom)' : (s
+3615: ${state.language === 'te' ? 'రోజు' : (state.language === 'hi' ? 'दिन' : 'Day')} ${step.day}
+3617: <div style="font-size: 1.05rem; font-weight: 900; color: #92400E;">${step.pct_new}% <span style="fon
+3785: lblQty.innerText = state.language === 'te' ? 'ఎండుగడ్డి పరిమాణం (kg)' : (state.language === 'hi' ? '
+3799: lblQty.innerText = state.language === 'te' ? 'రోజువారీ దాణా పరిమాణం (kg)' : (state.language === 'hi'
+3912: if (btnText) btnText.innerText = state.language === 'te' ? 'వాయిస్ వినండి (Audio)' : (state.language
+3918: if (btnText) btnText.innerText = state.language === 'te' ? '⏹ ఆపండి (Stop)' : (state.language === 'h
+3936: if (btnText) btnText.innerText = state.language === 'te' ? 'వాయిస్ వినండి (Audio)' : (state.language
+3952: if (btnText) btnText.innerText = state.language === 'te' ? 'వాయిస్ వినండి (Audio)' : (state.language
+3957: if (btnText) btnText.innerText = state.language === 'te' ? 'వాయిస్ వినండి (Audio)' : (state.language
+3974: title: '👨‍🌾 1-క్లిక్ సాధారణ రైతు సమస్యలు (Common Farmer Problems)',
+3975: subtitle: 'రైతులు ఎలాంటి ప్రశ్నలు రాయనవసరం లేదు — మీ పశువుల సమస్యను కింద ఎంచుకోండి:',
+3976: plan: '📜 రైతులకు స్పష్టమైన సలహా & పరిష్కారం (Farmer Action Plan)',
+3977: voiceReady: 'స్పష్టమైన తెలుగు ఆడియో సిద్ధంగా ఉంది (Telugu Audio Ready)',
+3978: btnPreset: '⚡ 1-క్లిక్ సాధారణ సమస్యలు (1-Click Common Statements)',
+3979: btnManual: '✍️ నేరుగా సమస్య రాయండి (Manual Custom Entry)',
+3980: manualTitle: '✍️ మీ సమస్యను నేరుగా రాయండి (Custom Problem Diagnosis)',
+3981: manualSubtitle: 'మీ సమస్యను తెలుగు, ఇంగ్లీష్ లేదా హిందీలో రాయండి, లేదా కింద ఉన్న లక్షణాలను నొక్కండి:
+3982: chipsLabel: '⚡ త్వరిత లక్షణాలు (జతచేయడానికి నొక్కండి):',
+3983: descLabel: 'సమస్య వివరాలు రాయండి:',
+3984: descPlaceholder: 'ఉదాహరణ: ఆవు పాలు తగ్గిపోయాయి, మేతలో పుల్లని వాసన లేదా బూజు ఉంది... / pasuvulu meet
+3985: submitBtn: '🚀 AI విశ్లేషణ చేయండి / Analyze with AI',
+3986: feedType: 'మేత రకం (Feed Type)',
+3987: smell: 'మేత వాసన (Feed Smell)',
+3988: moisture: 'తేమ శాతం (Moisture)',
+3989: appearance: 'భౌతిక స్థితి (Appearance)',
+3990: symptom: 'పశువుల లక్షణాలు (Symptoms)'
+4072: { label: '🥛 పాల తగ్గుదల', text: 'పాల దిగుబడి తగ్గింది', symptom: 'Sudden Milk Drop' },
+4073: { label: '🤢 బూజు / దుర్వాసన', text: 'మేతలో బూజు పట్టి పుల్లని వాసన వస్తోంది', appearance: 'Fungus/Mo
+4074: { label: '🍽️ మేత తినడం లేదు', text: 'పశువులు మేత తినడానికి నిరాకరిస్తున్నాయి', symptom: 'Refusing to
+4075: { label: '🌧️ తడిసిన మేత', text: 'మేత బస్తాలు వర్షంలో తడిసిపోయాయి', moisture: 'Soaked/Rain Damage' },
+4076: { label: '🚨 యూరియా వాసన', text: 'మేతలో ఘాటైన యూరియా వాసన తెల్ల పొడి ఉంది', appearance: 'White Powder
+4077: { label: '🩺 విరేచనాలు / ఉబ్బరం', text: 'పశువులకు విరేచనాలు మరియు కడుపు ఉబ్బరం వచ్చింది', symptom: 'L
+4078: { label: '🪱 పురుగులు / రాళ్ళు', text: 'మేతలో రాళ్ళు మరియు పురుగులు కనిపించాయి', appearance: 'Inclusi
+4189: te: '<em>⏳ మీ సమస్యను AI విశ్లేషిస్తోంది... దయచేసి వేచి ఉండండి (AI Analyzing Custom Problem)...</em>
+4302: textContainer.innerHTML = '<em>⏳ సలహా సిద్ధమవుతోంది... (Generating Farmer Advisory)...</em>';
+4348: if (st.includes('safe') || st.includes('సురక్షిత') || st.includes('सुरक्षित')) {
+4350: } else if (st.includes('caution') || st.includes('జాగ్రత్త') || st.includes('सावधानी') || st.include
+4360: te: 'స్పష్టమైన తెలుగు ఆడియో సిద్ధంగా ఉంది (Telugu Audio Ready)',
+4387: if (!rawText || rawText.includes('సిద్ధమవుతోంది') || rawText.includes('Loading') || rawText.includes
+4540: const recText = sp.recommendation ? `<div style="margin-top: 6px; font-size: 0.86rem; opacity: 0.95;
+4624: label: state.language === 'te' ? 'ఆరోగ్య స్కోర్ (0-100)' : (state.language === 'hi' ? 'स्वास्थ्य स्क
+4677: ? ['సురక్షితం (Safe)', 'శ్రద్ధ అవసరం (Caution)', 'ప్రమాదకరం (High Risk)']

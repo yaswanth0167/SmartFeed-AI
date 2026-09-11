@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  smartfeed-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: smartfeed-ai:latest
+    container_name: smartfeed_ai_app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - ENV=production
+      - SMARTFEED_DB_PATH=/app/data/smartfeed.db
+    volumes:
+      # Persistent storage for SQLite database, sample uploads, and QR passports
+      - smartfeed_data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  smartfeed_data:
+    driver: local

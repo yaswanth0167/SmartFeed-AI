@@ -1,0 +1,2779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>SmartFeed AI - Cattle Feed Quality & Risk Intelligence System</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=20260910_admin_command_v101">
+    <!-- Local Chart.js for 100% Offline Responsive Dashboard Charts -->
+    <script src="/static/js/chart.min.js"></script>
+</head>
+<body>
+
+    <!-- =============================================================
+         🌟 SMARTFEED AI FULL-SCREEN ONBOARDING STAGE
+         Screen 1: Splash Screen (Logo + "START THE APP")
+         Screen 2: Language Selection (Logo + Telugu/Hindi/English + "Next →")
+         Screen 3: Authentication Gate (Logo + Sign In & Register)
+         ============================================================= -->
+    <div id="app-entry-stage" class="app-entry-stage">
+        <div class="entry-stage-backdrop-glow emerald-glow"></div>
+        <div class="entry-stage-backdrop-glow blue-glow"></div>
+
+        <div class="entry-stage-box">
+            
+            <!-- SCREEN 1: Splash Screen with Logo & START THE APP -->
+            <div id="entry-screen-splash" class="entry-screen active">
+                <div class="entry-logo-wrapper">
+                    <div class="entry-logo-ring"></div>
+                    <img src="/static/assets/logo.png" class="entry-logo-img" alt="SmartFeed AI Logo" />
+                </div>
+
+                <div class="entry-badge-row">
+                    <span class="entry-mini-badge">
+                        <span class="pulse-dot"></span>
+                        <span>SMART INDIA HACKATHON 2026 • AI AGRI-TECH</span>
+                    </span>
+                </div>
+
+                <h1 class="entry-brand-title">SmartFeed AI</h1>
+                <div class="entry-brand-motto" id="entry-brand-motto">FEED SMART • FARM BETTER • GROW TOGETHER</div>
+                <p class="entry-brand-desc">
+                    AI-Powered Smart Cattle Feed & Silage Diagnostic Intelligence Platform. 
+                    Computer Vision Defect Analysis, Multi-Factor Safety Risk Assessment & Tamper-Evident QR Traceability.
+                </p>
+
+                <div class="entry-action-area">
+                    <!-- Quick language toggle pills before launching -->
+                    <div class="splash-lang-quick-row" style="display: flex; justify-content: center; gap: 8px; margin-bottom: 14px;">
+                        <button type="button" class="btn-lang-pill active" id="splash-lang-te" onclick="selectSplashLang('te')" style="padding: 7px 16px; border-radius: 20px; border: 1.5px solid #10B981; background: rgba(16, 185, 129, 0.18); color: #047857; font-weight: 700; cursor: pointer; font-size: 0.92rem;">🇮🇳 తెలుగు</button>
+                        <button type="button" class="btn-lang-pill" id="splash-lang-hi" onclick="selectSplashLang('hi')" style="padding: 7px 16px; border-radius: 20px; border: 1.5px solid #CBD5E1; background: #ffffff; color: #475569; font-weight: 700; cursor: pointer; font-size: 0.92rem;">🇮🇳 हिंदी</button>
+                        <button type="button" class="btn-lang-pill" id="splash-lang-en" onclick="selectSplashLang('en')" style="padding: 7px 16px; border-radius: 20px; border: 1.5px solid #CBD5E1; background: #ffffff; color: #475569; font-weight: 700; cursor: pointer; font-size: 0.92rem;">🇬🇧 English</button>
+                    </div>
+
+                    <button id="btn-start-the-app" class="btn-start-the-app" onclick="goToEntryScreen('language')">
+                        <span id="btn-start-app-title">🚀 START THE APP</span>
+                        <span class="btn-sub-label" id="btn-start-sublabel">Launch Diagnostic System</span>
+                    </button>
+
+                    <div style="margin-top: 14px; display: flex; justify-content: center; align-items: center; gap: 14px; font-size: 0.88rem;">
+                        <a href="javascript:void(0)" onclick="goToEntryScreen('auth')" style="color: #047857; font-weight: 700; text-decoration: none; padding: 6px 14px; background: rgba(16, 185, 129, 0.1); border-radius: 8px;" id="link-splash-login">🔑 Farmer & Admin Login / లాగిన్ →</a>
+                        <span style="color: #94A3B8;">•</span>
+                        <a href="javascript:void(0)" onclick="goToEntryScreen('language')" style="color: #475569; font-weight: 600; text-decoration: none;" id="link-splash-lang">🌐 Language Options →</a>
+                    </div>
+                </div>
+
+                <div class="entry-footer-pills">
+                    <span class="entry-pill">📸 Vision Defect Screening</span>
+                    <span class="entry-pill">⭐ 0-100 Health Score</span>
+                    <span class="entry-pill">⚠️ Safe Urea Intelligence</span>
+                    <span class="entry-pill">📶 100% Offline Ready</span>
+                </div>
+            </div>
+
+            <!-- SCREEN 2: Language Selection (Logo + Language + Next Button) -->
+            <div id="entry-screen-language" class="entry-screen" style="display: none;">
+                <div class="entry-top-logo-compact">
+                    <img src="/static/assets/logo.png" alt="Logo" />
+                    <span class="entry-compact-title">SmartFeed AI</span>
+                </div>
+
+                <h2 class="entry-screen-heading" id="entry-lang-heading">Choose Your Language</h2>
+                <div class="entry-screen-subheading" id="entry-lang-subheading">Select preferred language for diagnostics, advisories & native voice</div>
+
+                <div class="entry-lang-cards-grid">
+                    <!-- Option 1: Telugu (Default) -->
+                    <div class="entry-lang-card active" id="lang-card-te" onclick="selectEntryLanguage('te')">
+                        <div class="lang-check-circle">✓</div>
+                        <div class="lang-flag-icon">🇮🇳</div>
+                        <div class="lang-card-text-col">
+                            <div class="lang-primary-text">తెలుగు</div>
+                            <div class="lang-secondary-text">Telugu</div>
+                            <div class="lang-desc-text">రైతు సలహాలు, మేత పరీక్షలు & స్పష్టమైన తెలుగు వాయిస్ ఆడియో</div>
+                        </div>
+                        <div class="lang-tag-pill">తెలుగు</div>
+                    </div>
+
+                    <!-- Option 2: Hindi -->
+                    <div class="entry-lang-card" id="lang-card-hi" onclick="selectEntryLanguage('hi')">
+                        <div class="lang-check-circle">✓</div>
+                        <div class="lang-flag-icon">🇮🇳</div>
+                        <div class="lang-card-text-col">
+                            <div class="lang-primary-text">हिंदी</div>
+                            <div class="lang-secondary-text">Hindi</div>
+                            <div class="lang-desc-text">पशु आहार गुणवत्ता, यूरिया मिलावट अलर्ट व हिंदी वॉयस मार्गदर्शन</div>
+                        </div>
+                        <div class="lang-tag-pill">हिंदी</div>
+                    </div>
+
+                    <!-- Option 3: English -->
+                    <div class="entry-lang-card" id="lang-card-en" onclick="selectEntryLanguage('en')">
+                        <div class="lang-check-circle">✓</div>
+                        <div class="lang-flag-icon">🇬🇧</div>
+                        <div class="lang-card-text-col">
+                            <div class="lang-primary-text">English</div>
+                            <div class="lang-secondary-text">Global Technical</div>
+                            <div class="lang-desc-text">Complete diagnostic lab, OpenCV vision analytics & QR passports</div>
+                        </div>
+                        <div class="lang-tag-pill">English</div>
+                    </div>
+                </div>
+
+                <div class="entry-nav-buttons-row">
+                    <button type="button" class="btn btn-secondary" onclick="goToEntryScreen('splash')" style="padding: 12px 24px;">
+                        <span id="btn-lang-back-txt">← Back</span>
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="goToEntryScreen('auth')" style="padding: 12px 32px; font-size: 1.05rem;">
+                        <span id="btn-lang-next-txt">Next →</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SCREEN 3: Sign In & Registration Gate -->
+            <div id="entry-screen-auth" class="entry-screen" style="display: none;">
+                <div class="entry-top-logo-compact">
+                    <img src="/static/assets/logo.png" alt="Logo" />
+                    <span class="entry-compact-title">SmartFeed AI</span>
+                </div>
+
+                <h2 class="entry-screen-heading" id="entry-auth-heading">Sign In to SmartFeed AI</h2>
+                <div class="entry-screen-subheading" id="entry-auth-subheading">Farmer & Cooperative Admin Secure Portal Access</div>
+
+                <!-- Tabs: Sign In vs Register -->
+                <div class="auth-tabs-row" style="margin-top: 14px;">
+                    <button id="entry-tab-login" class="auth-tab-btn active" onclick="switchEntryAuthTab('login')">
+                        <span id="entry-tab-login-txt">🔑 Sign In</span>
+                    </button>
+                    <button id="entry-tab-register" class="auth-tab-btn" onclick="switchEntryAuthTab('register')">
+                        <span id="entry-tab-reg-txt">📝 Register Farm</span>
+                    </button>
+                </div>
+
+                <!-- Error Alert Box -->
+                <div id="entry-auth-error-box" style="display: none; background: #FEF2F2; border: 1.5px solid #FCA5A5; color: #991B1B; border-radius: 10px; padding: 10px 14px; font-size: 0.86rem; font-weight: 700; margin-bottom: 14px;"></div>
+
+                <!-- FORM A: Sign In -->
+                <form id="entry-form-login" onsubmit="handleEntryLoginSubmit(event)" autocomplete="off">
+                    <div class="form-group" style="text-align: left;">
+                        <label class="form-label" for="entry-login-mobile" id="lbl-entry-login-mobile">📱 Mobile Number</label>
+                        <input type="tel" id="entry-login-mobile" name="smartfeed_auth_phone" class="form-input" placeholder="10-digit mobile number" required pattern="[0-9]{10}" autocomplete="off" value="">
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label class="form-label" for="entry-login-password" id="lbl-entry-login-pwd">🔒 Password</label>
+                        <input type="password" id="entry-login-password" name="smartfeed_auth_secret" class="form-input" placeholder="Enter password" required autocomplete="new-password" value="">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" style="padding: 13px; font-size: 1rem; margin-top: 8px;">
+                        <span id="btn-entry-signin-txt">🔑 Sign In →</span>
+                    </button>
+                    <div style="text-align: center; margin-top: 14px; font-size: 0.85rem; color: var(--slate-600);">
+                        <span id="lbl-entry-new-farmer-prompt">New farmer?</span> <a href="javascript:void(0)" onclick="switchEntryAuthTab('register')" style="color: var(--primary-emerald); font-weight: 800;" id="link-entry-create-account">Create Account & Setup Farm →</a>
+                    </div>
+                    <div style="text-align: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--slate-200);">
+                        <button type="button" class="btn-demo-pill" style="border-color: #10B981; color: #047857; font-weight: 700; width: 100%; justify-content: center; padding: 9px;" onclick="quickLoginGuest()">
+                            ⚡ Explore as Guest (అతిథిగా కొనసాగండి)
+                        </button>
+                    </div>
+                </form>
+
+                <!-- FORM B: Register -->
+                <form id="entry-form-register" style="display: none;" onsubmit="handleEntryRegisterSubmit(event)">
+                    <div class="form-group" style="text-align: left;">
+                        <label class="form-label" for="entry-reg-fullname" id="lbl-entry-reg-name">👤 Full Name</label>
+                        <input type="text" id="entry-reg-fullname" class="form-input" placeholder="e.g. Ramesh Patel" required>
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label class="form-label" for="entry-reg-mobile" id="lbl-entry-reg-mobile">📱 Mobile Number</label>
+                        <input type="tel" id="entry-reg-mobile" class="form-input" placeholder="10-digit mobile number" required pattern="[0-9]{10}">
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label class="form-label" for="entry-reg-email" id="lbl-entry-reg-email">📧 Email <small style="color: var(--slate-400); font-weight: normal;">(Optional)</small></label>
+                        <input type="email" id="entry-reg-email" class="form-input" placeholder="Optional email address">
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label class="form-label" for="entry-reg-password" id="lbl-entry-reg-pwd">🔒 Password</label>
+                        <input type="password" id="entry-reg-password" class="form-input" placeholder="At least 4 characters" required minlength="4">
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label class="form-label" for="entry-reg-confirm-password" id="lbl-entry-reg-cpwd">🔒 Confirm Password</label>
+                        <input type="password" id="entry-reg-confirm-password" class="form-input" placeholder="Re-enter password" required minlength="4">
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label class="form-label" id="lbl-entry-reg-lang">🌐 Preferred Language</label>
+                        <div class="lang-radio-grid">
+                            <label class="lang-radio-label">
+                                <input type="radio" name="entry-reg-lang" value="te" checked>
+                                <span>🇮🇳 తెలుగు</span>
+                            </label>
+                            <label class="lang-radio-label">
+                                <input type="radio" name="entry-reg-lang" value="hi">
+                                <span>🇮🇳 हिंदी</span>
+                            </label>
+                            <label class="lang-radio-label">
+                                <input type="radio" name="entry-reg-lang" value="en">
+                                <span>🇬🇧 English</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" style="padding: 13px; font-size: 1rem; margin-top: 8px;">
+                        <span id="btn-entry-reg-txt">📝 Create Account →</span>
+                    </button>
+                    <div style="text-align: center; margin-top: 14px; font-size: 0.85rem; color: var(--slate-600);">
+                        <span id="lbl-entry-already-registered">Already registered?</span> <a href="javascript:void(0)" onclick="switchEntryAuthTab('login')" style="color: var(--primary-emerald); font-weight: 800;" id="link-entry-signin">Sign In here →</a>
+                    </div>
+                </form>
+
+                <div style="margin-top: 16px; text-align: left;">
+                    <button type="button" class="btn btn-secondary" onclick="goToEntryScreen('language')" style="padding: 8px 16px; font-size: 0.82rem;">
+                        <span id="btn-entry-back-lang-txt">← Back to Language</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- =============================================================
+         🛡️ MAIN APPLICATION WORKSPACE (LOCKED & GATED UNTIL LOGIN)
+         ============================================================= -->
+    <div id="main-app-container" class="main-app-container" style="display: none;">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+        <!-- Official Logo Emblem with Revolving Conic Halo -->
+        <div class="sidebar-brand">
+            <div class="sidebar-logo-container">
+                <div class="sidebar-spinning-ring"></div>
+                <div class="sidebar-logo-floating">
+                    <img src="/static/assets/logo.png" class="sidebar-logo-img" alt="SmartFeed AI Logo" style="width: 82px !important; height: 82px !important; max-width: 82px !important; border-radius: 50%; object-fit: contain; display: block;" />
+                </div>
+            </div>
+            <div class="sidebar-title" id="sidebar-brand-title">SmartFeed AI</div>
+            <div class="sidebar-slogan" id="sidebar-brand-slogan">FEED SMART • FARM BETTER</div>
+        </div>
+
+        <!-- Offline Status Pill -->
+        <div class="status-pill">
+            <div class="pulse-dot"></div>
+            <span id="sidebar-status-text">OFFLINE READY • LOCAL AI ACTIVE</span>
+        </div>
+
+        <!-- Navigation Menu (Dynamically swapped based on User Role: Admin vs Farmer) -->
+        <ul class="nav-menu" id="app-nav-menu">
+            <li class="nav-item active" data-tab="home">
+                <span class="nav-icon">🏠</span>
+                <span id="nav-home">Home</span>
+            </li>
+            <li class="nav-item" data-tab="scanner">
+                <span class="nav-icon">📸</span>
+                <span id="nav-scanner">Quality Scanner</span>
+            </li>
+            <li class="nav-item" data-tab="adulteration">
+                <span class="nav-icon">⚠️</span>
+                <span id="nav-adulteration">Adulteration Check</span>
+            </li>
+            <li class="nav-item" data-tab="advisory">
+                <span class="nav-icon">🤖</span>
+                <span id="nav-advisory">AI Advisory</span>
+            </li>
+            <li class="nav-item" data-tab="dashboard">
+                <span class="nav-icon">📊</span>
+                <span id="nav-dashboard">Dashboard</span>
+            </li>
+            <li class="nav-item" data-tab="passport">
+                <span class="nav-icon">📦</span>
+                <span id="nav-passport">Feed Passport</span>
+            </li>
+            <li class="nav-item" data-tab="lookup">
+                <span class="nav-icon">🔎</span>
+                <span id="nav-lookup">Batch Lookup</span>
+            </li>
+        </ul>
+
+        <!-- Sidebar Controls -->
+        <div class="sidebar-controls">
+            <label class="control-label" id="sidebar-lang-label">🌐 Language / భాష</label>
+            <select id="global-language-select" class="styled-select" onchange="handleLanguageSelectChange(this.value)">
+                <option value="te">🇮🇳 తెలుగు (Telugu)</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="hi">🇮🇳 हिंदी (Hindi)</option>
+            </select>
+
+            <label class="control-label" id="sidebar-engine-label" style="margin-top: 12px;">Advisory Engine</label>
+            <select id="global-advisory-provider" class="styled-select">
+                <option value="auto">⚡ Auto (Cloud LLM / Offline)</option>
+                <option value="offline">📶 100% Offline Rule-Based</option>
+            </select>
+        </div>
+
+        <div class="sidebar-footer" id="sidebar-footer-text">
+            <strong>Smart India Hackathon 2026</strong><br>
+            Low-Cost Software Prototype<br>
+            Zero Specialized Hardware Required
+        </div>
+    </aside>
+
+    <!-- =============================================================
+         Main Application Content Area
+         ============================================================= -->
+    <main class="main-wrapper">
+
+        <!-- Universal Top App Header Bar (User Session & Role Access) -->
+        <header class="app-top-header">
+            <div class="top-header-left">
+                <div class="header-logo-badge" onclick="switchTab('home')" style="cursor: pointer;">
+                    <img src="/static/assets/logo.png" class="header-logo-img" alt="Logo" style="width: 36px; height: 36px; border-radius: 50%; object-fit: contain;">
+                </div>
+                <div>
+                    <div class="top-header-title">SmartFeed AI</div>
+                    <div class="top-header-sub" id="top-header-sub">SIH 2026 • AI Agri-Tech Cattle Diagnostic Platform</div>
+                </div>
+            </div>
+            <div class="top-header-right">
+                <div id="user-session-bar" class="user-session-bar">
+                    <!-- Populated dynamically by app.js -->
+                </div>
+                <div class="header-lang-wrapper" title="Select Application Language">
+                    <span>🌐</span>
+                    <select id="top-language-select" class="header-lang-select" onchange="handleLanguageSelectChange(this.value)">
+                        <option value="te">తెలుగు</option>
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Top App Header Bar (Visible on mobile screens <= 680px) -->
+        <header class="mobile-top-bar">
+            <div class="mobile-brand" onclick="switchTab('home')" style="cursor: pointer;">
+                <div class="mobile-logo-circle">
+                    <img src="/static/assets/logo.png" class="mobile-logo-img" alt="Logo" />
+                </div>
+                <div>
+                    <div class="mobile-brand-title">SmartFeed AI</div>
+                    <div class="mobile-brand-sub">SIH 2026 • Agri-Tech AI</div>
+                </div>
+            </div>
+            <div class="mobile-lang-wrapper" title="Select Language">
+                <span>🌐</span>
+                <select id="mobile-language-select" class="header-lang-select" onchange="handleLanguageSelectChange(this.value)">
+                    <option value="te">తెలుగు</option>
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- =========================================================
+             TAB 1: 🏠 HOME
+             ========================================================= -->
+        <section id="tab-home" class="tab-content active">
+
+            <!-- =========================================================
+                 VIEW A: 🏠 STEP 5 PERSONALIZED FARMER DASHBOARD
+                 ========================================================= -->
+            <div id="farmer-dashboard-view" style="display: none;">
+                <!-- Farmer Welcome Hero Banner -->
+                <div class="farmer-welcome-hero">
+                    <div class="farmer-welcome-top">
+                        <div>
+                            <div class="farmer-greet-title">
+                                👋 Welcome, <span id="farmer-dash-name">Farmer</span>!
+                            </div>
+                            <div class="farmer-farm-meta">
+                                <span>🌾 <strong id="farmer-dash-farm-name">My Farm</strong></span>
+                                <span>•</span>
+                                <span>📍 <span id="farmer-dash-village">Village</span></span>
+                                <span>•</span>
+                                <span>🌐 <span id="farmer-dash-lang">Telugu</span></span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-secondary" onclick="startFarmSetupWizard(true)" style="background: rgba(255,255,255,0.18); color: #FFF; border-color: rgba(255,255,255,0.3); font-size: 0.82rem;">
+                                <span>⚙️</span>
+                                <span id="btn-edit-farm">Edit Farm Setup</span>
+                            </button>
+                            <button class="btn btn-primary" onclick="switchTab('scanner')" style="box-shadow: 0 4px 14px rgba(0,0,0,0.2);">
+                                <span>📸</span>
+                                <span id="btn-dash-new-scan">Scan Today's Feed</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 7 Farm Summary Badges Grid -->
+                    <div class="farmer-kpi-pill-grid">
+                        <div class="farmer-kpi-pill">
+                            <div class="farmer-kpi-pill-icon">🐄</div>
+                            <div class="farmer-kpi-pill-val" id="fd-cows">0</div>
+                            <div class="farmer-kpi-pill-lbl" id="fd-lbl-cows">Cows</div>
+                        </div>
+                        <div class="farmer-kpi-pill">
+                            <div class="farmer-kpi-pill-icon">🐃</div>
+                            <div class="farmer-kpi-pill-val" id="fd-buffaloes">0</div>
+                            <div class="farmer-kpi-pill-lbl" id="fd-lbl-buffs">Buffaloes</div>
+                        </div>
+                        <div class="farmer-kpi-pill">
+                            <div class="farmer-kpi-pill-icon">🥛</div>
+                            <div class="farmer-kpi-pill-val" id="fd-lactating">0</div>
+                            <div class="farmer-kpi-pill-lbl" id="fd-lbl-lact">Lactating</div>
+                        </div>
+                        <div class="farmer-kpi-pill">
+                            <div class="farmer-kpi-pill-icon">🤰</div>
+                            <div class="farmer-kpi-pill-val" id="fd-pregnant">0</div>
+                            <div class="farmer-kpi-pill-lbl" id="fd-lbl-preg">Pregnant</div>
+                        </div>
+                        <div class="farmer-kpi-pill">
+                            <div class="farmer-kpi-pill-icon">🌾</div>
+                            <div class="farmer-kpi-pill-val" id="fd-main-feed" style="font-size: 0.90rem; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">Silage</div>
+                            <div class="farmer-kpi-pill-lbl" id="fd-lbl-feed">Main Feed</div>
+                        </div>
+                        <div class="farmer-kpi-pill">
+                            <div class="farmer-kpi-pill-icon">🏚️</div>
+                            <div class="farmer-kpi-pill-val" id="fd-storage" style="font-size: 0.90rem; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">Shed</div>
+                            <div class="farmer-kpi-pill-lbl" id="fd-lbl-storage">Storage</div>
+                        </div>
+                        <div class="farmer-kpi-pill" onclick="handleTile7Click()" style="cursor: pointer;" title="View Test History">
+                            <div class="farmer-kpi-pill-icon">🧪</div>
+                            <div class="farmer-kpi-pill-val" id="fd-tests">0</div>
+                            <div class="farmer-kpi-pill-lbl" id="fd-lbl-tests">Scans Done</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8 Main Feature Action Tiles Grid -->
+                <div class="farmer-features-title">
+                    <span>🌟</span>
+                    <span id="title-farmer-features">Farm Diagnostic & Advisory Hub (8 Main Tools)</span>
+                </div>
+                <div class="farmer-features-grid">
+                    <!-- Tile 1: Feed Scanner -->
+                    <div class="feature-tile-card" onclick="switchTab('scanner')">
+                        <div class="tile-icon-box">📸</div>
+                        <div class="tile-title" id="tile1-title">1. Feed Scanner</div>
+                        <div class="tile-subtitle" id="tile1-sub">మేత నాణ్యత స్కానర్</div>
+                        <div class="tile-desc" id="tile1-desc">Instant phone photo scan for discoloration, mould colonies, texture & 0–100 health score.</div>
+                        <div class="tile-action-btn" id="tile1-btn">🚀 Open Scanner →</div>
+                    </div>
+
+                    <!-- Tile 2: Urea Checker -->
+                    <div class="feature-tile-card accent-amber" onclick="switchTab('adulteration')">
+                        <div class="tile-icon-box">⚖️</div>
+                        <div class="tile-title" id="tile2-title">2. Urea Checker</div>
+                        <div class="tile-subtitle" id="tile2-sub">యూరియా కల్తీ & మోతాదు</div>
+                        <div class="tile-desc" id="tile2-desc">Screen chemical adulteration & calculate safe 4% straw ammoniation / 1% concentrate limits.</div>
+                        <div class="tile-action-btn" id="tile2-btn">🔬 Calculate Safe Urea →</div>
+                    </div>
+
+                    <!-- Tile 3: AI Advisory -->
+                    <div class="feature-tile-card accent-blue" onclick="switchTab('advisory')">
+                        <div class="tile-icon-box">🤖</div>
+                        <div class="tile-title" id="tile3-title">3. AI Advisory</div>
+                        <div class="tile-subtitle" id="tile3-sub">రైతు వాయిస్ సలహాలు</div>
+                        <div class="tile-desc" id="tile3-desc">Hear localized voice guidance in Telugu, Hindi or English tailored to your cattle conditions.</div>
+                        <div class="tile-action-btn" id="tile3-btn">🗣️ Listen Advisory →</div>
+                    </div>
+
+                    <!-- Tile 4: My Animals -->
+                    <div class="feature-tile-card accent-purple" onclick="openMyAnimalsModal()">
+                        <div class="tile-icon-box">🐄</div>
+                        <div class="tile-title" id="tile4-title">4. My Animals</div>
+                        <div class="tile-subtitle" id="tile4-sub">నా పశువుల వివరాలు</div>
+                        <div class="tile-desc" id="tile4-desc">Inspect your registered cows & buffaloes, lactation stages, and tailored feeding targets.</div>
+                        <div class="tile-action-btn" id="tile4-btn">🐄 View Cattle Profiles →</div>
+                    </div>
+
+                    <!-- Tile 5: Feed Diary -->
+                    <div class="feature-tile-card accent-emerald" onclick="openFeedDiaryModal()">
+                        <div class="tile-icon-box">🐄🌾</div>
+                        <div class="tile-title" id="tile5-title">5. Smart Feed Diary</div>
+                        <div class="tile-subtitle" id="tile5-sub">సమయ ప్రణాళిక & డైరీ</div>
+                        <div class="tile-desc" id="tile5-desc">Morning, afternoon, evening smart feeding schedule, reminders, and milk yield insights.</div>
+                        <div class="tile-action-btn" id="tile5-btn">🌾 Open Smart Diary →</div>
+                    </div>
+
+                    <!-- Tile 6: My Dashboard -->
+                    <div class="feature-tile-card accent-blue" onclick="switchTab('dashboard')">
+                        <div class="tile-icon-box">📊</div>
+                        <div class="tile-title" id="tile6-title">6. My Dashboard</div>
+                        <div class="tile-subtitle" id="tile6-sub">ఫారమ్ ఎనలిటిక్స్</div>
+                        <div class="tile-desc" id="tile6-desc">View quality trends, safety risk charts, and progressive early spoilage warnings.</div>
+                        <div class="tile-action-btn" id="tile6-btn">📈 Open Dashboard →</div>
+                    </div>
+
+                    <!-- Tile 7: My History -->
+                    <div class="feature-tile-card accent-amber" onclick="handleTile7Click()">
+                        <div class="tile-icon-box">📜</div>
+                        <div class="tile-title" id="tile7-title">7. My History</div>
+                        <div class="tile-subtitle" id="tile7-sub">పరీక్షల చరిత్ర</div>
+                        <div class="tile-desc" id="tile7-desc">Look back at all past feed scans, health scores, and saved batch audit certificates.</div>
+                        <div class="tile-action-btn" id="tile7-btn">📋 View History →</div>
+                    </div>
+
+                    <!-- Tile 8: QR Feed Passport -->
+                    <div class="feature-tile-card accent-purple" onclick="switchTab('passport')">
+                        <div class="tile-icon-box">🪪</div>
+                        <div class="tile-title" id="tile8-title">8. QR Passport</div>
+                        <div class="tile-subtitle" id="tile8-sub">డిజిటల్ ఫీడ్ పాస్‌పోర్ట్</div>
+                        <div class="tile-desc" id="tile8-desc">Generate official tamper-evident batch passports with verified QR for milk cooperatives.</div>
+                        <div class="tile-action-btn" id="tile8-btn">📦 View Passport →</div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     📜 DEDICATED FARMER TEST HISTORY SECTION
+                     ========================================================= -->
+                <div id="farmer-history-section" class="card" style="margin-top: 28px; scroll-margin-top: 80px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+                        <div>
+                            <div class="section-title" style="margin-bottom: 2px;">
+                                <span>📜</span>
+                                <span id="farmer-history-section-title">My Feed Diagnostic History</span>
+                            </div>
+                            <div style="font-size: 0.84rem; color: var(--slate-500);" id="farmer-history-section-sub">
+                                Past analyzed feed batches, health scores, risk alerts, and digital passports under your farm account.
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn btn-secondary" onclick="loadFarmerDashboardData()" style="font-size: 0.82rem; padding: 6px 12px;">
+                                <span>🔄</span>
+                                <span id="btn-refresh-farmer-history">Refresh History</span>
+                            </button>
+                            <button class="btn btn-primary" onclick="switchTab('scanner')" style="font-size: 0.82rem; padding: 6px 12px;">
+                                <span>📸</span>
+                                <span id="btn-new-scan-farmer-history">New Quality Scan</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Farmer History Quick Stats Bar -->
+                    <div id="farmer-history-stats-bar" style="display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+                        <div style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 10px; padding: 8px 16px; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.1rem;">🔬</span>
+                            <div>
+                                <div style="font-size: 0.72rem; color: var(--slate-500); font-weight: 700; text-transform: uppercase;" id="farmer-hist-lbl-total">Total Scans</div>
+                                <div id="farmer-hist-total-count" style="font-size: 1.1rem; font-weight: 900; color: var(--slate-900);">0</div>
+                            </div>
+                        </div>
+                        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 10px; padding: 8px 16px; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.1rem;">🟢</span>
+                            <div>
+                                <div style="font-size: 0.72rem; color: var(--primary-emerald); font-weight: 700; text-transform: uppercase;" id="farmer-hist-lbl-safe">Safe Batches</div>
+                                <div id="farmer-hist-safe-count" style="font-size: 1.1rem; font-weight: 900; color: var(--primary-emerald);">0</div>
+                            </div>
+                        </div>
+                        <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 10px; padding: 8px 16px; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.1rem;">🚨</span>
+                            <div>
+                                <div style="font-size: 0.72rem; color: var(--crimson-danger); font-weight: 700; text-transform: uppercase;" id="farmer-hist-lbl-risk">Risk Flagged</div>
+                                <div id="farmer-hist-risk-count" style="font-size: 1.1rem; font-weight: 900; color: var(--crimson-danger);">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Farmer History Table Container -->
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid var(--slate-200); color: var(--slate-600); background: var(--slate-50);">
+                                    <th style="padding: 10px 12px;" id="fth-batch">Batch ID</th>
+                                    <th style="padding: 10px 12px;" id="fth-sample">Feed Sample</th>
+                                    <th style="padding: 10px 12px;" id="fth-score">Quality Score</th>
+                                    <th style="padding: 10px 12px;" id="fth-badge">Status</th>
+                                    <th style="padding: 10px 12px;" id="fth-concern">Findings / Primary Risk</th>
+                                    <th style="padding: 10px 12px;" id="fth-shelf">Safe Shelf Life</th>
+                                    <th style="padding: 10px 12px;" id="fth-date">Date & Time</th>
+                                    <th style="padding: 10px 12px; text-align: right;" id="fth-action">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="farmer-history-tbody">
+                                <tr>
+                                    <td colspan="8" style="padding: 30px; text-align: center; color: var(--slate-500);" id="farmer-hist-loading-msg">
+                                        Loading your test history...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 VIEW B: 🛡️ DISTRICT COOPERATIVE ADMIN COMMAND CENTER
+                 ========================================================= -->
+            <div id="admin-dashboard-view" style="display: none;">
+                <!-- Grand Executive Command Hero -->
+                <div class="admin-header-hero command-center">
+                    <div class="admin-jurisdiction-badge">
+                        <span>🛡️</span>
+                        <span>OFFICIAL DAIRY UNION SURVEILLANCE • JURISDICTION: TEL-WGL-049</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <div style="font-size: 1.55rem; font-weight: 900; margin-bottom: 4px; letter-spacing: -0.5px;">
+                                🏛️ District Dairy Cooperative Command Center
+                            </div>
+                            <div style="font-size: 0.90rem; color: #93C5FD; font-weight: 600; margin-bottom: 6px;">
+                                వరంగల్ జిల్లా పాల సహకార సమాఖ్య — క్వాలిటీ, కల్తీ నియంత్రణ & పశు సంరక్షణ పోర్టల్
+                            </div>
+                            <div style="font-size: 0.82rem; color: rgba(255, 255, 255, 0.8);">
+                                Real-Time Feed Spoilage Surveillance • Farmer Registry • BIS IS:2052 Compliance • Emergency Broadcasts
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-secondary" onclick="exportAdminBatchesCSV()" style="background: rgba(255,255,255,0.15); color: #FFF; border-color: rgba(255,255,255,0.3); font-size: 0.84rem; padding: 8px 14px;">
+                                <span>📥</span>
+                                <span>Export Audit Report (CSV)</span>
+                            </button>
+                            <button class="btn btn-primary" onclick="switchAdminTab('broadcast')" style="background: #10B981; border-color: #059669; font-size: 0.84rem; padding: 8px 14px;">
+                                <span>📢</span>
+                                <span>Dispatch Alert</span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="loadAdminPortalData()" style="background: rgba(255,255,255,0.15); color: #FFF; border-color: rgba(255,255,255,0.3); font-size: 0.84rem; padding: 8px 14px;">
+                                <span>🔄</span>
+                                <span>Live Refresh</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 High-Impact District Command KPI Cards -->
+                <div class="admin-kpi-grid command-kpi">
+                    <div class="admin-kpi-card command-card">
+                        <div class="admin-kpi-lbl">👨‍🌾 Cooperative Farmers</div>
+                        <div class="admin-kpi-val" id="admin-kpi-farmers">0</div>
+                        <div style="font-size: 0.72rem; color: var(--slate-500); margin-top: 4px;">Enrolled Producers</div>
+                    </div>
+                    <div class="admin-kpi-card command-card" style="border-top-color: #2563EB;">
+                        <div class="admin-kpi-lbl">🐄 Monitored Cattle</div>
+                        <div class="admin-kpi-val" id="admin-kpi-cattle">0</div>
+                        <div style="font-size: 0.72rem; color: var(--slate-500); margin-top: 4px;">Cows & Buffaloes</div>
+                    </div>
+                    <div class="admin-kpi-card command-card" style="border-top-color: #7C3AED;">
+                        <div class="admin-kpi-lbl">🔬 District Feed Audits</div>
+                        <div class="admin-kpi-val" id="admin-kpi-tests">0</div>
+                        <div style="font-size: 0.72rem; color: var(--slate-500); margin-top: 4px;">Batches Assessed</div>
+                    </div>
+                    <div class="admin-kpi-card command-card" style="border-top-color: #EF4444;">
+                        <div class="admin-kpi-lbl">🚨 Contamination Alerts</div>
+                        <div class="admin-kpi-val" id="admin-kpi-alerts" style="color: var(--crimson-danger);">0</div>
+                        <div style="font-size: 0.72rem; color: #DC2626; margin-top: 4px; font-weight: 700;">Mould / Urea Incidents</div>
+                    </div>
+                    <div class="admin-kpi-card command-card" style="border-top-color: #059669;">
+                        <div class="admin-kpi-lbl">🛡️ Safety Compliance</div>
+                        <div class="admin-kpi-val" id="admin-kpi-compliance" style="color: #059669;">100%</div>
+                        <div style="font-size: 0.72rem; color: #047857; margin-top: 4px; font-weight: 700;">BIS Quality Index</div>
+                    </div>
+                    <div class="admin-kpi-card command-card" style="border-top-color: #D97706;">
+                        <div class="admin-kpi-lbl">🥛 Monitored Milk Yield</div>
+                        <div class="admin-kpi-val" id="admin-kpi-milk">36 L</div>
+                        <div style="font-size: 0.72rem; color: var(--slate-500); margin-top: 4px;">Estimated Daily Output</div>
+                    </div>
+                </div>
+
+                <!-- Admin Sub-Navigation Tabs Bar -->
+                <div class="admin-subnav-bar">
+                    <button class="admin-subnav-btn active" id="admin-btn-tab-overview" onclick="switchAdminTab('overview')">
+                        <span>🏛️</span>
+                        <span>Cooperative Overview</span>
+                    </button>
+                    <button class="admin-subnav-btn" id="admin-btn-tab-farmers" onclick="switchAdminTab('farmers')">
+                        <span>👥</span>
+                        <span>Farmer Master Registry</span>
+                    </button>
+                    <button class="admin-subnav-btn" id="admin-btn-tab-batches" onclick="switchAdminTab('batches')">
+                        <span>🔬</span>
+                        <span>District Batch Audit Log</span>
+                    </button>
+                    <button class="admin-subnav-btn" id="admin-btn-tab-surveillance" onclick="switchAdminTab('surveillance')">
+                        <span>🗺️</span>
+                        <span>Village Risk Surveillance</span>
+                    </button>
+                    <button class="admin-subnav-btn" id="admin-btn-tab-broadcast" onclick="switchAdminTab('broadcast')">
+                        <span>📢</span>
+                        <span>Broadcast Advisories</span>
+                    </button>
+                    <button class="admin-subnav-btn" id="admin-btn-tab-standards" onclick="switchAdminTab('standards')">
+                        <span>⚖️</span>
+                        <span>BIS IS:2052 Standards</span>
+                    </button>
+                </div>
+
+                <!-- SUB-VIEW 1: Cooperative Overview & Risk Summary -->
+                <div id="admin-view-overview">
+                    <div class="admin-overview-grid">
+                        <!-- Left: Live Surveillance Ticker & Recent Flagged Batches -->
+                        <div class="card" style="margin-bottom: 0;">
+                            <div class="section-title">
+                                <span>🚨</span>
+                                <span>Active Contamination Incidents & Clinical Action Protocols</span>
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--slate-600); margin-bottom: 14px;">
+                                Automated early warning alerts triggered by CV vision models or stoichiometric chemical spikes.
+                            </div>
+                            <div id="admin-recent-alerts-box">
+                                <div style="padding: 14px; background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 10px; margin-bottom: 10px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <strong style="color: #991B1B;">🔴 Fungal Mould & High Moisture Spoilage Flagged</strong>
+                                        <span class="admin-status-badge danger">High Risk</span>
+                                    </div>
+                                    <div style="font-size: 0.83rem; color: #7F1D1D; margin-top: 4px;">
+                                        Target Batch: <code>SFA-2026-000011</code> (Mouldy Feed Pellet) • Warangal Rural
+                                    </div>
+                                    <div style="font-size: 0.80rem; color: #991B1B; margin-top: 6px; background: rgba(255,255,255,0.6); padding: 6px 10px; border-radius: 6px;">
+                                        <strong>⚠️ Advisory Action:</strong> Immediately discard surface colonies. Do NOT feed to lactating cows (Aflatoxin M1 transfer risk). Apply dry lime in storage pit.
+                                    </div>
+                                </div>
+                                <div style="padding: 14px; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <strong style="color: #92400E;">⚠️ Non-Protein Nitrogen (NPN) Fertilizer Adulteration Screen</strong>
+                                        <span class="admin-status-badge attention">Watchlist</span>
+                                    </div>
+                                    <div style="font-size: 0.83rem; color: #78350F; margin-top: 4px;">
+                                        Stoichiometric Screening Protocol Active across 5 village dairy cooperatives.
+                                    </div>
+                                    <div style="font-size: 0.80rem; color: #92400E; margin-top: 6px; background: rgba(255,255,255,0.6); padding: 6px 10px; border-radius: 6px;">
+                                        <strong>ℹ️ BIS IS:2052 Check:</strong> Maximum allowable urea in compound cattle feed is 1.0%. Ammoniation capped at 4.0 kg per 100 kg straw.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Cooperative Quick Actions & Contact -->
+                        <div class="card" style="margin-bottom: 0;">
+                            <div class="section-title">
+                                <span>⚡</span>
+                                <span>Quick Operations</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                                <button class="btn btn-secondary" onclick="switchAdminTab('farmers')" style="text-align: left; justify-content: flex-start; padding: 10px 14px;">
+                                    <span>👥</span>
+                                    <span>Browse All Farmers & Cattle</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="switchAdminTab('batches')" style="text-align: left; justify-content: flex-start; padding: 10px 14px;">
+                                    <span>🔬</span>
+                                    <span>Inspect Feed Batches</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="switchAdminTab('surveillance')" style="text-align: left; justify-content: flex-start; padding: 10px 14px;">
+                                    <span>🗺️</span>
+                                    <span>View Village Risk Heatmap</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="switchAdminTab('broadcast')" style="text-align: left; justify-content: flex-start; padding: 10px 14px;">
+                                    <span>📢</span>
+                                    <span>Send Advisory Broadcast</span>
+                                </button>
+                                <button class="btn btn-primary" onclick="exportAdminBatchesCSV()" style="text-align: left; justify-content: flex-start; padding: 10px 14px; background: #1E3A8A; border-color: #1D4ED8;">
+                                    <span>📥</span>
+                                    <span>Export Cooperative CSV Audit</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-VIEW 2: 👥 Farmer Master Registry & Cattle Inventory -->
+                <div id="admin-view-farmers" style="display: none;">
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+                            <div>
+                                <div class="section-title" style="margin-bottom: 2px;">
+                                    <span>👥</span>
+                                    <span>Cooperative Farmer Master Registry</span>
+                                </div>
+                                <div style="font-size: 0.84rem; color: var(--slate-500);">
+                                    All registered milk producers, geographic location, cattle inventory breakdown, and feed testing frequency.
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="text" id="admin-farmer-search" class="admin-search-input" placeholder="🔍 Search farmer, mobile, village..." oninput="filterAdminFarmers()">
+                                <select id="admin-village-filter" class="admin-filter-select" onchange="filterAdminFarmers()">
+                                    <option value="all">📍 All Villages</option>
+                                    <option value="Warangal Rural">Warangal Rural</option>
+                                    <option value="Kankipadu">Kankipadu</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Farmer Name</th>
+                                        <th>Mobile</th>
+                                        <th>Village / Society</th>
+                                        <th>Cattle Breakdown</th>
+                                        <th>Main Feed / Storage</th>
+                                        <th>Tests Done</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-farmers-tbody">
+                                    <tr><td colspan="7" style="text-align: center; padding: 20px; color: var(--slate-500);">Loading farmer registry...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-VIEW 3: 🔬 District-Wide Batch Audit Log -->
+                <div id="admin-view-batches" style="display: none;">
+                    <div class="card">
+                        <div class="admin-filter-bar">
+                            <div>
+                                <div style="font-size: 1.05rem; font-weight: 800; color: var(--slate-900);">
+                                    🔬 District Feed Batch Audit & Quality Registry
+                                </div>
+                                <div style="font-size: 0.82rem; color: var(--slate-500);">
+                                    Audit certificates, nutritional compliance, and contamination records across all cooperative societies.
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+                                <input type="text" id="admin-batch-search" class="admin-search-input" placeholder="🔍 Search Batch ID, Farmer..." oninput="filterAdminBatches()">
+                                <select id="admin-batch-risk-filter" class="admin-filter-select" onchange="filterAdminBatches()">
+                                    <option value="all">⚡ All Batches</option>
+                                    <option value="safe">🟢 Safe Batches Only</option>
+                                    <option value="high">🚨 High Risk Batches Only</option>
+                                </select>
+                                <button class="btn btn-secondary" onclick="exportAdminBatchesCSV()" style="font-size: 0.82rem; padding: 8px 12px;">
+                                    <span>📥</span>
+                                    <span>Export CSV</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Batch ID</th>
+                                        <th>Farmer & Village</th>
+                                        <th>Sample Type</th>
+                                        <th>Quality Score</th>
+                                        <th>Overall Risk</th>
+                                        <th>Primary Finding</th>
+                                        <th>Safe Shelf Life</th>
+                                        <th>Date & Time</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-batches-tbody">
+                                    <tr><td colspan="9" style="text-align: center; padding: 20px; color: var(--slate-500);">Loading audit log...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-VIEW 4: 🗺️ Village Risk Surveillance Heatmap -->
+                <div id="admin-view-surveillance" style="display: none;">
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+                            <div>
+                                <div class="section-title" style="margin-bottom: 2px;">
+                                    <span>🗺️</span>
+                                    <span>Village Dairy Society Surveillance & Spoilage Matrix</span>
+                                </div>
+                                <div style="font-size: 0.84rem; color: var(--slate-500);">
+                                    Village-level geographic risk distribution, tested batches, and prevailing contamination threats.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Village / Society Cluster</th>
+                                        <th>Enrolled Farmers</th>
+                                        <th>Cattle Census</th>
+                                        <th>Audits Conducted</th>
+                                        <th>Flagged Risk Incidents</th>
+                                        <th>Avg Quality Score</th>
+                                        <th>Surveillance Status</th>
+                                        <th>Prevailing Threat</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-surveillance-tbody">
+                                    <tr><td colspan="8" style="text-align: center; padding: 20px; color: var(--slate-500);">Loading village surveillance matrix...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-VIEW 5: 📢 Broadcast Advisories & Emergency Dispatch -->
+                <div id="admin-view-broadcast" style="display: none;">
+                    <div class="admin-broadcast-grid">
+                        <!-- Form: Dispatch Alert -->
+                        <div class="card">
+                            <div class="section-title">
+                                <span>📢</span>
+                                <span>Dispatch Cooperative Advisory Alert</span>
+                            </div>
+                            <div style="font-size: 0.84rem; color: var(--slate-500); margin-bottom: 14px;">
+                                Send instant advisory notifications to registered farmers in specific village societies or district-wide.
+                            </div>
+
+                            <form id="admin-broadcast-form" onsubmit="submitAdminBroadcast(event)">
+                                <div class="form-group">
+                                    <label class="form-label" for="admin-bc-title">📌 Alert Title</label>
+                                    <input type="text" id="admin-bc-title" class="form-input" placeholder="e.g. ⚠️ Monsoon Silage Mould Precaution" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="admin-bc-target">📍 Target Village Society</label>
+                                    <select id="admin-bc-target" class="form-input styled-select">
+                                        <option value="All Villages">🌍 All District Villages (District-Wide)</option>
+                                        <option value="Warangal Rural">📍 Warangal Rural</option>
+                                        <option value="Hanamkonda Dairy Cluster">📍 Hanamkonda Dairy Cluster</option>
+                                        <option value="Jangaon Milk Society">📍 Jangaon Milk Society</option>
+                                        <option value="Narsampet Silage Union">📍 Narsampet Silage Union</option>
+                                        <option value="Parkal Livestock Zone">📍 Parkal Livestock Zone</option>
+                                    </select>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <div class="form-group">
+                                        <label class="form-label" for="admin-bc-level">🚨 Alert Severity</label>
+                                        <select id="admin-bc-level" class="form-input styled-select">
+                                            <option value="Warning">⚠️ Warning (Yellow / Amber)</option>
+                                            <option value="Emergency">🚨 High Emergency (Red Alert)</option>
+                                            <option value="Info">ℹ️ Informational Guidance (Green)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="admin-bc-category">🏷️ Advisory Category</label>
+                                        <select id="admin-bc-category" class="form-input styled-select">
+                                            <option value="Mould & Toxins">Mould & Mycotoxins</option>
+                                            <option value="Urea Safety">Urea & NPN Safety</option>
+                                            <option value="Quality Compliance">BIS Quality Compliance</option>
+                                            <option value="Seasonal Fodder">Seasonal Fodder Management</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="admin-bc-msg">📝 Advisory Message (Telugu / English)</label>
+                                    <textarea id="admin-bc-msg" class="form-input" rows="4" placeholder="Enter actionable advisory message for farmers..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full" style="padding: 12px; font-size: 0.95rem;">
+                                    <span>🚀</span>
+                                    <span>Dispatch Cooperative Broadcast Alert →</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Live Broadcast Bulletin Feed -->
+                        <div class="card">
+                            <div class="section-title">
+                                <span>📜</span>
+                                <span>Active Cooperative Bulletins Stream</span>
+                            </div>
+                            <div style="font-size: 0.84rem; color: var(--slate-500); margin-bottom: 14px;">
+                                Published notices currently visible to dairy farmers on their home view and advisory portal.
+                            </div>
+                            <div id="admin-broadcasts-feed" style="max-height: 520px; overflow-y: auto;">
+                                <div style="text-align: center; padding: 20px; color: var(--slate-500);">Loading broadcast bulletins...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-VIEW 6: ⚖️ BIS IS:2052 Standards Compliance -->
+                <div id="admin-view-standards" style="display: none;">
+                    <div class="card">
+                        <div class="section-title">
+                            <span>⚖️</span>
+                            <span>Bureau of Indian Standards (BIS IS:2052) — Compounded Cattle Feed Specifications</span>
+                        </div>
+                        <div style="font-size: 0.85rem; color: var(--slate-600); margin-bottom: 16px;">
+                            Statutory quality specifications enforced by District Dairy Milk Unions for feed procurement and testing:
+                        </div>
+                        <div class="admin-table-container">
+                            <table class="admin-standards-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nutrient / Quality Parameter</th>
+                                        <th>BIS Type I (High Potential)</th>
+                                        <th>BIS Type II (Maintenance)</th>
+                                        <th>Cooperative Test Method</th>
+                                        <th>Health Risk if Deviated</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Moisture</strong></td>
+                                        <td>Max 11.0%</td>
+                                        <td>Max 11.0%</td>
+                                        <td>Digital NIR / Oven Drying</td>
+                                        <td>&gt;11%: Rapid Aspergillus mould &amp; aflatoxin contamination</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Crude Protein (CP)</strong></td>
+                                        <td>Min 20.0%</td>
+                                        <td>Min 18.0%</td>
+                                        <td>Kjeldahl Nitrogen Check</td>
+                                        <td>&lt;18%: 15-25% drop in milk production and negative nitrogen balance</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Crude Fat (Ether Extract)</strong></td>
+                                        <td>Min 2.5%</td>
+                                        <td>Min 2.0%</td>
+                                        <td>Solvent Extraction</td>
+                                        <td>&lt;2.0%: Milk fat depression (low SNF &amp; fat %)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Crude Fiber</strong></td>
+                                        <td>Max 12.0%</td>
+                                        <td>Max 14.0%</td>
+                                        <td>Acid-Alkali Digestion</td>
+                                        <td>&gt;14%: Excessive husk/filler adulteration</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Non-Protein Nitrogen (Urea Equivalent)</strong></td>
+                                        <td>Max 1.0% in concentrate</td>
+                                        <td>Max 1.0% in concentrate</td>
+                                        <td>Stoichiometric NPN Screen</td>
+                                        <td>&gt;1.0%: Fatal acute ammonia toxicity &amp; rumen alkalosis</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Aflatoxin B1 / M1 Limit</strong></td>
+                                        <td>Max 20 ppb (0.02 mg/kg)</td>
+                                        <td>Max 20 ppb (0.02 mg/kg)</td>
+                                        <td>MobileNetV2 CV + ELISA</td>
+                                        <td>&gt;20 ppb: Milk rejection, liver damage, carcinogenic milk supply</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Urea Straw Ammoniation</strong></td>
+                                        <td>Safe Cap: 4.0 kg / 100 kg straw</td>
+                                        <td>Safe Cap: 4.0 kg / 100 kg straw</td>
+                                        <td>Safe Urea Calculator Protocol</td>
+                                        <td>&gt;4%: Incomplete curing, poisonous urea runoff</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 VIEW C: 🌐 GUEST / DEFAULT HERO SHOWCASE (Not Logged In)
+                 ========================================================= -->
+            <div id="guest-home-view">
+                <!-- Farmer Login Prompt Card -->
+                <div style="background: linear-gradient(135deg, #ECFDF5, #F0FDF4); border: 2px solid #86EFAC; border-radius: 16px; padding: 18px 22px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.1);">
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                        <span style="font-size: 2.2rem;">🌾</span>
+                        <div>
+                            <div style="font-size: 1.05rem; font-weight: 800; color: #065F46;" id="guest-card-title">
+                                Farmer Login & Farm Profile Setup
+                            </div>
+                            <div style="font-size: 0.82rem; color: #047857;" id="guest-card-sub">
+                                Sign in or register to set up your cattle count, monitor individual cows & buffaloes, and get customized voice advisory!
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="openAuthModal('login')" style="padding: 8px 16px; font-size: 0.84rem;">
+                            <span>🔑</span>
+                            <span id="btn-guest-login">Sign In</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="openAuthModal('register')" style="padding: 8px 16px; font-size: 0.84rem;">
+                            <span>📝</span>
+                            <span id="btn-guest-register">Register Farm</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grand Opening Split Showcase Hero Stage -->
+                <div class="hero-stage">
+                    <!-- Dual Ambient Light Halos -->
+                    <div class="aura-emerald"></div>
+                    <div class="aura-blue"></div>
+
+                    <div class="hero-split-grid">
+                    <!-- Left: Headline, Motto, Description, Quick Action Buttons & Pills -->
+                    <div class="hero-left-content">
+                        <div class="hero-badge-container">
+                            <span class="hero-badge">
+                                <span class="pulse-dot"></span>
+                                <span id="hero-badge-text">SMART INDIA HACKATHON 2026 • AI AGRI-TECH INNOVATION</span>
+                            </span>
+                        </div>
+
+                        <h1 class="hero-title" id="hero-title-text">SmartFeed AI</h1>
+                        <div class="hero-motto" id="hero-motto-text">FEED SMART • FARM BETTER • GROW TOGETHER</div>
+                        <p class="hero-description" id="hero-desc-text">
+                            AI-Powered Smart Cattle Feed & Silage Quality Assessment, Multi-Factor Risk Intelligence, Explainable Advisory & QR Digital Traceability.
+                        </p>
+
+                        <!-- Quick Action Launch Buttons on Home -->
+                        <div class="hero-actions-row">
+                            <button class="btn btn-primary" onclick="switchTab('scanner')">
+                                <span>📸</span>
+                                <span id="home-btn-scan">Quality Scanner</span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="switchTab('adulteration')">
+                                <span>⚠️</span>
+                                <span id="home-btn-adulteration">Adulteration Check</span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="switchTab('advisory')">
+                                <span>🤖</span>
+                                <span id="home-btn-advisory">Farmer Advisory</span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="switchTab('dashboard')">
+                                <span>📊</span>
+                                <span id="home-btn-dashboard">Dashboard</span>
+                            </button>
+                        </div>
+
+                        <!-- Feature Capability Pills -->
+                        <div class="hero-pills" id="hero-pills-container">
+                            <span class="hero-pill">📸 CV Defect Vision</span>
+                            <span class="hero-pill">⭐ 0–100 Health Score</span>
+                            <span class="hero-pill">⚠️ Urea Spiking Risk</span>
+                            <span class="hero-pill">🗣️ Telugu • Hindi • English</span>
+                            <span class="hero-pill">📦 QR Digital Passport</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Neatly Framed Emblem Showcase Card with Live Telemetry -->
+                    <div class="hero-right-showcase">
+                        <div class="hero-emblem-card">
+                            <div class="hero-logo-wrapper">
+                                <div class="hero-logo-relative">
+                                    <div class="hero-spinning-ring"></div>
+                                    <div class="hero-logo-floating">
+                                        <img src="/static/assets/logo.png" class="hero-logo-img" alt="SmartFeed AI Logo" style="width: 114px !important; height: 114px !important; max-width: 114px !important; border-radius: 50%; object-fit: contain; display: block;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero-emblem-brand">SmartFeed AI Diagnostic Lab</div>
+                            <div class="hero-tele-status-list">
+                                <div class="hero-tele-status-item">
+                                    <span class="status-indicator-dot"></span>
+                                    <span>Edge Vision: Local &lt; 300ms</span>
+                                </div>
+                                <div class="hero-tele-status-item">
+                                    <span class="status-indicator-dot"></span>
+                                    <span>Risk Engine: 6-Factor Fusion</span>
+                                </div>
+                                <div class="hero-tele-status-item">
+                                    <span class="status-indicator-dot"></span>
+                                    <span>Voice Audio: Active (TE/HI/EN)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scientific Disclaimer Banner -->
+            <div class="alert-box alert-info">
+                <span>ℹ️</span>
+                <div id="home-sci-notice">
+                    <strong>Scientific Prototype Notice:</strong> SmartFeed AI delivers AI-based visual screening, OpenCV color/texture analytics, and multi-factor risk estimation. It is designed as a software decision support tool for dairy farmers. Laboratory testing is recommended for chemical confirmation.
+                </div>
+            </div>
+
+            <!-- Edge AI Telemetry Bar -->
+            <div class="telemetry-grid">
+                <div class="telemetry-card">
+                    <div class="telemetry-icon">⚡</div>
+                    <div>
+                        <div class="telemetry-label" id="home-tele-edge-label">Edge AI Engine</div>
+                        <div class="telemetry-val" id="home-tele-edge-val">&lt; 300ms Local Latency</div>
+                    </div>
+                </div>
+                <div class="telemetry-card">
+                    <div class="telemetry-icon">🛡️</div>
+                    <div>
+                        <div class="telemetry-label" id="home-tele-risk-label">Risk Intelligence</div>
+                        <div class="telemetry-val" id="home-tele-risk-val">6-Factor Fusion</div>
+                    </div>
+                </div>
+                <div class="telemetry-card">
+                    <div class="telemetry-icon">🗣️</div>
+                    <div>
+                        <div class="telemetry-label" id="home-tele-voice-label">Multilingual Voice</div>
+                        <div class="telemetry-val" id="home-tele-voice-val">EN • తెలుగు • हिंदी</div>
+                    </div>
+                </div>
+                <div class="telemetry-card">
+                    <div class="telemetry-icon">📦</div>
+                    <div>
+                        <div class="telemetry-label" id="home-tele-trace-label">Traceability</div>
+                        <div class="telemetry-val" id="home-tele-trace-val">QR Digital Passport</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pitch & Innovations Grid -->
+            <div class="grid-2">
+                <div class="card">
+                    <div class="section-title" id="home-why-title">🌟 Why SmartFeed AI?</div>
+                    <p id="home-why-p1" style="color: var(--slate-600); line-height: 1.6; margin-bottom: 14px;">
+                        Smallholder dairy farmers and rural milk cooperatives frequently face devastating drops in milk production, reproductive failure, and cattle toxicity caused by <strong>spoilage, mould mycotoxins, and urea adulteration</strong> in cattle feed and silage.
+                    </p>
+                    <p id="home-why-p2" style="color: var(--slate-600); line-height: 1.6; margin-bottom: 16px;">
+                        Traditional solutions require expensive laboratory testing equipment or physical spectrometers that rural farmers cannot afford.
+                    </p>
+                    <div id="home-pitch-box" style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-sm); padding: 16px;">
+                        <strong style="color: var(--primary-emerald);">💡 SIH Prototype Pitch:</strong>
+                        <p style="color: var(--slate-700); font-size: 0.92rem; margin-top: 6px;">
+                            <em>"SmartFeed AI turns any standard smartphone camera into an intelligent feed diagnostic laboratory combining computer vision, OpenCV visual analysis, multi-factor risk assessment, simulated nutrition inputs, explainable multilingual advisory, and QR digital passports."</em>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="section-title" id="home-usps-title">🏆 Core Innovations (USPs)</div>
+                    <ul id="home-usps-list" style="list-style: none; display: flex; flex-direction: column; gap: 12px; color: var(--slate-700); font-size: 0.95rem;">
+                        <li>⭐ <strong>SmartFeed Health Score (0–100)</strong>: Single transparent score combining visual, fungal, particle, adulteration, nutrient, and storage parameters.</li>
+                        <li>🔍 <strong>Explainable AI ("Why This Result?")</strong>: Transparent point deduction breakdown explaining why feed is risky.</li>
+                        <li>🗣️ <strong>Multilingual Voice Advisory</strong>: Instant farmer advice in <strong>English, Telugu, and Hindi</strong> with browser audio synthesis.</li>
+                        <li>📦 <strong>QR Digital Feed Passport</strong>: Tamper-evident batch certificates (<code style="color: var(--accent-blue);">SFA-YYYY-XXXXXX</code>) for dairy cooperatives.</li>
+                        <li>📈 <strong>Early Spoilage Trend Warnings</strong>: Trajectory analysis detecting progressive quality deterioration before visible rot.</li>
+                        <li>📶 <strong>100% Offline Capability</strong>: Fully functional without internet connectivity.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Interactive Quick-Launch Grid -->
+            <div class="section-title" id="home-quick-title" style="margin-top: 10px;">🚀 Interactive Feature Quick-Launch</div>
+            <div class="quick-launch-grid">
+                <div class="launch-card">
+                    <div class="launch-icon">📸</div>
+                    <div class="launch-title" id="home-card1-title">1. Feed Scanner</div>
+                    <div class="launch-desc" id="home-card1-desc">Upload photo or use camera to detect discoloration, mould colonies & particles.</div>
+                    <button id="btn-home-card1" class="btn btn-primary btn-full" onclick="switchTab('scanner')">🚀 Open Scanner</button>
+                </div>
+                <div class="launch-card">
+                    <div class="launch-icon">⚠️</div>
+                    <div class="launch-title" id="home-card2-title">2. Adulteration Risk</div>
+                    <div class="launch-desc" id="home-card2-desc">Check urea spiking & simulated non-protein nitrogen risks with interactive sliders.</div>
+                    <button id="btn-home-card2" class="btn btn-secondary btn-full" onclick="switchTab('adulteration')">🔬 Check Adulteration</button>
+                </div>
+                <div class="launch-card">
+                    <div class="launch-icon">🤖</div>
+                    <div class="launch-title" id="home-card3-title">3. Farmer Advisory</div>
+                    <div class="launch-desc" id="home-card3-desc">Listen to expert voice recommendations in Telugu, Hindi, or English.</div>
+                    <button id="btn-home-card3" class="btn btn-secondary btn-full" onclick="switchTab('advisory')">🗣️ Voice Advisory</button>
+                </div>
+                <div class="launch-card">
+                    <div class="launch-icon">📊</div>
+                    <div class="launch-title" id="home-card4-title">4. Analytics Dashboard</div>
+                    <div class="launch-desc" id="home-card4-desc">Live health score trends, risk distributions, and early spoilage warnings.</div>
+                    <button id="btn-home-card4" class="btn btn-secondary btn-full" onclick="switchTab('dashboard')">📈 View Dashboard</button>
+                </div>
+                <div class="launch-card">
+                    <div class="launch-icon">📦</div>
+                    <div class="launch-title" id="home-card5-title">5. QR Passport</div>
+                    <div class="launch-desc" id="home-card5-desc">Inspect and download verifiable digital passports for dairy cooperatives.</div>
+                    <button id="btn-home-card5" class="btn btn-secondary btn-full" onclick="switchTab('passport')">📜 Verify Passport</button>
+                </div>
+            </div> <!-- /guest-home-view -->
+        </section>
+
+        <!-- =========================================================
+             TAB 2: 📸 QUALITY SCANNER (The Core Demo Flow)
+             ========================================================= -->
+        <section id="tab-scanner" class="tab-content">
+            <div class="page-header-bar">
+                <div class="header-logo-badge">
+                    <img src="/static/assets/logo.png" class="header-logo-img" alt="Logo" style="width: 44px !important; height: 44px !important; max-width: 44px !important; border-radius: 50%; object-fit: contain; display: block;" />
+                </div>
+                <div>
+                    <div class="page-header-title" id="scanner-header-title">📸 SmartFeed Quality Scanner</div>
+                    <div class="page-header-subtitle" id="scanner-header-subtitle">Multi-Factor Computer Vision, Risk Intelligence & Digital Feed Passport Generation</div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <!-- Left: Feed Sample & Nutrition Controls -->
+                <div class="card">
+                    <div class="section-title" id="scanner-step1-title">1. Capture or Select Feed Sample</div>
+
+                    <!-- Preset Demo Samples Quick Selector -->
+                    <div style="margin-bottom: 16px;">
+                        <label class="control-label" id="scanner-preset-label">⚡ 1-Click Demo Sample Testing</label>
+                        <select id="preset-sample-select" class="styled-select" onchange="handlePresetSelect()">
+                            <option value="">-- Choose a Preset Demo Image --</option>
+                            <option value="sample_healthy_feed.jpg">🟢 Healthy Golden Cattle Feed (Expected: Safe, ~90+ Score)</option>
+                            <option value="sample_mouldy_feed.jpg">🔴 Mouldy Feed with Fungal Patches (Expected: High Risk)</option>
+                            <option value="sample_burnt_feed.jpg">🟡 Burnt / Heat Damaged Feed (Expected: Needs Attention)</option>
+                            <option value="sample_fresh_silage.jpg">🟢 Fresh Maize Silage (Expected: Safe)</option>
+                        </select>
+                    </div>
+
+                    <!-- Dropzone File Upload -->
+                    <div id="dropzone" class="dropzone">
+                        <div class="dropzone-icon">📷</div>
+                        <strong style="color: var(--slate-800);" id="scanner-dropzone-title">Drag & Drop Feed Image or Click to Browse</strong>
+                        <p style="font-size: 0.8rem; color: var(--slate-500); margin-top: 4px;" id="scanner-dropzone-sub">Supports JPG, PNG, WEBP</p>
+                        <input type="file" id="file-input" accept="image/*" style="display: none;" onchange="handleFileSelect(event)">
+                    </div>
+
+                    <!-- Image Preview -->
+                    <div id="preview-wrapper" class="preview-container" style="display: none;">
+                        <img id="preview-img" class="preview-img" alt="Feed Sample Preview">
+                    </div>
+
+                    <!-- Sample Type -->
+                    <div style="margin-bottom: 16px;">
+                        <label class="control-label" id="scanner-sample-type-label">Sample Classification</label>
+                        <select id="scanner-sample-type" class="styled-select">
+                            <option value="Cattle Feed Pellet">Cattle Feed Pellet</option>
+                            <option value="Maize Silage">Maize Silage</option>
+                            <option value="Cottonseed Cake">Cottonseed Cake</option>
+                            <option value="Wheat Bran">Wheat Bran</option>
+                            <option value="Mixed Ration (TMR)">Total Mixed Ration (TMR)</option>
+                        </select>
+                    </div>
+
+                    <!-- Nutrition & Storage Condition Sliders -->
+                    <div class="section-title" id="scanner-step2-title" style="font-size: 1.1rem; margin-top: 20px;">2. Nutritional & Storage Parameters</div>
+
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-slider-cp">Crude Protein (CP %)</span>
+                            <span id="val-cp" class="slider-val-badge">20.0%</span>
+                        </div>
+                        <input type="range" id="slider-cp" min="5" max="45" step="0.5" value="20" oninput="updateSliderBadge('cp', this.value, '%')">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-slider-moisture">Moisture Content (%)</span>
+                            <span id="val-moisture" class="slider-val-badge">10.0%</span>
+                        </div>
+                        <input type="range" id="slider-moisture" min="5" max="40" step="0.5" value="10" oninput="updateSliderBadge('moisture', this.value, '%')">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-slider-npn">Non-Protein Nitrogen (NPN %)</span>
+                            <span id="val-npn" class="slider-val-badge">0.5%</span>
+                        </div>
+                        <input type="range" id="slider-npn" min="0" max="5" step="0.1" value="0.5" oninput="updateSliderBadge('npn', this.value, '%')">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-slider-days">Storage Duration (Days)</span>
+                            <span id="val-days" class="slider-val-badge">5 Days</span>
+                        </div>
+                        <input type="range" id="slider-days" min="1" max="60" step="1" value="5" oninput="updateSliderBadge('days', this.value, ' Days')">
+                    </div>
+
+                    <div style="margin: 16px 0;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.92rem; cursor: pointer;">
+                            <input type="checkbox" id="check-smell" style="width: 18px; height: 18px; accent-color: var(--primary-emerald);">
+                            <span id="label-check-smell">Noticeable Abnormal / Sour Smell Detected</span>
+                        </label>
+                    </div>
+
+                    <button id="btn-scan" class="btn btn-primary btn-full" style="height: 48px; font-size: 1.05rem;" onclick="runFeedScan()">
+                        🚀 Run Full Diagnostic Scan
+                    </button>
+                </div>
+
+                <!-- Right: Analysis Output & 0-100 Score Gauge -->
+                <div class="card" id="scan-results-container">
+                    <div class="section-title" id="scanner-step3-title">3. SmartFeed Diagnostic Assessment</div>
+
+                    <!-- Initial Placeholder State -->
+                    <div id="results-placeholder" style="text-align: center; padding: 60px 20px; color: var(--slate-500);">
+                        <div style="font-size: 3.5rem; margin-bottom: 12px;">🔬</div>
+                        <h3 id="results-placeholder-title" style="color: var(--slate-700); margin-bottom: 6px;">Awaiting Sample Submission</h3>
+                        <p id="results-placeholder-desc" style="font-size: 0.9rem; max-width: 320px; margin: 0 auto;">
+                            Select a preset demo sample or upload a feed image and click <strong>Run Diagnostic Scan</strong> to compute health score.
+                        </p>
+                    </div>
+
+                    <!-- Active Results Display (Hidden by default) -->
+                    <div id="results-content" style="display: none;">
+                        <!-- SVG Radial Dial -->
+                        <div class="gauge-card">
+                            <div id="gauge-heading" style="font-size: 0.82rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--slate-500);">
+                                🐄 SMARTFEED HEALTH SCORE
+                            </div>
+                            <div class="gauge-svg-container">
+                                <svg viewBox="0 0 160 160" class="gauge-svg">
+                                    <circle cx="80" cy="80" r="70" stroke="#E2E8F0" stroke-width="12" fill="transparent" />
+                                    <circle id="gauge-circle" cx="80" cy="80" r="70" stroke="#10B981" stroke-width="12" stroke-linecap="round" fill="transparent" stroke-dasharray="439.82" stroke-dashoffset="439.82" style="transition: stroke-dashoffset 1s ease-in-out;" />
+                                </svg>
+                                <div class="gauge-center-text">
+                                    <span id="gauge-score-val" class="gauge-score-number">--</span>
+                                    <span class="gauge-score-sub" id="gauge-score-sub">OUT OF 100</span>
+                                </div>
+                            </div>
+                            <div id="gauge-badge" class="safety-badge badge-safe">
+                                <span>🟢</span>
+                                <span id="gauge-badge-text">SAFE FOR USE</span>
+                            </div>
+                            <div id="gauge-concern" style="margin-top: 14px; font-size: 0.92rem; color: var(--slate-700);">
+                                <b>Primary Concern:</b> None detected.
+                            </div>
+                        </div>
+
+                        <!-- AI Feed Shelf Life & Spoilage Forecast Widget -->
+                        <div class="shelf-life-card" id="shelf-life-card" style="display: none; margin-top: 20px;">
+                            <div class="shelf-life-header">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-size: 1.25rem;">⏳</span>
+                                    <span id="shelf-life-card-title" style="font-weight: 800; font-size: 0.95rem; color: var(--slate-900);">AI Spoilage & Shelf-Life Forecast</span>
+                                </div>
+                                <span id="shelf-life-badge" class="shelf-badge badge-shelf-safe">SAFE</span>
+                            </div>
+
+                            <div class="shelf-main-metric">
+                                <div class="shelf-days-display">
+                                    <span id="shelf-days-num" class="shelf-days-number">--</span>
+                                    <span id="shelf-days-label" class="shelf-days-unit">Days Safe to Feed</span>
+                                </div>
+                                <div class="shelf-sub-info">
+                                    <div class="shelf-sub-item">
+                                        <span class="shelf-sub-label" id="shelf-sub-expiry-label">Safe Until:</span>
+                                        <strong id="shelf-until-date" class="shelf-sub-val">--</strong>
+                                    </div>
+                                    <div class="shelf-sub-item">
+                                        <span class="shelf-sub-label" id="shelf-sub-moist-label">Moisture Impact:</span>
+                                        <span id="shelf-moist-status" class="shelf-sub-val">--</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Visual Shelf-Life Timeline Bar -->
+                            <div class="shelf-progress-wrapper">
+                                <div class="shelf-progress-track">
+                                    <div id="shelf-progress-bar" class="shelf-progress-fill" style="width: 100%;"></div>
+                                </div>
+                                <div class="shelf-progress-labels">
+                                    <span id="shelf-timeline-now">Fresh / Today</span>
+                                    <span id="shelf-timeline-status">Safe Storage Window</span>
+                                    <span id="shelf-timeline-spoil">Spoilage Window</span>
+                                </div>
+                            </div>
+
+                            <!-- Farmer Storage Recommendation Alert -->
+                            <div id="shelf-action-box" class="shelf-action-box">
+                                <span id="shelf-action-icon" style="font-size: 1.2rem;">💡</span>
+                                <div id="shelf-action-text" style="font-size: 0.88rem; line-height: 1.4; color: var(--slate-800);">Loading recommendations...</div>
+                            </div>
+                        </div>
+
+                        <!-- 🐄 Animal-Specific Feed Recommendation & Dosage Card -->
+                        <div class="animal-rec-card" id="animal-rec-card" style="margin-top: 22px; background: #FFFFFF; border: 2px solid #86EFAC; border-radius: 16px; padding: 20px; box-shadow: 0 4px 16px rgba(16, 185, 129, 0.08);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <span style="font-size: 1.6rem;">🐄</span>
+                                    <div>
+                                        <div style="font-size: 1.08rem; font-weight: 800; color: #065F46;" id="animal-rec-header-title">
+                                            Animal-Specific Feed Recommendation & Daily Dosage
+                                        </div>
+                                        <div style="font-size: 0.80rem; color: #047857;" id="animal-rec-header-sub">
+                                            Animal-Specific Feed Recommendation • ICAR Dairy Cattle Nutrition Benchmarks
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-secondary" onclick="speakAnimalRecommendation()" id="btn-speak-animal-rec" style="background: #ECFDF5; border-color: #10B981; color: #065F46; padding: 6px 14px; font-size: 0.82rem; font-weight: 700;">
+                                    <span>🔊</span>
+                                    <span id="btn-speak-animal-rec-txt">Listen Voice Advisory</span>
+                                </button>
+                            </div>
+
+                            <!-- Quick-Pick Herd Pills from Farmer Farm Setup -->
+                            <div id="animal-herd-pills-section" style="margin-bottom: 16px;">
+                                <div style="font-size: 0.82rem; font-weight: 700; color: var(--slate-700); margin-bottom: 8px;" id="lbl-quick-animal-select">
+                                    ⚡ Select From Your Cattle (1-Click Quick-Pick):
+                                </div>
+                                <div id="animal-herd-pills-container" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                    <!-- Rendered dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Interactive Animal Parameters Form -->
+                            <div style="background: #F8FAFC; border: 1px solid var(--slate-200); border-radius: 12px; padding: 14px; margin-bottom: 16px;">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; align-items: end;">
+                                    <!-- Species Selector -->
+                                    <div>
+                                        <label class="control-label" style="font-size: 0.80rem; font-weight: 700; color: var(--slate-700);" id="lbl-rec-species">
+                                            🐄 Animal Type
+                                        </label>
+                                        <select id="rec-animal-type" class="styled-select" onchange="onRecAnimalTypeChange()" style="font-size: 0.88rem; height: 38px; padding: 6px 10px;">
+                                            <option value="Cow">🐄 Cow</option>
+                                            <option value="Buffalo">🐃 Buffalo</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Stage Selector -->
+                                    <div>
+                                        <label class="control-label" style="font-size: 0.80rem; font-weight: 700; color: var(--slate-700);" id="lbl-rec-stage">
+                                            🤰 Physiological Stage
+                                        </label>
+                                        <select id="rec-lactation-stage" class="styled-select" onchange="onRecStageChange()" style="font-size: 0.88rem; height: 38px; padding: 6px 10px;">
+                                            <option value="Lactating">🥛 Lactating</option>
+                                            <option value="Pregnant">🤰 Pregnant</option>
+                                            <option value="Dry">🌾 Dry</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Milk Yield Slider -->
+                                    <div id="rec-milk-yield-group">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                            <label class="control-label" style="font-size: 0.80rem; font-weight: 700; color: var(--slate-700); margin: 0;" id="lbl-rec-milk">
+                                                🥛 Milk Yield / Production
+                                            </label>
+                                            <span id="val-rec-milk" class="slider-val-badge" style="background: #10B981; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.78rem; font-weight: 800;">8 L/day</span>
+                                        </div>
+                                        <input type="range" id="slider-rec-milk" min="1" max="30" step="0.5" value="8" style="width: 100%; accent-color: #10B981;" oninput="updateRecMilkBadge(this.value)">
+                                    </div>
+
+                                    <!-- Refresh / Calculate Button -->
+                                    <div>
+                                        <button class="btn btn-primary" onclick="recalculateAnimalRecommendation()" id="btn-recalculate-rec" style="width: 100%; height: 38px; font-size: 0.85rem; font-weight: 700;">
+                                            <span>✨</span>
+                                            <span id="btn-recalculate-rec-txt">Calculate Dosage</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recommendation Outcome Display -->
+                            <div id="animal-rec-results-box" style="display: none;">
+                                <!-- Suitability Headline Banner -->
+                                <div id="rec-verdict-banner" style="background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 10px; padding: 12px 16px; margin-bottom: 14px; display: flex; align-items: center; gap: 12px;">
+                                    <span id="rec-verdict-icon" style="font-size: 1.8rem;">✅</span>
+                                    <div style="flex: 1;">
+                                        <div id="rec-verdict-title" style="font-size: 1.02rem; font-weight: 800; color: #065F46;">
+                                            This feed is suitable and safe for your cattle!
+                                        </div>
+                                        <div id="rec-verdict-note" style="font-size: 0.82rem; color: #047857; margin-top: 2px;">
+                                            Quality score, crude protein, and moisture levels are well balanced.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 3 Dosage Metric Cards -->
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                                    <!-- Daily Dosage Card -->
+                                    <div style="background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border: 1px solid #86EFAC; border-radius: 12px; padding: 12px; text-align: center;">
+                                        <div style="font-size: 0.74rem; font-weight: 700; color: #15803D; text-transform: uppercase;" id="lbl-rec-daily-dose">Total Daily Dosage</div>
+                                        <div id="rec-val-daily-dose" style="font-size: 1.5rem; font-weight: 900; color: #065F46; margin: 4px 0;">4.5 kg</div>
+                                        <div style="font-size: 0.72rem; color: #166534;" id="lbl-rec-daily-sub">Recommended Daily Concentrate</div>
+                                    </div>
+
+                                    <!-- Morning Ration Card -->
+                                    <div style="background: #F8FAFC; border: 1px solid var(--slate-200); border-radius: 12px; padding: 12px; text-align: center;">
+                                        <div style="font-size: 0.74rem; font-weight: 700; color: var(--slate-600); text-transform: uppercase;" id="lbl-rec-morning-dose">🌅 Morning Feeding</div>
+                                        <div id="rec-val-morning-dose" style="font-size: 1.35rem; font-weight: 800; color: var(--slate-900); margin: 4px 0;">2.3 kg</div>
+                                        <div style="font-size: 0.72rem; color: var(--slate-500);" id="lbl-rec-morning-sub">50% Daily Share</div>
+                                    </div>
+
+                                    <!-- Evening Ration Card -->
+                                    <div style="background: #F8FAFC; border: 1px solid var(--slate-200); border-radius: 12px; padding: 12px; text-align: center;">
+                                        <div style="font-size: 0.74rem; font-weight: 700; color: var(--slate-600); text-transform: uppercase;" id="lbl-rec-evening-dose">🌆 Evening Feeding</div>
+                                        <div id="rec-val-evening-dose" style="font-size: 1.35rem; font-weight: 800; color: var(--slate-900); margin: 4px 0;">2.2 kg</div>
+                                        <div style="font-size: 0.72rem; color: var(--slate-500);" id="lbl-rec-evening-sub">50% Daily Share</div>
+                                    </div>
+                                </div>
+
+                                <!-- Balanced Companion Roughage Table -->
+                                <div style="background: #FFFFFF; border: 1px solid var(--slate-200); border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                                    <div style="font-weight: 800; font-size: 0.88rem; color: var(--slate-800); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                                        <span>🥗</span>
+                                        <span id="lbl-rec-balanced-title">Balanced Daily Diet Plan (ICAR Benchmark)</span>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; font-size: 0.82rem;">
+                                        <div style="background: #F8FAFC; padding: 8px 10px; border-radius: 8px; border: 1px solid #E2E8F0;">
+                                            <div style="color: var(--slate-500); font-size: 0.72rem;" id="lbl-rec-diet-green">🌿 Green Fodder</div>
+                                            <strong id="rec-val-green" style="color: #047857; font-size: 0.95rem;">20 kg</strong>
+                                        </div>
+                                        <div style="background: #F8FAFC; padding: 8px 10px; border-radius: 8px; border: 1px solid #E2E8F0;">
+                                            <div style="color: var(--slate-500); font-size: 0.72rem;" id="lbl-rec-diet-straw">🌾 Dry Straw</div>
+                                            <strong id="rec-val-straw" style="color: #B45309; font-size: 0.95rem;">4.0 kg</strong>
+                                        </div>
+                                        <div style="background: #F8FAFC; padding: 8px 10px; border-radius: 8px; border: 1px solid #E2E8F0;">
+                                            <div style="color: var(--slate-500); font-size: 0.72rem;" id="lbl-rec-diet-minerals">🧂 Mineral Mixture</div>
+                                            <strong id="rec-val-minerals" style="color: #4F46E5; font-size: 0.95rem;">60 g</strong>
+                                        </div>
+                                        <div style="background: #F8FAFC; padding: 8px 10px; border-radius: 8px; border: 1px solid #E2E8F0;">
+                                            <div style="color: var(--slate-500); font-size: 0.72rem;" id="lbl-rec-diet-water">💧 Clean Water</div>
+                                            <strong id="rec-val-water" style="color: #0284C7; font-size: 0.95rem;">60 L</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 4-Day Gradual Adaptation Timeline -->
+                                <div style="background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
+                                        <div style="font-weight: 800; font-size: 0.88rem; color: #92400E; display: flex; align-items: center; gap: 6px;">
+                                            <span>⚠️</span>
+                                            <span id="lbl-rec-adaptation-title">4-Day Gradual Adaptation Schedule</span>
+                                        </div>
+                                        <span id="lbl-rec-rumen-badge" style="font-size: 0.74rem; background: #FEF3C7; color: #B45309; padding: 2px 8px; border-radius: 8px; font-weight: 700;">Rumen Protection</span>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;" id="rec-transition-cards-grid">
+                                        <!-- Transition Day cards -->
+                                    </div>
+                                </div>
+
+                                <!-- Clinical Notes & Safety Alert -->
+                                <div id="rec-clinical-note-box" style="background: #EFF6FF; border: 1px solid #93C5FD; border-radius: 10px; padding: 10px 14px; font-size: 0.82rem; color: #1E40AF; line-height: 1.4;">
+                                    <strong><span id="lbl-rec-vet-prefix">ℹ️ Veterinary Advice:</span></strong> <span id="rec-clinical-note-txt">--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Explainable AI Deductions -->
+                        <div style="margin-top: 24px;">
+                            <div class="section-title" id="explainable-ai-title" style="font-size: 1.15rem;">
+                                🔍 Explainable AI: "Why This Result?"
+                            </div>
+                            <div id="deductions-list" class="deductions-list"></div>
+                        </div>
+
+                        <!-- Computer Vision Metrics Grid -->
+                        <div style="margin-top: 24px;">
+                            <div class="section-title" id="cv-metrics-title" style="font-size: 1.15rem;">
+                                👁️ OpenCV Vision Metrics
+                            </div>
+                            <div id="cv-metrics-grid" class="telemetry-grid" style="margin-top: 10px;"></div>
+                        </div>
+
+                        <!-- One-Click Passport Card -->
+                        <div style="margin-top: 24px; text-align: center; background: var(--emerald-bg); border: 1px solid var(--emerald-border); border-radius: var(--radius-md); padding: 18px;">
+                            <div id="passport-box-title" style="font-size: 0.88rem; font-weight: 700; color: var(--primary-dark);">
+                                📦 Digital Feed Passport Generated!
+                            </div>
+                            <div id="passport-batch-id-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 1.1rem; color: var(--accent-blue); margin: 6px 0;">
+                                SFA-2026-000000
+                            </div>
+                            <button id="btn-view-passport" class="btn btn-primary" onclick="switchTab('passport')">
+                                📜 View Certified Passport & QR Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             TAB 3: ⚠️ ADULTERATION CHECK
+             ========================================================= -->
+        <section id="tab-adulteration" class="tab-content">
+            <div class="page-header-bar">
+                <div class="header-logo-badge">
+                    <img src="/static/assets/logo.png" class="header-logo-img" alt="Logo" style="width: 44px !important; height: 44px !important; max-width: 44px !important; border-radius: 50%; object-fit: contain; display: block;" />
+                </div>
+                <div>
+                    <div class="page-header-title" id="adulteration-header-title">⚠️ Feed Adulteration & Urea Spiking Risk</div>
+                    <div class="page-header-subtitle" id="adulteration-header-subtitle">Non-Protein Nitrogen (NPN) Discrepancy & Visual Filler Particle Detection</div>
+                </div>
+            </div>
+
+            <div class="alert-box alert-warning">
+                <span>⚠️</span>
+                <div id="adulteration-alert-notice">
+                    <strong>Scientific Notice:</strong> Unethical suppliers may artificially inflate apparent crude protein content using inexpensive <strong>fertilizer-grade urea</strong> (46% Nitrogen) or chalk fillers. This module flags anomalous protein-to-nitrogen ratios. Laboratory HPLC/combustion testing is required for legal confirmation.
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="section-title" id="adulteration-params-title">🧪 Adulteration Simulator Parameters</div>
+
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-ad-cp">Crude Protein (CP %)</span>
+                            <span id="val-ad-cp" class="slider-val-badge">24.0%</span>
+                        </div>
+                        <input type="range" id="slider-ad-cp" min="10" max="45" step="0.5" value="24" oninput="updateSliderBadge('ad-cp', this.value, '%'); runAdulterationCheck();">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-ad-moisture">Moisture Content (%)</span>
+                            <span id="val-ad-moisture" class="slider-val-badge">11.0%</span>
+                        </div>
+                        <input type="range" id="slider-ad-moisture" min="5" max="35" step="0.5" value="11" oninput="updateSliderBadge('ad-moisture', this.value, '%'); runAdulterationCheck();">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-ad-npn">Non-Protein Nitrogen (NPN %)</span>
+                            <span id="val-ad-npn" class="slider-val-badge">1.8%</span>
+                        </div>
+                        <input type="range" id="slider-ad-npn" min="0" max="5" step="0.1" value="1.8" oninput="updateSliderBadge('ad-npn', this.value, '%'); runAdulterationCheck();">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-ad-powder">Visual Crystalline / Powder Particles</span>
+                            <span id="val-ad-powder" class="slider-val-badge">12</span>
+                        </div>
+                        <input type="range" id="slider-ad-powder" min="0" max="60" step="1" value="12" oninput="updateSliderBadge('ad-powder', this.value, ''); runAdulterationCheck();">
+                    </div>
+                </div>
+
+                <div class="card" id="adulteration-result-box">
+                    <div class="section-title" id="adulteration-output-title">📊 Adulteration Prediction Output</div>
+                    <div id="ad-badge-container" style="text-align: center; margin: 24px 0;">
+                        <div id="ad-badge" class="safety-badge badge-safe" style="font-size: 1.25rem;">
+                            <span>🟢</span>
+                            <span id="ad-badge-text">LOW ADULTERATION RISK</span>
+                        </div>
+                        <div id="ad-score-text" style="font-size: 1.05rem; font-weight: 700; color: var(--slate-700); margin-top: 10px;">
+                            Risk Score: 15 / 100
+                        </div>
+                    </div>
+                    <div id="ad-details-list" class="deductions-list"></div>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 Scientific Safe Urea Dosage & Straw Treatment Calculator (ICAR / NDDB)
+                 ========================================================= -->
+            <div class="card urea-calc-card" style="margin-top: 24px;">
+                <div class="urea-calc-header">
+                    <div>
+                        <div class="section-title" id="urea-calc-title" style="margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                            <span>🌾</span>
+                            <span>Scientific Safe Urea Dosage & Straw Treatment Calculator</span>
+                        </div>
+                        <div class="page-header-subtitle" id="urea-calc-subtitle" style="margin-bottom: 0;">
+                            ICAR & NDDB Certified Non-Toxic Urea Ammoniation & Daily Concentrate Mixing Guide
+                        </div>
+                    </div>
+                    <span class="badge-safe" id="urea-calc-standard-badge" style="padding: 6px 12px; border-radius: 9999px; font-weight: 700; font-size: 0.8rem;">
+                        ✅ ICAR 4% Standard
+                    </span>
+                </div>
+
+                <!-- Mode Switcher Tabs -->
+                <div class="urea-mode-toggle-bar" style="margin: 18px 0 20px 0;">
+                    <button id="btn-urea-mode-straw" class="urea-mode-btn active" onclick="switchUreaMode('straw_treatment')">
+                        🌾 Urea Straw Treatment
+                    </button>
+                    <button id="btn-urea-mode-concentrate" class="urea-mode-btn" onclick="switchUreaMode('concentrate_mix')">
+                        🥣 Daily Concentrate Ration Mixing
+                    </button>
+                </div>
+
+                <!-- Interactive Input Sliders -->
+                <div class="grid-2" style="margin-bottom: 20px;">
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-urea-qty">Dry Straw Quantity (kg)</span>
+                            <span id="val-urea-qty" class="slider-val-badge">100 kg</span>
+                        </div>
+                        <input type="range" id="slider-urea-qty" min="10" max="1000" step="10" value="100" oninput="updateUreaSliderBadge('urea-qty', this.value, ' kg'); runSafeUreaCalculator();">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span id="label-urea-animals">Number of Cattle</span>
+                            <span id="val-urea-animals" class="slider-val-badge">2 Animals</span>
+                        </div>
+                        <input type="range" id="slider-urea-animals" min="1" max="50" step="1" value="2" oninput="updateUreaSliderBadge('urea-animals', this.value, ' Animals'); runSafeUreaCalculator();">
+                    </div>
+                </div>
+
+                <!-- Live Results Telemetry Grid (4 KPIs) -->
+                <div class="telemetry-grid" style="margin-bottom: 20px;">
+                    <div class="telemetry-card" style="border-left: 4px solid var(--primary-emerald);">
+                        <div class="telemetry-icon">⚖️</div>
+                        <div>
+                            <div class="telemetry-label" id="label-kpi-urea">Scientifically Safe Urea</div>
+                            <div id="urea-kpi-safe-amount" class="telemetry-val" style="color: var(--primary-emerald);">4.0 kg</div>
+                        </div>
+                    </div>
+                    <div class="telemetry-card" style="border-left: 4px solid #3B82F6;">
+                        <div class="telemetry-icon">💧</div>
+                        <div>
+                            <div class="telemetry-label" id="label-kpi-water">Required Water</div>
+                            <div id="urea-kpi-water-amount" class="telemetry-val" style="color: #2563EB;">45.0 L</div>
+                        </div>
+                    </div>
+                    <div class="telemetry-card" style="border-left: 4px solid #F59E0B;">
+                        <div class="telemetry-icon">⏳</div>
+                        <div>
+                            <div class="telemetry-label" id="label-kpi-curing">Curing / Incubation</div>
+                            <div id="urea-kpi-curing-days" class="telemetry-val" style="color: #D97706; font-size: 1.15rem;">21–28 Days</div>
+                        </div>
+                    </div>
+                    <div class="telemetry-card" style="border-left: 4px solid #8B5CF6;">
+                        <div class="telemetry-icon">📈</div>
+                        <div>
+                            <div class="telemetry-label" id="label-kpi-protein">Nutritional Gain</div>
+                            <div id="urea-kpi-protein-boost" class="telemetry-val" style="color: #7C3AED; font-size: 1.05rem;">+5.0% CP Boost</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Localized Summary Banner with Audio Readout Button -->
+                <div class="urea-summary-card">
+                    <div style="flex: 1;">
+                        <div style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--primary-dark); margin-bottom: 4px;" id="label-advisory-summary">
+                            📋 RECOMMENDED DOSAGE SUMMARY
+                        </div>
+                        <div id="urea-summary-text" style="font-size: 0.98rem; font-weight: 600; color: var(--slate-800); line-height: 1.5;">
+                            For 100 kg dry straw, dissolve 4.0 kg Urea in 45.0 Liters of water (4% ICAR standard). Seal airtight for 21–28 days. Increases Crude Protein from 3.5% to 8.5%.
+                        </div>
+                    </div>
+                    <button id="btn-speak-urea" class="btn btn-secondary" style="white-space: nowrap; display: flex; align-items: center; gap: 8px;" onclick="speakUreaAdvisory()">
+                        <span>🔊</span>
+                        <span id="btn-speak-urea-text">Listen Voice Guide</span>
+                    </button>
+                </div>
+
+                <!-- Preparation Steps / SOP Checklist -->
+                <div id="urea-steps-container" style="margin-top: 22px;">
+                    <div class="section-title" id="urea-steps-title" style="font-size: 1.05rem; margin-bottom: 10px;">
+                        📝 Standard Operating Procedure
+                    </div>
+                    <ol id="urea-steps-list" class="urea-steps-list">
+                        <!-- Populated dynamically -->
+                    </ol>
+                </div>
+
+                <!-- Precautions & Mandatory Rules -->
+                <div style="margin-top: 18px;">
+                    <div class="section-title" id="urea-precautions-title" style="font-size: 1.05rem; margin-bottom: 8px;">
+                        ⚠️ Safety Precautions & Mandatory Rules
+                    </div>
+                    <ul id="urea-precautions-list" class="urea-precautions-list">
+                        <!-- Populated dynamically -->
+                    </ul>
+                </div>
+
+                <!-- Emergency Antidote Callout Box (First-Aid) -->
+                <div class="antidote-box" id="urea-antidote-box" style="margin-top: 20px;">
+                    <div class="antidote-icon">🚑</div>
+                    <div>
+                        <div class="antidote-title" id="urea-antidote-title">
+                            FIRST AID & EMERGENCY ANTIDOTE
+                        </div>
+                        <div class="antidote-text" id="urea-antidote-text">
+                            If accidental urea poisoning or bloat occurs, immediately drench with <strong>2–3 Liters of Vinegar (5% acetic acid)</strong> mixed with cold water to neutralize free ammonia in the rumen. Call a veterinarian immediately.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             TAB 4: 🤖 AI ADVISORY
+             ========================================================= -->
+        <section id="tab-advisory" class="tab-content">
+            <div class="page-header-bar">
+                <div class="header-logo-badge">
+                    <img src="/static/assets/logo.png" class="header-logo-img" alt="Logo" style="width: 44px !important; height: 44px !important; max-width: 44px !important; border-radius: 50%; object-fit: contain; display: block;" />
+                </div>
+                <div>
+                    <div class="page-header-title" id="advisory-header-title">🤖 Farmer Multilingual Advisory & Voice</div>
+                    <div class="page-header-subtitle" id="advisory-header-subtitle">Real Native Audio (Telugu, Hindi, English) with 1-Click Problem Statements</div>
+                </div>
+            </div>
+
+            <!-- Voice Player Audio Bar -->
+            <div class="audio-speaker-card">
+                <div>
+                    <div id="audio-speaker-heading" style="font-size: 0.78rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.85;">
+                        🔊 SMARTFEED NATIVE AUDIO ASSISTANT
+                    </div>
+                    <div id="audio-title" style="font-size: 1.35rem; font-weight: 800; margin-top: 4px;">
+                        Listen to Farmer Advisory in Native Voice
+                    </div>
+                    <div id="audio-subtitle" style="font-size: 0.9rem; opacity: 0.95; margin-top: 2px;">
+                        Native Voice Ready: English (Indian)
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div id="soundwave" class="soundwave-container">
+                        <div class="soundwave-bar"></div>
+                        <div class="soundwave-bar"></div>
+                        <div class="soundwave-bar"></div>
+                        <div class="soundwave-bar"></div>
+                        <div class="soundwave-bar"></div>
+                    </div>
+                    <button id="btn-speak" class="btn" style="background: #FFFFFF; color: var(--primary-emerald); border-radius: 9999px; padding: 12px 22px; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" onclick="toggleSpeech()">
+                        ▶ Play Voice Audio
+                    </button>
+                </div>
+            </div>
+
+            <!-- Language Switcher Bar -->
+            <div class="card" style="margin-bottom: 20px; padding: 16px 20px;">
+                <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;">🗣️</span>
+                        <strong style="font-size: 0.95rem; color: var(--slate-800);" id="advisory-lang-label">Farmer Language:</strong>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn btn-secondary lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧 English</button>
+                        <button class="btn btn-primary lang-btn" data-lang="te" onclick="setLanguage('te')">🇮🇳 తెలుగు (Telugu)</button>
+                        <button class="btn btn-secondary lang-btn" data-lang="hi" onclick="setLanguage('hi')">🇮🇳 हिंदी (Hindi)</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode Toggle Bar: 1-Click Presets vs Manual Custom Entry -->
+            <div class="mode-toggle-card">
+                <button id="btn-mode-preset" class="mode-tab-btn active" onclick="switchAdvisoryInputMode('preset')">
+                    ⚡ 1-Click Common Statements
+                </button>
+                <button id="btn-mode-manual" class="mode-tab-btn" onclick="switchAdvisoryInputMode('manual')">
+                    ✍️ Manual / Custom Problem Entry
+                </button>
+            </div>
+
+            <!-- MODE A: 1-Click Common Farmer Problem Statements Section -->
+            <div id="section-preset-problems" class="card" style="margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                    <div>
+                        <div class="section-title" style="margin-bottom: 2px;" id="problem-statements-title">
+                            👨‍🌾 1-Click Common Farmer Problem Statements
+                        </div>
+                        <p style="font-size: 0.88rem; color: var(--slate-500); margin: 0;" id="problem-statements-subtitle">
+                            Farmers don't need to type — simply tap the statement that matches your cattle's situation:
+                        </p>
+                    </div>
+                    <span id="instant-solution-badge" class="badge-safe" style="padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;">
+                        ⚡ Instant Solution
+                    </span>
+                </div>
+
+                <div id="farmer-problems-container" class="farmer-problems-grid">
+                    <!-- Dynamically populated localized cards -->
+                </div>
+            </div>
+
+            <!-- MODE B: Manual / Custom Problem Entry Section -->
+            <div id="section-manual-entry" class="card" style="margin-bottom: 20px; display: none;">
+                <div class="section-title" style="margin-bottom: 4px;" id="manual-entry-title">
+                    ✍️ Manual / Custom Problem Diagnosis
+                </div>
+                <p style="font-size: 0.88rem; color: var(--slate-500); margin-bottom: 14px;" id="manual-entry-subtitle">
+                    Type your problem in Telugu, Hindi, or English, or click quick symptom tags below:
+                </p>
+
+                <!-- Quick 1-Click Symptom Chips -->
+                <div style="font-size: 0.82rem; font-weight: 700; color: var(--slate-600); text-transform: uppercase; letter-spacing: 0.5px;" id="symptom-chips-label">
+                    ⚡ Quick Symptom Tags (Tap to Add):
+                </div>
+                <div id="symptom-chips-container" class="symptom-chips-container">
+                    <!-- Populated dynamically based on language -->
+                </div>
+
+                <!-- Custom Problem Textarea -->
+                <div style="margin-bottom: 14px;">
+                    <label class="control-label" id="label-manual-problem">Describe What Happened:</label>
+                    <textarea id="manual-problem-input" class="styled-textarea" placeholder="Example: Cattle milk yield dropped suddenly, feed has sour smell or mould patches..."></textarea>
+                </div>
+
+                <!-- Physical Condition Selectors -->
+                <div class="form-grid-3">
+                    <div>
+                        <label class="control-label" id="label-feed-type">Feed Type</label>
+                        <select id="manual-feed-type" class="styled-select">
+                            <option value="Cattle Feed Pellet">Cattle Feed Pellet</option>
+                            <option value="Maize Silage">Maize Silage</option>
+                            <option value="Cottonseed Cake">Cottonseed Cake</option>
+                            <option value="Groundnut Cake">Groundnut Cake</option>
+                            <option value="Wheat Bran">Wheat Bran</option>
+                            <option value="Green Fodder">Green Fodder</option>
+                            <option value="Dry Straw / Hay">Dry Straw / Hay</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="control-label" id="label-feed-smell">Feed Smell</label>
+                        <select id="manual-feed-smell" class="styled-select">
+                            <option value="Normal">Normal Fresh Smell</option>
+                            <option value="Fungal/Musty">Fungal / Musty Smell</option>
+                            <option value="Sour/Rotten">Sour / Rotten Smell</option>
+                            <option value="Chemical/Urea">Chemical / Pungent Urea</option>
+                            <option value="Burnt/Heated">Burnt / Self-Heated</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="control-label" id="label-feed-moisture">Moisture Status</label>
+                        <select id="manual-feed-moisture" class="styled-select">
+                            <option value="Normal">Normal / Dry</option>
+                            <option value="Damp">Damp / Clumpy</option>
+                            <option value="Soaked/Rain Damage">Soaked in Rain</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div>
+                        <label class="control-label" id="label-feed-appearance">Appearance</label>
+                        <select id="manual-feed-appearance" class="styled-select">
+                            <option value="Normal">Normal Uniform Color</option>
+                            <option value="Fungus/Mould Patches">White / Dark Mould Patches</option>
+                            <option value="White Powder/Granules">White Powder / Crystalline Granules</option>
+                            <option value="Inclusions/Debris">Stones / Grit / Foreign Debris</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="control-label" id="label-cattle-symptom">Cattle Symptoms</label>
+                        <select id="manual-cattle-symptom" class="styled-select">
+                            <option value="Normal">Normal / Alert</option>
+                            <option value="Sudden Milk Drop">Sudden Milk Yield Drop</option>
+                            <option value="Refusing to Eat">Refusing to Eat Feed</option>
+                            <option value="Loose Dung/Diarrhea">Loose Dung / Diarrhea</option>
+                            <option value="Bloat/Indigestion">Bloat / Indigestion</option>
+                            <option value="Lethargy/Weakness">Lethargy / Weakness</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="margin-top: 20px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                    <button id="btn-submit-manual-advisory" class="btn btn-primary" style="padding: 12px 28px; font-weight: 800; font-size: 1rem;" onclick="runManualAdvisoryAnalysis()">
+                        <span id="btn-submit-manual-advisory-txt">🚀 Analyze Problem with AI</span>
+                    </button>
+                    <button class="btn btn-secondary" style="padding: 12px 20px;" onclick="clearManualAdvisoryForm()">
+                        <span id="btn-clear-manual-advisory-txt">🔄 Clear Form</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Advisory Content Card -->
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                    <div class="section-title" style="margin-bottom: 0;" id="advisory-plan-title">
+                        📜 Tailored Farmer Action Plan
+                    </div>
+                    <span id="advisory-scenario-badge" class="safety-badge badge-safe" style="padding: 4px 14px; font-size: 0.85rem;">
+                        🟢 SAFE STATUS
+                    </span>
+                </div>
+
+                <div id="advisory-text-container" style="background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 24px; line-height: 1.8; font-size: 1.05rem; color: var(--slate-800); white-space: pre-line;">
+                    Loading advisory...
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             TAB 5: 📊 DASHBOARD
+             ========================================================= -->
+        <section id="tab-dashboard" class="tab-content">
+            <div class="page-header-bar">
+                <div class="header-logo-badge">
+                    <img src="/static/assets/logo.png" class="header-logo-img" alt="Logo" style="width: 44px !important; height: 44px !important; max-width: 44px !important; border-radius: 50%; object-fit: contain; display: block;" />
+                </div>
+                <div>
+                    <div class="page-header-title" id="dashboard-header-title">📊 Feed Quality & Spoilage Dashboard</div>
+                    <div class="page-header-subtitle" id="dashboard-header-subtitle">Real-Time Aggregated Metrics, Trend Analytics & Non-Alarmist Spoilage Warnings</div>
+                </div>
+                <div class="dash-refresh-box" style="margin-left: auto;">
+                    <button class="btn btn-secondary" onclick="loadDashboardData()" style="padding: 6px 14px; font-weight: 700; border-radius: 9999px; display: flex; align-items: center; gap: 6px; box-shadow: var(--shadow-sm);">
+                        <span id="btn-refresh-dashboard">🔄 Refresh Data</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Spoilage Warning Alert (Dynamic) -->
+            <div id="dashboard-spoilage-banner" class="alert-box alert-info">
+                <span>🛡️</span>
+                <div id="dashboard-spoilage-text">
+                    <strong>Trend Status:</strong> No progressive feed deterioration detected in recent batches.
+                </div>
+            </div>
+
+            <!-- 4 KPI Cards -->
+            <div class="telemetry-grid">
+                <div class="telemetry-card">
+                    <div class="telemetry-icon">📦</div>
+                    <div>
+                        <div class="telemetry-label" id="dashboard-kpi1-label">Total Batches Tested</div>
+                        <div id="kpi-total-tests" class="telemetry-val">--</div>
+                    </div>
+                </div>
+                <div class="telemetry-card">
+                    <div class="telemetry-icon">⭐</div>
+                    <div>
+                        <div class="telemetry-label" id="dashboard-kpi2-label">Average Health Score</div>
+                        <div id="kpi-avg-score" class="telemetry-val">-- / 100</div>
+                    </div>
+                </div>
+                <div class="telemetry-card">
+                    <div class="telemetry-icon">🟢</div>
+                    <div>
+                        <div class="telemetry-label" id="dashboard-kpi3-label">Safe Batches %</div>
+                        <div id="kpi-safe-pct" class="telemetry-val">--%</div>
+                    </div>
+                </div>
+                <div class="telemetry-card">
+                    <div class="telemetry-icon">🔴</div>
+                    <div>
+                        <div class="telemetry-label" id="dashboard-kpi4-label">High-Risk Feed %</div>
+                        <div id="kpi-risk-pct" class="telemetry-val">--%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="grid-2">
+                <div class="card">
+                    <div class="section-title" id="dashboard-chart-trend-title">📈 Quality Score Trend (Last 15 Batches)</div>
+                    <div style="position: relative; height: 260px; width: 100%;">
+                        <canvas id="chart-quality-trend"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="section-title" id="dashboard-chart-pie-title">🍩 Risk Level Distribution</div>
+                    <div style="position: relative; height: 260px; width: 100%;">
+                        <canvas id="chart-risk-pie"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Batches Table -->
+            <div class="card">
+                <div class="section-title" id="dashboard-table-title">📋 Recent Batch Audit Records</div>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--slate-200); color: var(--slate-600);">
+                                <th style="padding: 10px;" id="th-batch">Batch ID</th>
+                                <th style="padding: 10px;" id="th-type">Sample Type</th>
+                                <th style="padding: 10px;" id="th-score">Score</th>
+                                <th style="padding: 10px;" id="th-badge">Badge</th>
+                                <th style="padding: 10px;" id="th-concern">Primary Concern</th>
+                                <th style="padding: 10px;" id="th-time">Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-batches-tbody">
+                            <tr><td colspan="6" style="padding: 20px; text-align: center; color: var(--slate-500);" id="table-loading-msg">Loading records...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             TAB 6: 📦 FEED PASSPORT
+             ========================================================= -->
+        <section id="tab-passport" class="tab-content">
+            <div class="page-header-bar">
+                <div class="header-logo-badge">
+                    <img src="/static/assets/logo.png" class="header-logo-img" alt="Logo" style="width: 44px !important; height: 44px !important; max-width: 44px !important; border-radius: 50%; object-fit: contain; display: block;" />
+                </div>
+                <div>
+                    <div class="page-header-title" id="passport-header-title">📦 Certified Digital Feed Passport</div>
+                    <div class="page-header-subtitle" id="passport-header-subtitle">Tamper-Evident Batch Certificate with Official Verification Seal & QR Code</div>
+                </div>
+            </div>
+
+            <!-- Passport Card -->
+            <div id="passport-certificate-card" class="passport-certificate">
+                <div class="certificate-header">
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                        <img src="/static/assets/logo.png" class="cert-emblem" alt="Seal" style="width: 50px !important; height: 50px !important; max-width: 50px !important; border-radius: 50%; object-fit: contain; display: block;">
+                        <div>
+                            <div class="cert-protocol" id="cert-protocol-label">SMARTFEED DIGITAL TRACEABILITY PROTOCOL</div>
+                            <div class="cert-title" id="cert-title-label">📦 DIGITAL FEED PASSPORT</div>
+                        </div>
+                    </div>
+                    <div id="cert-batch-id" class="cert-batch-badge">SFA-2026-000000</div>
+                </div>
+
+                <div class="certificate-body">
+                    <div class="cert-detail-grid">
+                        <div class="cert-detail-item">
+                            <span class="telemetry-label" id="cert-lbl-type">Sample Classification</span>
+                            <div id="cert-sample-type" style="font-weight: 800; color: var(--slate-900);">Cattle Feed Pellet</div>
+                        </div>
+                        <div class="cert-detail-item">
+                            <span class="telemetry-label" id="cert-lbl-score">Health Score</span>
+                            <div id="cert-score" style="font-weight: 800; color: var(--primary-emerald); font-size: 1.15rem;">-- / 100</div>
+                        </div>
+                        <div class="cert-detail-item">
+                            <span class="telemetry-label" id="cert-lbl-safety">Safety Status</span>
+                            <div id="cert-safety-badge" style="font-weight: 800; color: var(--primary-dark);">Safe for Use</div>
+                        </div>
+                        <div class="cert-detail-item">
+                            <span class="telemetry-label" id="cert-lbl-time">Timestamp</span>
+                            <div id="cert-timestamp" style="font-weight: 800; color: var(--slate-900);">2026-09-05 12:00</div>
+                        </div>
+                        <div class="cert-detail-item">
+                            <span class="telemetry-label" id="cert-lbl-shelf">Shelf Life & Expiry</span>
+                            <div id="cert-shelf-life" style="font-weight: 800; color: var(--primary-emerald); font-size: 1.05rem;">-- Days (Safe)</div>
+                        </div>
+                        <div class="cert-detail-item" style="grid-column: span 2;">
+                            <span class="telemetry-label" id="cert-lbl-nutrients">Verified Nutrient Profile</span>
+                            <div id="cert-nutrients" style="font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; margin-top: 2px;">
+                                CP: 20.0% | Moisture: 10.0% | Fiber: 12.0% | NPN: 0.5%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cert-qr-container">
+                        <img id="cert-qr-image" src="" class="cert-qr-img" alt="QR Code">
+                        <div id="cert-scan-prompt" style="font-size: 0.72rem; font-weight: 700; color: var(--slate-500);">
+                            Scan to verify batch authenticity
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                <button id="btn-print-cert" class="btn btn-secondary" onclick="window.print()">🖨️ Print Certificate</button>
+                <a id="btn-download-qr" class="btn btn-primary" download="smartfeed_qr.png">⬇️ Download QR Code</a>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             TAB 7: 🔎 BATCH LOOKUP
+             ========================================================= -->
+        <section id="tab-lookup" class="tab-content">
+            <div class="page-header-bar">
+                <div class="header-logo-badge">
+                    <img src="/static/assets/logo.png" class="header-logo-img" alt="Logo" style="width: 44px !important; height: 44px !important; max-width: 44px !important; border-radius: 50%; object-fit: contain; display: block;" />
+                </div>
+                <div>
+                    <div class="page-header-title" id="lookup-header-title">🔎 Batch Traceability & QR Verification</div>
+                    <div class="page-header-subtitle" id="lookup-header-subtitle">Search Historical Test Records or Upload QR Code for Tamper Verification</div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="section-title" id="lookup-search-title">🔍 Search by Batch ID</div>
+                    <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+                        <input type="text" id="lookup-batch-input" class="styled-select" placeholder="e.g. SFA-2026-000001" style="margin-bottom: 0;">
+                        <button id="btn-lookup-search" class="btn btn-primary" onclick="lookupBatch()">Search</button>
+                    </div>
+
+                    <div class="section-title" id="lookup-qr-title" style="margin-top: 28px;">📷 Verify via QR Code Image</div>
+                    <div id="qr-dropzone" class="dropzone">
+                        <div class="dropzone-icon">🔲</div>
+                        <strong style="color: var(--slate-800);" id="lookup-dropzone-title">Upload QR Image to Decode Batch</strong>
+                        <input type="file" id="qr-file-input" accept="image/*" style="display: none;" onchange="handleQRUpload(event)">
+                    </div>
+                </div>
+
+                <div class="card" id="lookup-result-box">
+                    <div class="section-title" id="lookup-details-title">📋 Batch Record Details</div>
+                    <div id="lookup-result-placeholder" style="text-align: center; padding: 40px 20px; color: var(--slate-500);">
+                        Enter a Batch ID or upload a QR image to verify feed certificate.
+                    </div>
+                    <div id="lookup-result-details" style="display: none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+             MODAL 1: 🔑 USER AUTHENTICATION (SIGN IN & REGISTER)
+             ============================================================= -->
+        <div id="auth-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <span id="auth-modal-icon">🌾</span>
+                        <span id="auth-modal-title">Farmer & Cooperative Sign In</span>
+                    </div>
+                    <button class="modal-close-btn" onclick="closeAuthModal()" title="Close">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="auth-tabs-row">
+                        <button id="tab-btn-login" class="auth-tab-btn active" onclick="switchAuthTab('login')">🔑 Sign In</button>
+                        <button id="tab-btn-register" class="auth-tab-btn" onclick="switchAuthTab('register')">📝 Register</button>
+                    </div>
+
+                    <!-- Error Alert Box -->
+                    <div id="auth-error-box" style="display: none; background: #FEF2F2; border: 1px solid #FCA5A5; color: #991B1B; border-radius: 8px; padding: 10px 14px; font-size: 0.85rem; font-weight: 600; margin-bottom: 14px;"></div>
+
+                    <!-- Form 1: Sign In -->
+                    <form id="form-auth-login" onsubmit="handleLoginSubmit(event)" autocomplete="off">
+                        <div class="form-group">
+                            <label class="form-label" for="login-mobile" id="lbl-login-mobile">📱 Mobile Number</label>
+                            <input type="tel" id="login-mobile" name="modal_auth_phone" class="form-input" placeholder="10-digit mobile number" required pattern="[0-9]{10}" autocomplete="off" value="">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="login-password" id="lbl-login-password">🔒 Password</label>
+                            <input type="password" id="login-password" name="modal_auth_secret" class="form-input" placeholder="Enter password" required autocomplete="new-password" value="">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" style="padding: 12px; margin-top: 10px; font-size: 0.95rem;">
+                            <span>🔑</span>
+                            <span id="btn-submit-login">Sign In</span>
+                        </button>
+                        <div style="text-align: center; margin-top: 12px; font-size: 0.82rem; color: var(--slate-600);">
+                            <span id="lbl-login-new-prompt">New farmer?</span> <a href="javascript:void(0)" onclick="switchAuthTab('register')" style="color: var(--primary-emerald); font-weight: 700;" id="lnk-create-account">Create Account & Farm Setup →</a>
+                        </div>
+                    </form>
+
+                    <!-- Form 2: Registration -->
+                    <form id="form-auth-register" style="display: none;" onsubmit="handleRegisterSubmit(event)">
+                        <div class="form-group">
+                            <label class="form-label" for="reg-fullname" id="lbl-reg-fullname">👤 Full Name</label>
+                            <input type="text" id="reg-fullname" class="form-input" placeholder="e.g. Ramesh Kumar" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="reg-mobile" id="lbl-reg-mobile">📱 Mobile Number</label>
+                            <input type="tel" id="reg-mobile" class="form-input" placeholder="10-digit mobile number" required pattern="[0-9]{10}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="reg-email" id="lbl-reg-email">📧 Email <small style="color: var(--slate-400); font-weight: normal;">(Optional)</small></label>
+                            <input type="email" id="reg-email" class="form-input" placeholder="Optional email address">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="reg-password" id="lbl-reg-password">🔒 Password</label>
+                            <input type="password" id="reg-password" class="form-input" placeholder="At least 4 characters" required minlength="4">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="reg-confirm-password" id="lbl-reg-confirm-password">🔒 Confirm Password</label>
+                            <input type="password" id="reg-confirm-password" class="form-input" placeholder="Re-enter password" required minlength="4">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" id="lbl-reg-lang">🌐 Preferred Language</label>
+                            <div class="lang-radio-grid">
+                                <label class="lang-radio-label">
+                                    <input type="radio" name="reg-lang" value="te" checked>
+                                    <span>🇮🇳 తెలుగు</span>
+                                </label>
+                                <label class="lang-radio-label">
+                                    <input type="radio" name="reg-lang" value="hi">
+                                    <span>🇮🇳 हिंदी</span>
+                                </label>
+                                <label class="lang-radio-label">
+                                    <input type="radio" name="reg-lang" value="en">
+                                    <span>🇬🇧 English</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" style="padding: 12px; margin-top: 10px; font-size: 0.95rem;">
+                            <span>📝</span>
+                            <span id="btn-submit-register">Create Account</span>
+                        </button>
+                        <div style="text-align: center; margin-top: 12px; font-size: 0.82rem; color: var(--slate-600);">
+                            <span id="lbl-reg-existing-prompt">Already registered?</span> <a href="javascript:void(0)" onclick="switchAuthTab('login')" style="color: var(--primary-emerald); font-weight: 700;" id="lnk-signin-here">Sign In here →</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============================================================
+             MODAL 2: 🌾 4-STEP INTERACTIVE FARM SETUP WIZARD
+             ============================================================= -->
+        <div id="onboarding-wizard-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-card wizard-modal-card">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <span>🌾</span>
+                        <span id="wizard-title-main">Set Up Your Farm Profile</span>
+                    </div>
+                    <button class="modal-close-btn" onclick="closeWizardModal()" title="Close">✕</button>
+                </div>
+
+                <!-- 4-Step Progress Indicator -->
+                <div class="wizard-progress-bar">
+                    <div class="wizard-step-node active" id="wizard-node-1">
+                        <div class="step-circle">1</div>
+                        <span id="wz-nav-step1">Farm Basic</span>
+                    </div>
+                    <div class="wizard-step-node" id="wizard-node-2">
+                        <div class="step-circle">2</div>
+                        <span id="wz-nav-step2">Animals Count</span>
+                    </div>
+                    <div class="wizard-step-node" id="wizard-node-3">
+                        <div class="step-circle">3</div>
+                        <span id="wz-nav-step3">Animal Profiles</span>
+                    </div>
+                    <div class="wizard-step-node" id="wizard-node-4">
+                        <div class="step-circle">4</div>
+                        <span id="wz-nav-step4">Feed & Storage</span>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Error Alert Box -->
+                    <div id="wizard-error-box" style="display: none; background: #FEF2F2; border: 1px solid #FCA5A5; color: #991B1B; border-radius: 8px; padding: 10px 14px; font-size: 0.85rem; font-weight: 600; margin-bottom: 14px;"></div>
+
+                    <!-- STEP 1: Farm Basic Details -->
+                    <div id="wizard-step-1" class="wizard-step-content">
+                        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--slate-900); margin-bottom: 4px;" id="wz-step1-title">
+                            🌾 Step 1 — Farm Basic Details
+                        </h3>
+                        <p style="font-size: 0.84rem; color: var(--slate-600); margin-bottom: 18px;" id="wz-step1-subtitle">
+                            Tell us about your farm location and language preference to customize AI feed recommendations.
+                        </p>
+
+                        <div class="form-group">
+                            <label class="form-label" for="wz-farmer-name" id="lbl-wz-name">👨‍🌾 Farmer Name</label>
+                            <input type="text" id="wz-farmer-name" class="form-input" placeholder="e.g. Ramesh Kumar" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="wz-village" id="lbl-wz-village">📍 Village / Location</label>
+                            <input type="text" id="wz-village" class="form-input" placeholder="e.g. Anakapalle / Warangal Rural" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" id="lbl-wz-lang">🌐 Preferred Language</label>
+                            <div class="lang-radio-grid">
+                                <label class="lang-radio-label">
+                                    <input type="radio" name="wz-lang" value="te" checked>
+                                    <span>🇮🇳 తెలుగు (Telugu)</span>
+                                </label>
+                                <label class="lang-radio-label">
+                                    <input type="radio" name="wz-lang" value="hi">
+                                    <span>🇮🇳 हिंदी (Hindi)</span>
+                                </label>
+                                <label class="lang-radio-label">
+                                    <input type="radio" name="wz-lang" value="en">
+                                    <span>🇬🇧 English</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: flex-end; margin-top: 24px;">
+                            <button type="button" class="btn btn-primary" onclick="proceedToWizardStep(2)" style="padding: 10px 24px;">
+                                <span id="btn-wz-next-1">Next →</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: How Many Animals? -->
+                    <div id="wizard-step-2" class="wizard-step-content" style="display: none;">
+                        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--slate-900); margin-bottom: 4px;" id="wz-step2-title">
+                            🐄 Step 2 — How Many Animals?
+                        </h3>
+                        <p style="font-size: 0.84rem; color: var(--slate-600); margin-bottom: 14px;" id="wz-step2-subtitle">
+                            Select animal types and total cattle count on your farm.
+                        </p>
+
+                        <!-- Interactive Stepper -->
+                        <div class="stepper-control-box">
+                            <button type="button" class="stepper-btn" onclick="decrementAnimalCount()" title="Decrease">−</button>
+                            <div class="stepper-val-box">
+                                <div class="stepper-val" id="wizard-animals-count">3</div>
+                                <div class="stepper-lbl" id="lbl-wz-total-animals">Total Animals</div>
+                            </div>
+                            <button type="button" class="stepper-btn" onclick="incrementAnimalCount()" title="Increase">+</button>
+                        </div>
+
+                        <!-- Animal Types Checkboxes -->
+                        <div style="font-size: 0.88rem; font-weight: 700; color: var(--slate-700); margin-top: 18px; margin-bottom: 8px;" id="wz-step2-types-title">
+                            Select Animal Types:
+                        </div>
+                        <div class="animal-types-grid">
+                            <label class="animal-type-card">
+                                <input type="checkbox" id="wz-type-cow" value="Cow" checked style="display: none;" onchange="validateAnimalTypes()">
+                                <div class="animal-type-emoji">🐄</div>
+                                <div class="animal-type-name" id="lbl-wz-cow-name">Cow</div>
+                                <div class="animal-type-native" id="wz-type-cow-sub">Cows</div>
+                            </label>
+                            <label class="animal-type-card">
+                                <input type="checkbox" id="wz-type-buffalo" value="Buffalo" checked style="display: none;" onchange="validateAnimalTypes()">
+                                <div class="animal-type-emoji">🐃</div>
+                                <div class="animal-type-name" id="lbl-wz-buff-name">Buffalo</div>
+                                <div class="animal-type-native" id="wz-type-buff-sub">Buffaloes</div>
+                            </label>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; margin-top: 24px;">
+                            <button type="button" class="btn btn-secondary" onclick="proceedToWizardStep(1)">
+                                <span id="btn-wz-back-2">← Back</span>
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="proceedToWizardStep(3)" style="padding: 10px 24px;">
+                                <span id="btn-wz-next-2">Next →</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Individual Animal Profiles -->
+                    <div id="wizard-step-3" class="wizard-step-content" style="display: none;">
+                        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--slate-900); margin-bottom: 4px;" id="wz-step3-title">
+                            🐄 Step 3 — Individual Animal Profiles
+                        </h3>
+                        <p style="font-size: 0.84rem; color: var(--slate-600); margin-bottom: 14px;" id="wz-step3-subtitle">
+                            Provide details for each animal. <em>Note: Pregnant or Dry animals do not require milk production.</em>
+                        </p>
+
+                        <!-- Dynamic Container populated by app.js -->
+                        <div id="wizard-animal-cards-container" class="animal-profile-cards-list"></div>
+
+                        <div style="display: flex; justify-content: space-between; margin-top: 24px;">
+                            <button type="button" class="btn btn-secondary" onclick="proceedToWizardStep(2)">
+                                <span id="btn-wz-back-3">← Back</span>
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="proceedToWizardStep(4)" style="padding: 10px 24px;">
+                                <span id="btn-wz-next-3">Next →</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Feed & Storage Details -->
+                    <div id="wizard-step-4" class="wizard-step-content" style="display: none;">
+                        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--slate-900); margin-bottom: 4px;" id="wz-step4-title">
+                            🌾 Step 4 — Feed & Storage Details
+                        </h3>
+                        <p style="font-size: 0.84rem; color: var(--slate-600); margin-bottom: 14px;" id="wz-step4-subtitle">
+                            Select your primary feed supply and storage infrastructure.
+                        </p>
+
+                        <div class="form-group">
+                            <label class="form-label" id="lbl-wz-main-feed">🌾 Main Feed Type</label>
+                            <div class="selection-card-grid">
+                                <label class="select-card-radio">
+                                    <input type="radio" name="wz-main-feed" value="Green Fodder" checked>
+                                    <div class="select-card-radio-title"><span>🌿</span> <span id="lbl-opt-green">Green Fodder</span></div>
+                                    <div class="select-card-radio-desc" id="lbl-opt-green-desc">Napier, SSG, Maize, Berseem</div>
+                                </label>
+                                <label class="select-card-radio">
+                                    <input type="radio" name="wz-main-feed" value="Dry Fodder">
+                                    <div class="select-card-radio-title"><span>🌾</span> <span id="lbl-opt-dry">Dry Fodder</span></div>
+                                    <div class="select-card-radio-desc" id="lbl-opt-dry-desc">Paddy Straw, Wheat Straw, Kadbi</div>
+                                </label>
+                                <label class="select-card-radio">
+                                    <input type="radio" name="wz-main-feed" value="Silage">
+                                    <div class="select-card-radio-title"><span>🌽</span> <span id="lbl-opt-silage">Silage</span></div>
+                                    <div class="select-card-radio-desc" id="lbl-opt-silage-desc">Fermented green fodder in pit/bale</div>
+                                </label>
+                                <label class="select-card-radio">
+                                    <input type="radio" name="wz-main-feed" value="Cattle Feed">
+                                    <div class="select-card-radio-title"><span>🥣</span> <span id="lbl-opt-conc">Cattle Feed</span></div>
+                                    <div class="select-card-radio-desc" id="lbl-opt-conc-desc">Compound pellet, mash feed, cakes</div>
+                                </label>
+                                <label class="select-card-radio" style="grid-column: span 2;">
+                                    <input type="radio" name="wz-main-feed" value="Mixed Feed">
+                                    <div class="select-card-radio-title"><span>🥗</span> <span id="lbl-opt-mixed">Mixed Feed</span></div>
+                                    <div class="select-card-radio-desc" id="lbl-opt-mixed-desc">Green + dry + concentrate balanced mix</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 18px;">
+                            <label class="form-label" id="lbl-wz-storage">🏚️ Feed Storage Location</label>
+                            <div class="selection-card-grid">
+                                <label class="select-card-radio">
+                                    <input type="radio" name="wz-storage" value="Shed" checked>
+                                    <div class="select-card-radio-title"><span>🏚️</span> <span id="lbl-opt-shed">Shed</span></div>
+                                    <div class="select-card-radio-desc" id="lbl-opt-shed-desc">Covered shelter protected from rain</div>
+                                </label>
+                                <label class="select-card-radio">
+                                    <input type="radio" name="wz-storage" value="Silage Pit">
+                                    <div class="select-card-radio-title"><span>🕳️</span> <span id="lbl-opt-pit">Silage Pit</span></div>
+                                    <div class="select-card-radio-desc" id="lbl-opt-pit-desc">Anaerobic bunker pit or silo trench</div>
+                                </label>
+                                <label class="select-card-radio">
+                                    <input type="radio" name="wz-storage" value="Storage Room">
+                                    <div class="select-card-radio-title"><span>📦</span> <span id="lbl-opt-room">Storage Room</span></div>
+                                    <div class="select-card-radio-desc" id="lbl-opt-room-desc">Ventilated concrete store room</div>
+                                </label>
+                                <label class="select-card-radio">
+                                    <input type="radio" name="wz-storage" value="Open Area">
+                                    <div class="select-card-radio-title"><span>☀️</span> <span id="lbl-opt-open">Open Area</span></div>
+                                    <div class="select-card-radio-desc" id="lbl-opt-open-desc">Outdoor stack with plastic tarpaulin</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; margin-top: 24px;">
+                            <button type="button" class="btn btn-secondary" onclick="proceedToWizardStep(3)">
+                                <span id="btn-wz-back-4">← Back</span>
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="submitFarmOnboarding()" style="padding: 12px 28px; font-size: 0.95rem;">
+                                <span id="btn-wz-finish">🎉 Finish Setup & Go to Dashboard →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============================================================
+             MODAL 3: 🐄 MY ANIMALS DIRECTORY MODAL
+             ============================================================= -->
+        <div id="modal-my-animals" class="modal-overlay" style="display: none;">
+            <div class="modal-card" style="max-width: 640px;">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <span>🐄</span>
+                        <span id="my-animals-modal-title">My Animals Directory</span>
+                    </div>
+                    <button class="modal-close-btn" onclick="closeMyAnimalsModal()">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div id="my-animals-cards-container" class="animal-profile-cards-list"></div>
+                    <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <button class="btn btn-secondary" onclick="startFarmSetupWizard(true)">
+                            <span id="btn-animals-edit-setup">⚙️ Edit Animal Count & Setup</span>
+                        </button>
+                        <button class="btn btn-primary" onclick="closeMyAnimalsModal()">
+                            <span id="btn-animals-done">Done</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============================================================
+             MODAL 4: 🐄🌾 TIME-BASED SMART FEEDING PLANNER & DAIRY INTELLIGENCE
+             ============================================================= -->
+        <div id="modal-feed-diary" class="modal-overlay" style="display: none;">
+            <div class="modal-card" style="max-width: 820px; max-height: 92vh; display: flex; flex-direction: column;">
+                <!-- Header -->
+                <div class="modal-header" style="background: linear-gradient(135deg, #065F46 0%, #047857 100%); color: #FFFFFF; border-radius: 18px 18px 0 0; padding: 18px 24px;">
+                    <div>
+                        <div class="modal-title" style="color: #FFFFFF; font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 10px;">
+                            <span>🐄🌾</span>
+                            <span id="diary-modal-title">Smart Feeding Planner & Dairy Intelligence</span>
+                        </div>
+                        <div style="font-size: 0.84rem; color: #A7F3D0; margin-top: 4px;" id="diary-modal-subtitle">
+                            Morning, Afternoon & Evening Feeding Times, Reminders & Milk Yield Analysis
+                        </div>
+                    </div>
+                    <button class="modal-close-btn" onclick="closeFeedDiaryModal()" style="color: #FFFFFF; background: rgba(255,255,255,0.2); border: none; font-size: 1.2rem; width: 34px; height: 34px; border-radius: 50%; cursor: pointer;">✕</button>
+                </div>
+
+                <!-- Modal Scrollable Body -->
+                <div class="modal-body" style="overflow-y: auto; padding: 20px 24px; flex: 1;">
+                    
+                    <!-- 1. Animal Quick-Switcher Tabs & Controls Bar -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; background: #F8FAFC; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--slate-200);">
+                        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                            <span style="font-weight: 700; font-size: 0.85rem; color: var(--slate-700);" id="diary-animal-select-lbl">🐄 Select Animal:</span>
+                            <div id="diary-animal-tabs-container" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                <!-- Dynamic herd buttons e.g. [🐄 Cow #1 (8L)] [🐃 Buffalo #1 (10L)] -->
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <input type="date" id="diary-date-picker" onchange="loadSmartFeedDiary()" style="padding: 6px 10px; border-radius: 8px; border: 1px solid var(--slate-300); font-size: 0.85rem; font-weight: 600;">
+                            <button class="btn btn-secondary" onclick="speakDailyFeedingPlan()" style="font-size: 0.82rem; padding: 6px 12px; display: flex; align-items: center; gap: 5px; background: #ECFDF5; border-color: #A7F3D0; color: #065F46;">
+                                <span>🔊</span>
+                                <span id="btn-diary-voice">Listen Voice Plan</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 2. 🔔 Next Feeding Reminder Dynamic Banner -->
+                    <div id="diary-reminder-banner" style="background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 1.5px solid #F59E0B; border-radius: 14px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 1.8rem;">🔔</span>
+                            <div>
+                                <div style="font-weight: 800; color: #92400E; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                                    <span id="diary-next-slot-badge" style="background: #F59E0B; color: #FFFFFF; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px; font-weight: 700;">Next Feeding Slot</span>
+                                    <span id="diary-next-slot-time">--:--</span>
+                                </div>
+                                <div id="diary-next-slot-desc" style="font-size: 0.85rem; color: #78350F; margin-top: 2px;">
+                                    Prepare feed according to plan.
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="scrollToActiveSlot()" style="background: #D97706; border-color: #B45309; font-size: 0.82rem; padding: 6px 14px;">
+                            <span id="btn-diary-log-now">⏱️ Log Now</span>
+                        </button>
+                    </div>
+
+                    <!-- 3. 3 Biological Time Slot Cards (🌅 Morning, ☀️ Afternoon, 🌙 Evening) -->
+                    <div id="diary-slots-container" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+                        <!-- Dynamic Slot Cards rendered by app.js -->
+                    </div>
+
+                    <!-- 4. 📊 Daily Nutrition & Milking Progress Summary -->
+                    <div style="background: #F8FAFC; border: 1px solid var(--slate-200); border-radius: 14px; padding: 16px 20px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                            <div style="font-weight: 800; font-size: 0.95rem; color: var(--slate-800); display: flex; align-items: center; gap: 6px;">
+                                <span>📊</span>
+                                <span id="diary-summary-title">Daily Feeding & Milk Yield Summary</span>
+                            </div>
+                            <div id="diary-slots-progress-badge" style="font-size: 0.8rem; font-weight: 700; background: #E0E7FF; color: #3730A3; padding: 3px 10px; border-radius: 8px;">
+                                0 / 3 Slots Logged
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
+                            <div style="background: #FFFFFF; border: 1px solid var(--slate-200); border-radius: 10px; padding: 10px 14px;">
+                                <div style="font-size: 0.75rem; color: var(--slate-500); font-weight: 700;" id="diary-conc-lbl">🥣 Concentrate</div>
+                                <div style="font-size: 1.15rem; font-weight: 900; color: #0284C7;" id="diary-total-conc">0.0 kg</div>
+                                <div style="font-size: 0.72rem; color: var(--slate-400);" id="diary-target-conc">Target: 0.0 kg</div>
+                            </div>
+                            <div style="background: #FFFFFF; border: 1px solid var(--slate-200); border-radius: 10px; padding: 10px 14px;">
+                                <div style="font-size: 0.75rem; color: var(--slate-500); font-weight: 700;" id="diary-green-lbl">🌿 Green Fodder</div>
+                                <div style="font-size: 1.15rem; font-weight: 900; color: #16A34A;" id="diary-total-green">0.0 kg</div>
+                                <div style="font-size: 0.72rem; color: var(--slate-400);" id="diary-target-green">Target: 0.0 kg</div>
+                            </div>
+                            <div style="background: #FFFFFF; border: 1px solid var(--slate-200); border-radius: 10px; padding: 10px 14px;">
+                                <div style="font-size: 0.75rem; color: var(--slate-500); font-weight: 700;" id="diary-straw-lbl">🌾 Dry Straw</div>
+                                <div style="font-size: 1.15rem; font-weight: 900; color: #D97706;" id="diary-total-straw">0.0 kg</div>
+                                <div style="font-size: 0.72rem; color: var(--slate-400);" id="diary-target-straw">Target: 0.0 kg</div>
+                            </div>
+                            <div style="background: #FFFFFF; border: 1.5px solid #A7F3D0; border-radius: 10px; padding: 10px 14px;">
+                                <div style="font-size: 0.75rem; color: #065F46; font-weight: 700;" id="diary-milk-lbl">🥛 Logged Milk Yield</div>
+                                <div style="font-size: 1.25rem; font-weight: 900; color: #059669;" id="diary-total-milk">0.0 L</div>
+                                <div style="font-size: 0.72rem; color: #047857;" id="diary-target-milk">Avg: 8.0 L</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. 💡 AI Feeding Pattern & Milk Intelligence Card -->
+                    <div id="diary-insights-card" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border: 1.5px solid #93C5FD; border-radius: 14px; padding: 18px; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 1.3rem;">💡</span>
+                            <span style="font-weight: 800; font-size: 1rem; color: #1E40AF;" id="diary-insights-headline">
+                                AI Feeding Pattern & Milk Intelligence
+                            </span>
+                        </div>
+                        <div style="font-size: 0.88rem; color: #1E3A8A; line-height: 1.5; margin-bottom: 14px;" id="diary-insights-body">
+                            Log morning, afternoon, and evening feeding to get AI-powered insights on which feed combination optimizes your cattle's milk yield.
+                        </div>
+                        <div id="diary-insights-tips" style="display: flex; flex-direction: column; gap: 8px;">
+                            <!-- Dynamic veterinary tips -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer" style="background: #F8FAFC; border-top: 1px solid var(--slate-200); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; border-radius: 0 0 18px 18px;">
+                    <div style="font-size: 0.8rem; color: var(--slate-500);" id="diary-modal-footer-note">
+                        💡 ICAR National Dairy Research Institute (NDRI) Standard Diet Plan
+                    </div>
+                    <button class="btn btn-primary" onclick="closeFeedDiaryModal()" style="padding: 8px 22px;">
+                        <span id="btn-diary-close">Close</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============================================================
+             MODAL 5: 📜 MY HISTORY MODAL
+             ============================================================= -->
+        <div id="modal-my-history" class="modal-overlay" style="display: none;">
+            <div class="modal-card" style="max-width: 720px;">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <span>📜</span>
+                        <span id="modal-history-title">My Feed Test History</span>
+                    </div>
+                    <button class="modal-close-btn" onclick="closeMyHistoryModal()">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div id="my-history-records-container" style="max-height: 56vh; overflow-y: auto;">
+                        <div id="modal-history-loading" style="text-align: center; color: var(--slate-500); padding: 30px;">
+                            Loading your saved diagnostic scans...
+                        </div>
+                    </div>
+                    <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <button class="btn btn-primary" onclick="closeMyHistoryModal(); switchTab('scanner');" style="font-size: 0.85rem;" id="btn-modal-history-new">
+                            📸 Run New Quality Scan →
+                        </button>
+                        <button class="btn btn-secondary" onclick="closeMyHistoryModal()" id="btn-modal-history-close">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    </div> <!-- /main-app-container -->
+
+    <!-- JavaScript Application Module -->
+    <script src="/static/js/app.js?v=20260910_admin_command_v101"></script>
+</body>
+</html>

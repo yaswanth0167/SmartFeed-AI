@@ -1,0 +1,15 @@
+{
+  "classes": ["fresh", "spoiled"],
+  "farmer_labels": {
+    "fresh": "Fresh / Well-Preserved Silage",
+    "spoiled": "Spoiled / High Fungal Risk Silage"
+  },
+  "risk_levels": {
+    "fresh": "Low",
+    "spoiled": "High"
+  },
+  "descriptions": {
+    "fresh": "Silage displays desirable olive-green/golden hues, uniform texture, and good fermentation characteristics.",
+    "spoiled": "Silage displays dark/slimy discoloration, mould growth, or butyric decomposition."
+  }
+}

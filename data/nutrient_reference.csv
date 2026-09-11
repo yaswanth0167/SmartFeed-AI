@@ -1,0 +1,8 @@
+# SmartFeed AI - Domain Nutrient Reference Ranges
+# DISCLAIMER: This dataset is a domain-reference-based approximation derived from agricultural norms (e.g., BIS IS 2052:2009 standards for cattle feeds and ICAR guidelines) for prototype development and is not laboratory measurement data.
+feed_type,protein_min,protein_max,moisture_min,moisture_max,fiber_min,fiber_max,ideal_protein,ideal_moisture,ideal_fiber,description
+Compound Cattle Feed,18.0,22.0,8.0,12.0,8.0,14.0,20.0,10.0,12.0,Standard BIS Type II dairy cattle balanced concentrate feed
+Feed Ingredient,10.0,28.0,6.0,12.0,4.0,18.0,16.0,10.0,10.0,Generic raw feed grain / oilcake / brans mix
+Silage,7.0,11.0,60.0,72.0,18.0,30.0,8.5,65.0,24.0,Fermented whole-crop maize/sorghum forage silage
+Dry Fodder,5.0,9.0,8.0,14.0,25.0,40.0,7.0,10.0,32.0,Crop residues including straw and stover
+Green Fodder,8.0,16.0,75.0,85.0,20.0,32.0,12.0,80.0,26.0,Fresh cultivated grasses and legumes (berseem/napier)

@@ -1,0 +1,27 @@
+{
+  "classes": ["good", "moldy", "burnt", "pecky", "scorched", "greenish"],
+  "farmer_labels": {
+    "good": "Good Quality",
+    "moldy": "High Mould/Fungal Risk",
+    "burnt": "Heat-Damaged / Quality Warning",
+    "pecky": "Defective / Contamination Warning",
+    "scorched": "Heat Damage / Spoilage Warning",
+    "greenish": "Abnormal Color / Quality Warning"
+  },
+  "risk_levels": {
+    "good": "Low",
+    "moldy": "High",
+    "burnt": "Medium",
+    "pecky": "Medium",
+    "scorched": "High",
+    "greenish": "Medium"
+  },
+  "descriptions": {
+    "good": "Feed ingredients appear uniform, clean, and free of visible fungal colonies or heat scorch.",
+    "moldy": "Surface exhibits white/grey fungal mycelium or spore aggregations posing mycotoxin risks.",
+    "burnt": "Excessive dark, charred, or burnt particles indicating heat degradation and nutrient loss.",
+    "pecky": "Signs of insect punctures, dark spots, or particulate contamination.",
+    "scorched": "Noticeable heat discoloration and irregular moisture patches.",
+    "greenish": "Immature or abnormally pigmented particles that may indicate irregular drying or chlorophyll retention."
+  }
+}

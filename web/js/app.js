@@ -4108,6 +4108,14 @@ function switchTab(tabId) {
             loadDashboardData();
         }, 50);
     }
+
+    // Ensure Advisory data is loaded in current language when switching to Advisory tab
+    if (tabId === 'advisory') {
+        const textContainer = document.getElementById('advisory-text-container');
+        if (!state.farmerProblems || state.farmerProblems.length === 0 || (textContainer && textContainer.innerText.includes('Loading'))) {
+            loadFarmerProblemStatements(state.language);
+        }
+    }
 }
 
 function handleLanguageSelectChange(lang) {
@@ -4181,6 +4189,17 @@ function setLanguage(lang) {
             runManualAdvisoryAnalysis();
         }
     }
+
+    // Update active state on language buttons in Advisory tab
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('btn-primary');
+            btn.classList.remove('btn-secondary');
+        } else {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-secondary');
+        }
+    });
 
     // Refresh Safe Urea Calculator localized advisory
     if (typeof runSafeUreaCalculator === 'function') {
@@ -5574,6 +5593,7 @@ async function fetchAdvisory(scanData, lang) {
 
 function updateAdvisoryView(adv) {
     if (!adv) return;
+    state.currentAdvisory = adv;
     const textContainer = document.getElementById('advisory-text-container');
     const badge = document.getElementById('advisory-scenario-badge');
 
@@ -5623,6 +5643,11 @@ async function toggleSpeech() {
         return;
     }
 
+    // Synchronously prime the audioPlayer inside user gesture (vital for iOS Safari and Android Chrome)
+    if (!state.audioPlayer) {
+        state.audioPlayer = new Audio();
+    }
+
     const textContainer = document.getElementById('advisory-text-container');
     const rawText = textContainer ? textContainer.innerText : '';
     if (!rawText || rawText.includes('సిద్ధమవుతోంది') || rawText.includes('Loading') || rawText.includes('Generating')) {
@@ -5630,8 +5655,17 @@ async function toggleSpeech() {
         return;
     }
 
+    // Determine the optimal text for voice audio:
+    // Prefer concise audio_summary if available on currentAdvisory, otherwise clean the displayed text
+    let textToSpeak = '';
+    if (state.currentAdvisory && state.currentAdvisory.audio_summary && state.currentAdvisory.audio_summary.trim().length > 10) {
+        textToSpeak = state.currentAdvisory.audio_summary;
+    } else {
+        textToSpeak = rawText;
+    }
+
     // Clean text for speech
-    const cleanText = rawText
+    const cleanText = textToSpeak
         .replace(/[\u{1F300}-\u{1F9FF}]/gu, '')
         .replace(/[\u{2600}-\u{26FF}]/gu, '')
         .replace(/[\u{2700}-\u{27BF}]/gu, '')
@@ -5645,6 +5679,8 @@ async function toggleSpeech() {
     if (speakBtn) speakBtn.innerText = '⏳ Loading Audio...';
     if (soundwave) soundwave.classList.add('playing');
 
+    const currentLang = state.language || 'te';
+
     try {
         // 1. PRIMARY: Call backend /api/tts endpoint (Generates REAL native Telugu / Hindi / English MP3)
         const resp = await fetch('/api/tts', {
@@ -5652,7 +5688,7 @@ async function toggleSpeech() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 text: cleanText,
-                language: state.language
+                language: currentLang
             })
         });
 
@@ -5665,10 +5701,6 @@ async function toggleSpeech() {
             URL.revokeObjectURL(state.currentAudioUrl);
         }
         state.currentAudioUrl = URL.createObjectURL(blob);
-
-        if (!state.audioPlayer) {
-            state.audioPlayer = new Audio();
-        }
 
         state.audioPlayer.src = state.currentAudioUrl;
 
@@ -5701,16 +5733,24 @@ function fallbackBrowserSpeech(cleanText) {
         return;
     }
 
+    const currentLang = state.language || 'te';
+    const langCodes = { te: 'te-IN', hi: 'hi-IN', en: 'en-IN' };
+    const targetCode = langCodes[currentLang] || 'en-IN';
+
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(cleanText);
-    const langCodes = { te: 'te-IN', hi: 'hi-IN', en: 'en-IN' };
-    utterance.lang = langCodes[state.language] || 'en-IN';
+    utterance.lang = targetCode;
 
     const voices = window.speechSynthesis.getVoices() || [];
-    const targetPrefix = state.language === 'te' ? 'te' : (state.language === 'hi' ? 'hi' : 'en');
+    const targetPrefix = currentLang === 'te' ? 'te' : (currentLang === 'hi' ? 'hi' : 'en');
     const matchedVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith(targetPrefix));
     if (matchedVoice) {
         utterance.voice = matchedVoice;
+    } else if (currentLang !== 'en') {
+        // If device has NO Telugu/Hindi voice installed, DO NOT fall back to English!
+        stopSpeechUI();
+        console.warn(`No voice installed on this device for ${currentLang}`);
+        return;
     }
 
     utterance.rate = 0.95;

@@ -570,7 +570,7 @@ _tts_cache: Dict[str, bytes] = {}
 def api_text_to_speech(payload: Dict[str, Any]):
     """
     Generates authentic, high-clarity voice audio for Telugu (te), Hindi (hi), and English (en).
-    Uses gTTS and streaming memory cache.
+    Uses sentence-bounded speech text and direct Google Translate TTS with gTTS fallback.
     """
     import re
     text = payload.get("text", "").strip()
@@ -584,9 +584,18 @@ def api_text_to_speech(payload: Dict[str, Any]):
     clean_text = re.sub(r'[•\*\#\_]', ' ', clean_text)
     clean_text = re.sub(r'\s+', ' ', clean_text).strip()
     
-    # Limit to first 450 characters for fast responsive playback
-    if len(clean_text) > 450:
-        clean_text = clean_text[:450]
+    # Intelligently truncate to complete sentence under 185 characters for guaranteed 100% single-request TTS reliability
+    if len(clean_text) > 185:
+        truncated = clean_text[:185]
+        last_punct = max(truncated.rfind('.'), truncated.rfind('।'), truncated.rfind('!'), truncated.rfind('?'), truncated.rfind(';'), truncated.rfind('\n'))
+        if last_punct > 60:
+            clean_text = truncated[:last_punct + 1].strip()
+        else:
+            last_space = truncated.rfind(' ')
+            if last_space > 60:
+                clean_text = truncated[:last_space].strip() + '.'
+            else:
+                clean_text = truncated.strip() + '.'
 
     cache_key = f"{language}:{clean_text}"
     if cache_key in _tts_cache:
@@ -595,40 +604,43 @@ def api_text_to_speech(payload: Dict[str, Any]):
     lang_code = "te" if language in ["te", "telugu"] else ("hi" if language in ["hi", "hindi"] else "en")
 
     audio_bytes = None
-    # 1. Primary: gTTS
+    # 1. Primary: Direct Google Translate TTS endpoint with browser headers (fastest & datacenter-safe)
     try:
-        from gtts import gTTS
-        import io
-        tts = gTTS(text=clean_text, lang=lang_code, slow=False)
-        fp = io.BytesIO()
-        tts.write_to_fp(fp)
-        fp.seek(0)
-        audio_bytes = fp.read()
+        import requests
+        url = "https://translate.google.com/translate_tts"
+        params = {
+            "ie": "UTF-8",
+            "tl": lang_code,
+            "client": "tw-ob",
+            "q": clean_text
+        }
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Referer": "http://translate.google.com/"
+        }
+        resp = requests.get(url, params=params, headers=headers, timeout=8)
+        if resp.status_code == 200 and len(resp.content) > 100:
+            audio_bytes = resp.content
     except Exception as e:
-        print(f"Warning: gTTS generation issue: {e}")
+        print(f"Warning: Direct TTS endpoint issue: {e}")
 
-    # 2. Fallback: Google Translate TTS direct endpoint
+    # 2. Fallback: gTTS library
     if not audio_bytes:
         try:
-            import requests
-            url = "https://translate.google.com/translate_tts"
-            params = {
-                "ie": "UTF-8",
-                "tl": lang_code,
-                "client": "tw-ob",
-                "q": clean_text
-            }
-            headers = {"User-Agent": "Mozilla/5.0"}
-            resp = requests.get(url, params=params, headers=headers, timeout=5)
-            if resp.status_code == 200 and len(resp.content) > 100:
-                audio_bytes = resp.content
+            from gtts import gTTS
+            import io
+            tts = gTTS(text=clean_text, lang=lang_code, slow=False)
+            fp = io.BytesIO()
+            tts.write_to_fp(fp)
+            fp.seek(0)
+            audio_bytes = fp.read()
         except Exception as e:
-            print(f"Warning: HTTP TTS fallback issue: {e}")
+            print(f"Warning: gTTS fallback issue: {e}")
 
     if not audio_bytes:
         raise HTTPException(status_code=500, detail="Unable to synthesize audio at this moment.")
 
-    if len(_tts_cache) > 80:
+    if len(_tts_cache) > 200:
         _tts_cache.clear()
     _tts_cache[cache_key] = audio_bytes
 

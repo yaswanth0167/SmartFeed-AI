@@ -3446,10 +3446,24 @@ async function loadFeedingInsights(userId, animalId) {
     }
 }
 
-function speakDailyFeedingPlan() {
-    const lang = state.language || 'en';
+let isSpeakingFeedingPlan = false;
+
+async function speakDailyFeedingPlan() {
+    const lang = state.language || 'te';
     if (!smartDiaryState.currentPlan) {
         alert(lang === 'te' ? 'మేత ప్రణాళిక లోడ్ అవ్వలేదు.' : (lang === 'hi' ? 'चारा योजना लोड नहीं हुई।' : 'Feeding plan could not be loaded.'));
+        return;
+    }
+
+    if (isSpeakingFeedingPlan) {
+        if (state.audioPlayer) {
+            state.audioPlayer.pause();
+            state.audioPlayer.currentTime = 0;
+        }
+        if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+        }
+        isSpeakingFeedingPlan = false;
         return;
     }
 
@@ -3468,16 +3482,11 @@ function speakDailyFeedingPlan() {
         speechText = `Smart Feeding Plan for today: Morning milking ration includes ${halfConc} kg concentrate and fresh green fodder. Afternoon roughage provides ${strawKg} kg dry straw for rumen cudding. Evening ration includes concentrate and mineral mix. Next feeding reminder at ${remTime}.`;
     }
 
-    if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(speechText);
-        utterance.rate = 0.95;
-        if (lang === 'te') utterance.lang = 'te-IN';
-        else if (lang === 'hi') utterance.lang = 'hi-IN';
-        else utterance.lang = 'en-US';
-        window.speechSynthesis.speak(utterance);
-    } else {
-        alert(speechText);
+    isSpeakingFeedingPlan = true;
+    try {
+        await speakText(speechText, lang);
+    } finally {
+        isSpeakingFeedingPlan = false;
     }
 }
 
@@ -4205,6 +4214,14 @@ function setLanguage(lang) {
     if (typeof runSafeUreaCalculator === 'function') {
         runSafeUreaCalculator();
     }
+
+    // Refresh Animal Recommendation localized advisory if card is visible
+    if (typeof recalculateAnimalRecommendation === 'function') {
+        const recCard = document.getElementById('animal-rec-card');
+        if (recCard && recCard.style.display !== 'none') {
+            recalculateAnimalRecommendation();
+        }
+    }
 }
 
 // ===================================================================
@@ -4886,15 +4903,243 @@ function renderAnimalRecommendation(data) {
     }
 }
 
-function speakAnimalRecommendation() {
-    const rec = state.currentAnimalRecommendation;
-    if (!rec) {
-        alert('Please run a scan or calculate recommendation first.');
+let isSpeakingAnimalRec = false;
+
+function getAnimalRecBtnDefaultText(lang) {
+    if (lang === 'te') return 'వాయిస్ సలహా వినండి';
+    if (lang === 'hi') return 'आवाज सलाह सुनें';
+    return 'Listen Voice Advisory';
+}
+
+async function speakAnimalRecommendation() {
+    const btn = document.getElementById('btn-speak-animal-rec');
+    const btnTxt = document.getElementById('btn-speak-animal-rec-txt');
+    const lang = state.language || 'te';
+
+    // 1. If currently playing, stop it
+    if (isSpeakingAnimalRec) {
+        if (state.audioPlayer) {
+            state.audioPlayer.pause();
+            state.audioPlayer.currentTime = 0;
+        }
+        if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+        }
+        isSpeakingAnimalRec = false;
+        if (btnTxt) btnTxt.innerText = getAnimalRecBtnDefaultText(lang);
+        if (btn) {
+            btn.style.background = '#ECFDF5';
+            btn.style.borderColor = '#10B981';
+            btn.style.color = '#065F46';
+        }
         return;
     }
-    const voiceText = rec.voice_script || rec.headline || 'Feeding recommendation calculated.';
-    speakText(voiceText, state.language || 'te');
+
+    // Stop any other active voice playback in the app
+    if (typeof stopSpeechUI === 'function' && state.isSpeaking) {
+        stopSpeechUI();
+    }
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+    }
+
+    // 2. Pre-prime audio synchronously inside user click gesture (vital for mobile browsers)
+    if (!state.audioPlayer) {
+        state.audioPlayer = new Audio();
+    }
+
+    // 3. Ensure recommendation exists
+    let rec = state.currentAnimalRecommendation;
+    if (!rec && state.currentScanResult) {
+        if (btnTxt) btnTxt.innerText = lang === 'te' ? '⏳ లెక్కిస్తోంది...' : (lang === 'hi' ? '⏳ गणना हो रही है...' : '⏳ Calculating...');
+        try {
+            await recalculateAnimalRecommendation();
+            rec = state.currentAnimalRecommendation;
+        } catch (e) {
+            console.warn('Failed recalculating rec for audio:', e);
+        }
+    }
+
+    if (!rec) {
+        const msg = lang === 'te'
+            ? 'దయచేసి ముందుగా మేతను స్కాన్ చేయండి లేదా పశువుల రకాన్ని ఎంచుకోండి.'
+            : (lang === 'hi'
+                ? 'कृपया पहले चारा स्कैन करें या पशु का चयन करें।'
+                : 'Please scan feed or select an animal first.');
+        alert(msg);
+        if (btnTxt) btnTxt.innerText = getAnimalRecBtnDefaultText(lang);
+        return;
+    }
+
+    // 4. Extract and clean voice text
+    const rawVoiceText = rec.voice_script || rec.headline || rec.daily_recommendation || 'Feeding recommendation calculated.';
+    const cleanVoiceText = rawVoiceText
+        .replace(/[\u{1F300}-\u{1F9FF}]/gu, '')
+        .replace(/[\u{2600}-\u{26FF}]/gu, '')
+        .replace(/[\u{2700}-\u{27BF}]/gu, '')
+        .replace(/[•\*\#\_]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+    if (!cleanVoiceText) {
+        if (btnTxt) btnTxt.innerText = getAnimalRecBtnDefaultText(lang);
+        return;
+    }
+
+    isSpeakingAnimalRec = true;
+    if (btnTxt) btnTxt.innerText = lang === 'te' ? '⏳ లోడ్ అవుతోంది...' : (lang === 'hi' ? '⏳ लोड हो रहा है...' : '⏳ Loading Audio...');
+    if (btn) {
+        btn.style.background = '#FEF3C7';
+        btn.style.borderColor = '#F59E0B';
+        btn.style.color = '#B45309';
+    }
+
+    try {
+        // 5. Call backend /api/tts endpoint for native Telugu / Hindi / English audio
+        const resp = await fetch('/api/tts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                text: cleanVoiceText,
+                language: lang
+            })
+        });
+
+        if (!resp.ok) {
+            throw new Error(`TTS server returned status ${resp.status}`);
+        }
+
+        const blob = await resp.blob();
+        if (state.currentAudioUrl) {
+            URL.revokeObjectURL(state.currentAudioUrl);
+        }
+        state.currentAudioUrl = URL.createObjectURL(blob);
+        state.audioPlayer.src = state.currentAudioUrl;
+
+        state.audioPlayer.onplay = () => {
+            if (btnTxt) btnTxt.innerText = lang === 'te' ? '⏹ ఆపండి' : (lang === 'hi' ? '⏹ रोकें' : '⏹ Stop Audio');
+            if (btn) {
+                btn.style.background = '#FEE2E2';
+                btn.style.borderColor = '#EF4444';
+                btn.style.color = '#991B1B';
+            }
+        };
+
+        state.audioPlayer.onended = () => {
+            isSpeakingAnimalRec = false;
+            if (btnTxt) btnTxt.innerText = getAnimalRecBtnDefaultText(lang);
+            if (btn) {
+                btn.style.background = '#ECFDF5';
+                btn.style.borderColor = '#10B981';
+                btn.style.color = '#065F46';
+            }
+        };
+
+        state.audioPlayer.onerror = (e) => {
+            console.warn('Audio element error, falling back:', e);
+            fallbackSpeechAnimalRec(cleanVoiceText, lang);
+        };
+
+        await state.audioPlayer.play();
+
+    } catch (err) {
+        console.warn('Backend TTS failed, falling back to browser speech synthesis:', err);
+        fallbackSpeechAnimalRec(cleanVoiceText, lang);
+    }
 }
+
+function fallbackSpeechAnimalRec(cleanText, lang) {
+    const btn = document.getElementById('btn-speak-animal-rec');
+    const btnTxt = document.getElementById('btn-speak-animal-rec-txt');
+
+    const resetUI = () => {
+        isSpeakingAnimalRec = false;
+        if (btnTxt) btnTxt.innerText = getAnimalRecBtnDefaultText(lang);
+        if (btn) {
+            btn.style.background = '#ECFDF5';
+            btn.style.borderColor = '#10B981';
+            btn.style.color = '#065F46';
+        }
+    };
+
+    if (!('speechSynthesis' in window)) {
+        resetUI();
+        return;
+    }
+
+    const langCodes = { te: 'te-IN', hi: 'hi-IN', en: 'en-IN' };
+    const targetCode = langCodes[lang] || 'en-IN';
+
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = targetCode;
+
+    const voices = window.speechSynthesis.getVoices() || [];
+    const targetPrefix = lang === 'te' ? 'te' : (lang === 'hi' ? 'hi' : 'en');
+    const matchedVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith(targetPrefix));
+    if (matchedVoice) {
+        utterance.voice = matchedVoice;
+    } else if (lang !== 'en') {
+        resetUI();
+        return;
+    }
+
+    utterance.rate = 0.95;
+
+    utterance.onstart = () => {
+        if (btnTxt) btnTxt.innerText = lang === 'te' ? '⏹ ఆపండి' : (lang === 'hi' ? '⏹ रोकें' : '⏹ Stop Audio');
+        if (btn) {
+            btn.style.background = '#FEE2E2';
+            btn.style.borderColor = '#EF4444';
+            btn.style.color = '#991B1B';
+        }
+    };
+
+    utterance.onend = resetUI;
+    utterance.onerror = resetUI;
+
+    window.speechSynthesis.speak(utterance);
+}
+
+// Global generic speakText helper so any other voice audio call works reliably
+async function speakText(text, lang) {
+    if (!text) return;
+    const currentLang = lang || state.language || 'te';
+    if (!state.audioPlayer) {
+        state.audioPlayer = new Audio();
+    }
+    const clean = text
+        .replace(/[\u{1F300}-\u{1F9FF}]/gu, '')
+        .replace(/[\u{2600}-\u{26FF}]/gu, '')
+        .replace(/[\u{2700}-\u{27BF}]/gu, '')
+        .replace(/[•\*\#\_]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+    try {
+        const resp = await fetch('/api/tts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: clean, language: currentLang })
+        });
+        if (resp.ok) {
+            const blob = await resp.blob();
+            if (state.currentAudioUrl) URL.revokeObjectURL(state.currentAudioUrl);
+            state.currentAudioUrl = URL.createObjectURL(blob);
+            state.audioPlayer.src = state.currentAudioUrl;
+            await state.audioPlayer.play();
+            return;
+        }
+    } catch (e) {
+        console.warn('speakText fallback to browser speech:', e);
+    }
+    if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(clean);
+        utterance.lang = currentLang === 'te' ? 'te-IN' : (currentLang === 'hi' ? 'hi-IN' : 'en-US');
+        window.speechSynthesis.speak(utterance);
+    }
+}
+window.speakText = speakText;
 
 function updatePassportCard(data) {
     document.getElementById('cert-batch-id').innerText = data.batch_id;

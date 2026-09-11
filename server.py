@@ -176,6 +176,34 @@ def serve_index():
     )
 
 
+@app.get("/manifest.json")
+def serve_manifest():
+    manifest_file = WEB_DIR / "manifest.json"
+    if not manifest_file.exists():
+        raise HTTPException(status_code=404, detail="manifest.json not found.")
+    return FileResponse(str(manifest_file), media_type="application/manifest+json")
+
+
+@app.get("/service-worker.js")
+def serve_service_worker():
+    sw_file = WEB_DIR / "service-worker.js"
+    if not sw_file.exists():
+        raise HTTPException(status_code=404, detail="service-worker.js not found.")
+    return FileResponse(
+        str(sw_file),
+        media_type="application/javascript",
+        headers={"Service-Worker-Allowed": "/"}
+    )
+
+
+@app.get("/favicon.ico")
+def serve_favicon():
+    fav_file = WEB_DIR / "assets" / "favicon.png"
+    if fav_file.exists():
+        return FileResponse(str(fav_file), media_type="image/png")
+    return Response(status_code=204)
+
+
 # Mount the entire web directory under /static and for CSS/JS
 app.mount("/static", StaticFiles(directory=str(WEB_DIR)), name="static")
 

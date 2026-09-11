@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SmartFeed AI</string>
+    <string name="network_error_title">ఇంటర్నెట్ కనెక్షన్ లేదు (No Internet)</string>
+    <string name="network_error_msg">దయచేసి మీ మొబైల్ డేటా లేదా Wi-Fi ని సరిచూసి మళ్లీ ప్రయత్నించండి.</string>
+    <string name="btn_retry">తిరిగి ప్రయత్నించండి (Retry)</string>
+</resources>

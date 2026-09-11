@@ -4222,6 +4222,11 @@ function setLanguage(lang) {
             recalculateAnimalRecommendation();
         }
     }
+
+    // Update PWA install button texts
+    if (typeof updatePwaButtonTexts === 'function') {
+        updatePwaButtonTexts();
+    }
 }
 
 // ===================================================================
@@ -6331,4 +6336,109 @@ function renderLookupResult(passport, qrBase64, isVerified = true) {
             ${qrBase64 ? `<div style="text-align: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--slate-200);"><img src="${qrBase64}" style="width: 110px; height: 110px; border-radius: 8px; border: 1px solid var(--slate-200); background: #FFFFFF; padding: 4px;"><div style="font-size: 0.72rem; color: var(--slate-500); margin-top: 4px;">Official Tamper-Evident QR</div></div>` : ''}
         </div>
     `;
+}
+
+// ===================================================================
+// Progressive Web App (PWA) & Mobile Installation Controller
+// ===================================================================
+let deferredInstallPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent default browser install banner
+    e.preventDefault();
+    deferredInstallPrompt = e;
+
+    // Reveal Install App buttons in UI
+    const btnMobile = document.getElementById('btn-pwa-install');
+    const btnDesktop = document.getElementById('btn-desktop-pwa-install');
+    const cardSidebar = document.getElementById('sidebar-pwa-card');
+
+    if (btnMobile) btnMobile.style.display = 'inline-flex';
+    if (btnDesktop) btnDesktop.style.display = 'inline-flex';
+    if (cardSidebar) cardSidebar.style.display = 'block';
+
+    updatePwaButtonTexts();
+});
+
+window.addEventListener('appinstalled', () => {
+    deferredInstallPrompt = null;
+    const btnMobile = document.getElementById('btn-pwa-install');
+    const btnDesktop = document.getElementById('btn-desktop-pwa-install');
+    const cardSidebar = document.getElementById('sidebar-pwa-card');
+
+    if (btnMobile) btnMobile.style.display = 'none';
+    if (btnDesktop) btnDesktop.style.display = 'none';
+    if (cardSidebar) cardSidebar.style.display = 'none';
+    console.log('SmartFeed AI mobile app installed successfully!');
+});
+
+function updatePwaButtonTexts() {
+    const lang = state.language || 'te';
+    const mobileTxt = document.getElementById('btn-pwa-install-txt');
+    const deskTxt = document.getElementById('btn-desktop-pwa-install-txt');
+    const sideTxt = document.getElementById('sidebar-pwa-btn-txt');
+    const sideDesc = document.getElementById('sidebar-pwa-desc');
+
+    if (lang === 'te') {
+        if (mobileTxt) mobileTxt.innerText = 'యాప్';
+        if (deskTxt) deskTxt.innerText = '📲 యాప్ ఇన్‌స్టాల్';
+        if (sideTxt) sideTxt.innerText = '⚡ యాప్ ఇన్‌స్టాల్ చేసుకోండి';
+        if (sideDesc) sideDesc.innerText = 'హోమ్ స్క్రీన్‌పై యాప్‌ను సులభంగా ఇన్‌స్టాల్ చేయండి!';
+    } else if (lang === 'hi') {
+        if (mobileTxt) mobileTxt.innerText = 'ऐप';
+        if (deskTxt) deskTxt.innerText = '📲 ऐप इंस्टॉल';
+        if (sideTxt) sideTxt.innerText = '⚡ ऐप इंस्टॉल करें';
+        if (sideDesc) sideDesc.innerText = 'होम स्क्रीन पर ऐप तुरंत इंस्टॉल करें!';
+    } else {
+        if (mobileTxt) mobileTxt.innerText = 'App';
+        if (deskTxt) deskTxt.innerText = '📲 Install App';
+        if (sideTxt) sideTxt.innerText = '⚡ Install App';
+        if (sideDesc) sideDesc.innerText = 'Install onto your phone home screen for 1-tap access!';
+    }
+}
+
+async function installPwaApp() {
+    if (!deferredInstallPrompt) {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const lang = state.language || 'te';
+        if (isIOS) {
+            alert(lang === 'te'
+                ? 'యాప్‌ను ఇన్‌స్టాల్ చేయడానికి Safari లోని "Share" (షేర్) బటన్‌ను నొక్కి, "Add to Home Screen" ను ఎంచుకోండి.'
+                : (lang === 'hi'
+                    ? 'ऐप इंस्टॉल करने के लिए Safari में "Share" बटन दबाएं और "Add to Home Screen" चुनें।'
+                    : 'To install on iPhone/iPad, tap the Share button in Safari and select "Add to Home Screen".'));
+        } else {
+            alert(lang === 'te'
+                ? 'యాప్‌ను ఇన్‌స్టాల్ చేయడానికి బ్రౌజర్ పైభాగంలో ఉన్న మెనూ (⋮) లో "Add to Home Screen" లేదా "Install App" నొక్కండి.'
+                : (lang === 'hi'
+                    ? 'ऐप इंस्टॉल करने के लिए ब्राउज़र मेनू (⋮) में "Add to Home Screen" या "Install App" चुनें।'
+                    : 'To install, tap your browser menu (⋮) and select "Add to Home Screen" or "Install App".'));
+        }
+        return;
+    }
+
+    try {
+        deferredInstallPrompt.prompt();
+        const { outcome } = await deferredInstallPrompt.userChoice;
+        console.log('PWA installation prompt user outcome:', outcome);
+        deferredInstallPrompt = null;
+        const btnMobile = document.getElementById('btn-pwa-install');
+        const btnDesktop = document.getElementById('btn-desktop-pwa-install');
+        const cardSidebar = document.getElementById('sidebar-pwa-card');
+        if (btnMobile) btnMobile.style.display = 'none';
+        if (btnDesktop) btnDesktop.style.display = 'none';
+        if (cardSidebar) cardSidebar.style.display = 'none';
+    } catch (e) {
+        console.warn('Install prompt error:', e);
+    }
+}
+window.installPwaApp = installPwaApp;
+
+// Register Service Worker for Offline App Shell
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+            .then(reg => console.log('SmartFeed AI ServiceWorker active, scope:', reg.scope))
+            .catch(err => console.warn('ServiceWorker registration error:', err));
+    });
 }

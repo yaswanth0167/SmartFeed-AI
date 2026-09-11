@@ -6,6 +6,13 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta name="theme-color" content="#047857">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SmartFeed AI">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="64x64" href="/static/assets/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/assets/apple-touch-icon.png">
     <title>SmartFeed AI - Cattle Feed Quality & Risk Intelligence System</title>
     <link rel="stylesheet" href="/static/css/style.css?v=20260911_mobile_responsive_v200">
     <!-- Local Chart.js for 100% Offline Responsive Dashboard Charts -->
@@ -308,6 +315,15 @@
             </select>
         </div>
 
+        <!-- PWA Install App Button in Sidebar -->
+        <div id="sidebar-pwa-card" style="margin: 14px 10px 6px 10px; padding: 12px; background: linear-gradient(135deg, #064E3B 0%, #047857 100%); border-radius: 12px; border: 1.5px solid #34D399; text-align: center; display: none;">
+            <div style="font-size: 0.82rem; font-weight: 800; color: #ECFDF5; margin-bottom: 4px;">📲 SmartFeed App</div>
+            <div style="font-size: 0.70rem; color: #A7F3D0; margin-bottom: 8px;" id="sidebar-pwa-desc">ఇప్పుడే యాప్‌ను ఇన్‌స్టాల్ చేసుకోండి!</div>
+            <button class="btn btn-primary" onclick="installPwaApp()" style="width: 100%; padding: 6px 8px; font-size: 0.78rem; font-weight: 800; background: #FFFFFF; color: #065F46; border: none; border-radius: 8px; cursor: pointer;">
+                <span id="sidebar-pwa-btn-txt">⚡ Install App</span>
+            </button>
+        </div>
+
         <div class="sidebar-footer" id="sidebar-footer-text">
             <strong>Smart India Hackathon 2026</strong><br>
             Low-Cost Software Prototype<br>
@@ -331,7 +347,12 @@
                     <div class="top-header-sub" id="top-header-sub">SIH 2026 • AI Agri-Tech Cattle Diagnostic Platform</div>
                 </div>
             </div>
-            <div class="top-header-right">
+            <div class="top-header-right" style="display: flex; align-items: center; gap: 10px;">
+                <!-- 📲 Desktop/Tablet PWA Install Button -->
+                <button id="btn-desktop-pwa-install" class="btn btn-secondary" onclick="installPwaApp()" style="display: none; padding: 6px 12px; font-size: 0.80rem; font-weight: 700; border-radius: 8px; border-color: #10B981; color: #065F46; background: #ECFDF5; align-items: center; gap: 6px;">
+                    <span>📲</span>
+                    <span id="btn-desktop-pwa-install-txt">Install App</span>
+                </button>
                 <div id="user-session-bar" class="user-session-bar">
                     <!-- Populated dynamically by app.js -->
                 </div>
@@ -357,13 +378,20 @@
                     <div class="mobile-brand-sub">SIH 2026 • Agri-Tech AI</div>
                 </div>
             </div>
-            <div class="mobile-lang-wrapper" title="Select Language">
-                <span>🌐</span>
-                <select id="mobile-language-select" class="header-lang-select" onchange="handleLanguageSelectChange(this.value)">
-                    <option value="te">తెలుగు</option>
-                    <option value="en">English</option>
-                    <option value="hi">हिंदी</option>
-                </select>
+            <div style="display: flex; align-items: center; gap: 6px;">
+                <!-- 📲 Mobile PWA Install Button -->
+                <button id="btn-pwa-install" class="btn btn-primary" onclick="installPwaApp()" style="display: none; padding: 4px 9px; font-size: 0.74rem; border-radius: 20px; font-weight: 800; background: #047857; border: 1.5px solid #34D399; color: #FFFFFF; align-items: center; gap: 4px; cursor: pointer;">
+                    <span>📲</span>
+                    <span id="btn-pwa-install-txt">యాప్</span>
+                </button>
+                <div class="mobile-lang-wrapper" title="Select Language">
+                    <span>🌐</span>
+                    <select id="mobile-language-select" class="header-lang-select" onchange="handleLanguageSelectChange(this.value)">
+                        <option value="te">తెలుగు</option>
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                    </select>
+                </div>
             </div>
         </header>
 
@@ -2774,6 +2802,6 @@
     </div> <!-- /main-app-container -->
 
     <!-- JavaScript Application Module -->
-    <script src="/static/js/app.js?v=20260911_scanner_voice_fix_v202"></script>
+    <script src="/static/js/app.js?v=20260911_pwa_mobile_v203"></script>
 </body>
 </html>
